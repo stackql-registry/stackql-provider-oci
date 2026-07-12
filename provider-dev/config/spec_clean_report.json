@@ -1,0 +1,178 @@
+{
+  "audit": {
+    "service": "audit",
+    "status": "valid",
+    "operations": 3,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "budgets": {
+    "service": "budgets",
+    "status": "valid",
+    "operations": 26,
+    "pre_fixes": [
+      "top-level x-obmcs-client-retries-enabled removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "containerengine": {
+    "service": "container_engine",
+    "status": "valid",
+    "operations": 50,
+    "pre_fixes": [
+      "top-level x-obmcs-client-retries-enabled removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "database": {
+    "service": "database",
+    "status": "valid",
+    "operations": 426,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "dns": {
+    "service": "dns",
+    "status": "valid",
+    "operations": 54,
+    "pre_fixes": [
+      "top-level x-obmcs-client-retries-enabled removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "events": {
+    "service": "events",
+    "status": "valid",
+    "operations": 6,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "functions": {
+    "service": "functions",
+    "status": "valid",
+    "operations": 17,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "iaas": {
+    "service": "core",
+    "status": "valid",
+    "operations": 490,
+    "pre_fixes": [
+      "top-level x-obmcs-client-circuit-breaker-table removed",
+      "top-level x-obmcs-client-retries-table removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "identity": {
+    "service": "identity",
+    "status": "valid",
+    "operations": 148,
+    "pre_fixes": [
+      "top-level x-obmcs-client-circuit-breaker-enabled removed",
+      "top-level x-obmcs-client-retries-enabled removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "key": {
+    "service": "kms",
+    "status": "valid",
+    "operations": 58,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "loadbalancer": {
+    "service": "load_balancer",
+    "status": "valid",
+    "operations": 61,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "logging-management": {
+    "service": "logging",
+    "status": "valid",
+    "operations": 30,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "monitoring": {
+    "service": "monitoring",
+    "status": "valid",
+    "operations": 18,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "objectstorage": {
+    "service": "object_storage",
+    "status": "valid",
+    "operations": 61,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "resourcemanager": {
+    "service": "resource_manager",
+    "status": "valid",
+    "operations": 52,
+    "pre_fixes": [
+      "top-level x-obmcs-client-retries-enabled removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "secretmgmt": {
+    "service": "vault",
+    "status": "valid",
+    "operations": 13,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "secretretrieval": {
+    "service": "secrets",
+    "status": "valid",
+    "operations": 3,
+    "pre_fixes": [
+      "top-level x-obmcs-client-retries-enabled removed"
+    ],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "streaming": {
+    "service": "streaming",
+    "status": "valid",
+    "operations": 30,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "usage": {
+    "service": "usage",
+    "status": "valid",
+    "operations": 33,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  },
+  "workrequests": {
+    "service": "work_requests",
+    "status": "valid",
+    "operations": 4,
+    "pre_fixes": [],
+    "converter_patches": 0,
+    "converter_warnings": []
+  }
+}

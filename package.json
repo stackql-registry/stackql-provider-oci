@@ -19,7 +19,8 @@
     "@apidevtools/swagger-parser": "^12.0.0",
     "@stackql/pgwire-lite": "^1.0.1",
     "@stackql/provider-utils": "^0.7.6",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "swagger2openapi": "^7.0.8"
   },
   "keywords": [
     "stackql",
