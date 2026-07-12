@@ -60,23 +60,29 @@ The harvest catalog is built from the API reference index, then tier-1 specs are
 
 ```bash
 node provider-dev/scripts/harvest_catalog.mjs   # builds/refreshes provider-dev/config/spec_catalog.csv
-npm run fetch-specs                              # downloads tier-1 specs into provider-dev/downloaded, records pins
-node provider-dev/scripts/clean_specs.mjs        # validates each spec, applies deterministic fixes with a fix report
+npm run fetch-specs                              # downloads tier-1 specs into provider-dev/downloaded, verifies pins
+node provider-dev/scripts/harvest_catalog.mjs   # re-run to fill version_date columns from the snapshots
+node provider-dev/scripts/clean_specs.mjs        # fixes, converts Swagger 2.0 -> OAS3, validates, writes fix report
 ```
 
-Every script validates and fails without writing on anything unfixable.
+Oracle's spec URLs are content-addressed (the basename is the SHA-256 of the spec bytes), so the pin verifies on download. The clean step writes `provider-dev/downloaded/cleaned/*.json` and `provider-dev/config/spec_clean_report.json`. Every script validates and fails without writing on anything unfixable.
+
+The endpoint inventory (one row per operation: routing, scope, response shape, work-request and pagination facts, proposed mapping) regenerates with:
+
+```bash
+node provider-dev/scripts/build_inventory.mjs    # writes provider-dev/config/endpoint_inventory.csv
+```
 
 ## 1. Split into Service Specs
 
 ```bash
 npm run split -- \
   --provider-name oci \
-  --input-dir provider-dev/downloaded \
   --output-dir provider-dev/source \
   --overwrite
 ```
 
-The catalog is already per-service; the core `iaas` spec splits by area (compute, network, block_storage). The final service split is recorded in `provider-dev/config/service_names.json`.
+Reads the cleaned specs per the catalog. Most specs map 1:1 to a StackQL service; the core `iaas` spec divides by operation tag into `compute`, `network`, and `block_storage` (`provider-dev/scripts/lib/core_split.mjs`). The final 23-service split is recorded in `provider-dev/config/service_names.json`. `--only svc1,svc2` scopes a run (used for the phase 1 pilots: identity, network, object_storage).
 
 ## 2. Generate Mappings
 

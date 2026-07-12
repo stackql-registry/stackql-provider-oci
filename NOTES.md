@@ -63,3 +63,64 @@ Consequences for the mapping posture:
 - Operations returning `202` + empty body + `opc-work-request-id` (some database and container-engine lifecycle ops) currently project nothing. These are recorded per-resource in the endpoint inventory (`work_request_returning` column) and called out in the docs.
 - `work_requests` resources (the central Work Requests API plus per-service work-request surfaces) map as `SELECT`, so polling is expressible in SQL once an id is known from elsewhere (console, CLI) - or, post-fix, from the projected header.
 - The engine follow-up is folded into the section 2 ticket family: a `responseHeaderProjection` (project named response headers into the result row) would make `INSERT ... RETURNING`-style work-request polling first-class. Filed as a follow-up note in the ticket rather than a v1 gate: v1 ships with body-projection semantics only.
+
+## 4. `{region}` server variable routing
+
+**Answered by code analysis; runtime confirmation due with the generate phase.** The jira finding transfers directly: mux host variables match a single dot-free label (`any-sdk/pkg/queryrouter/queryrouter.go`; the k8s/proxmox dotted-host constraint applies only when a variable spans dots). OCI region identifiers are single dot-free labels (`ap-sydney-1`, `us-ashburn-1`), so templates like `identity.{region}.oci.oraclecloud.com` are exactly what the router supports. Confirm with the meta-route/integration layers once the provider is generated (and note the jira corollary: fixed-domain templates cannot be redirected to a local mock by a server variable - the integration harness materialises a registry copy with rewritten `servers` blocks).
+
+Related facts recorded in the catalog, to carry into generate:
+
+- Host domain varies per service (`.oraclecloud.com` for the 2016-2018 era services, `.oci.oraclecloud.com` for later ones) - per-service templates from the catalog, never a global pattern.
+- Three services share the `iaas.{region}.oraclecloud.com` host (core, load_balancer, work_requests) - distinct version-date base paths (`/20160918`, `/20170115`, `/20160918`) keep their routes disjoint except core/work_requests, which are disjoint by path shape (`/workRequests...`).
+- Two services list two host prefixes: monitoring (`telemetry` for reads/alarms, `telemetry-ingestion` only for the skipped PostMetricData) -> generate with `telemetry.{region}.oraclecloud.com`; usage lists both `usageapi.{region}.oci.oraclecloud.com` and `usageapi.{region}.oraclecloud.com` -> generate with the `.oci.` form the API docs lead with.
+- Non-commercial realms (`oraclecloud20.com` sovereign, gov realms, dedicated `customer-oci.com`) are excluded from templates and documented as a limitation.
+- Vendor specs carry placeholder hosts (`host: localhost:9000` in object storage) - meaningless; normalize strips servers and generate applies catalog templates.
+
+## 5. Version-date base paths
+
+**Answered from the harvest.** Three placements exist, recorded per spec in the catalog (`version_date` / `version_in` columns):
+
+- `basePath` (`/20160918` etc) - 18 of 20 tier-1 specs. Carried into the generated `servers` url as `https://<host_template><version_date>`.
+- In every path key (kms: `/20180608/...` with `basePath: /`) - the server url carries no version segment; paths already do.
+- None (object storage: paths are `/n/{namespaceName}/...`) - server url is the bare host.
+
+The split specs preserve pathing exactly as cleaned, so no path rewriting exists anywhere in the pipeline.
+
+## 6. PUT update semantics (UPDATE labelling)
+
+**Answered for the pilots; per-service confirmation continues as services onboard.** OCI PUT operations take `Update<Resource>Details` request bodies whose fields are all optional; omitted fields keep their current values (partial-update semantics, e.g. UpdateVcnDetails: displayName/dnsLabel/tags only). The `UPDATE` SQL verb labelling is therefore correct - these are not replace operations. One convention deviation found: object storage updates via POST (`UpdateBucket` is `POST /n/{ns}/b/{bucket}/`) - the classifier is operationId-led so it maps as `update` regardless of HTTP verb.
+
+## 7. Response shapes and bare-array wrapping
+
+**Confirmed through the pilots.** 277 of the 1,583 tier-1 operations return bare JSON arrays (the classic core-services list convention). provider-utils normalize wraps them under a key derived from the operationId (its `deriveWrapperKey`: strip the verb prefix, snake-case the noun - `ListVcns` -> `vcns`); `map_operations.mjs` mirrors that derivation exactly so `stackql_object_key` matches what normalize produces (`$.vcns`, `$.compartments`).
+
+Envelope exceptions recorded per service as they surface (the inventory's `response_shape` column):
+
+- object storage `ListObjects` -> `{objects: [], prefixes: []}` - object key `$.objects` (wrapper-key match); `prefixes` is not projected, documented.
+- object storage `ListObjectVersions` -> `{items: [], prefixes: []}` - object key `$.items` (conventional-key fallback).
+- usage/monitoring summarize operations return `{items: []}`-style envelopes - handled by the same single-array-property rule when those services onboard.
+
+## 8. Select-overload collision: `GetCompartment`
+
+**Found by the mapping validator, resolved deterministically.** `GetCompartment`'s path parameter is named `compartmentId` - the same name as the universal list scope - so `identity.compartments` `get` and `list` have identical required-parameter signatures (`["compartmentId"]`) and select routing cannot disambiguate. The only such collision in the pilots. Resolution: the get demotes to `exec` (`SELECT_DEMOTIONS` in `lib/classify.mjs`); compartment-by-id reads go through the list (children of the parent) or the exec method. Documented for the docs' compartment-pattern section.
+
+## 9. Always Free smoke design (phase 2 obligation)
+
+Recorded now, executed when auth unblocks:
+
+- Reliably free resources: VCN + subnets + gateways (no charge), one object storage bucket (20GB free tier), IAM objects (free). These form the guaranteed write-lifecycle spine.
+- Compute: `VM.Standard.E2.1.Micro` (x86, 2 instances free) and `VM.Standard.A1.Flex` (Arm, 4 OCPU/24GB pool) are Always Free but regionally capacity-contended - the instance lifecycle degrades to skip-with-notice on `Out of host capacity` / 500-limit errors, per the CLAUDE.md rule.
+- Naming `stackql-smoke-<stamp>`, freeform tag `{"stackql-smoke": "<stamp>"}` on every created resource; the suite sweeps prior breadcrumbs by tag before running (hetzner convention). A failed run must not leave billable resources - all chosen resources are $0 even if the sweep is missed, by design.
+- `--registry public` variant doubles as post-publish verification. Never a production tenancy.
+
+## 10. Tier-2 backlog and mechanical addition
+
+The catalog defers 137 specs with reasons (named reasons for s3objectstorage, identity-domains, logging-dataplane/search, instanceagent, usage-proxy, notification; generic long-tail reason otherwise). Promotion process per release cycle: move the key into `TIER1` in `harvest_catalog.mjs` with its service name -> `fetch-specs` -> `clean_specs` -> `split` -> `generate-mappings` + `map_operations` (extending classifier skip/demotion rules as validation surfaces issues) -> regenerate -> integration suite. Every step validates-and-fails-without-writing, so a promotion that needs new rules cannot silently ship.
+
+## Open items
+
+1. Land `oci_signing_v1` in any-sdk and run the section 1 runbook (the phase 1 acceptance test) - blocked on engine work + credentials.
+2. File the section 2 any-sdk pagination ticket upstream and verify the header traversal against a live multi-page list (identity policies, audit events).
+3. Generate-phase confirmations: `{region}` routing through the router, version-date base paths in generated servers, pagination config at service level (provider-level inheritance is broken - k8s finding).
+4. KMS per-vault management/crypto endpoints (27 skipped operations): revisit if any-sdk ever supports whole-host server variables spanning dots; until then documented as out of scope.
+5. Decide `secrets`/`vault` naming at docs time (three-service family: kms / vault / secrets) - names locked in service_names.json, revisit only if docs review objects.
