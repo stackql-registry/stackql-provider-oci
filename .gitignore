@@ -141,3 +141,14 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# stackql
+.stackql/
+stackql
+stackql.exe
+stackql-zip
+stackql-server.log
+
+# harvested spec snapshots (pinned via provider-dev/config/spec_catalog.csv)
+provider-dev/downloaded/*
+!provider-dev/downloaded/.gitkeep
