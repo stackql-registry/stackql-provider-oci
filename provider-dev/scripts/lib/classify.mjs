@@ -75,11 +75,21 @@ export function classifyOperation({ indexKey, catalogService, pathKey, verb, op 
     return { service, resource: '', methodName: '', sqlVerb: 'skip', skipReason: skip };
   }
 
+  // select-overload collision demotions: the only case in tier 1 where a
+  // get and a list on the same resource share an identical required-param
+  // signature. GetCompartment's path id is named compartmentId - the same
+  // name as the universal list scope - so select routing cannot
+  // disambiguate; the get maps as exec instead (documented in NOTES.md).
+  const SELECT_DEMOTIONS = new Set(['identity:GetCompartment']);
+
   let m;
   if (verb === 'get' && (m = opId.match(/^List(.+)$/))) {
     return { service, resource: toSnake(m[1]), methodName: 'list', sqlVerb: 'select', skipReason: '' };
   }
   if (verb === 'get' && (m = opId.match(/^Get(.+)$/))) {
+    if (SELECT_DEMOTIONS.has(`${indexKey}:${opId}`)) {
+      return { service, resource: pluralize(toSnake(m[1])), methodName: toSnake(opId), sqlVerb: 'exec', skipReason: '' };
+    }
     return { service, resource: pluralize(toSnake(m[1])), methodName: 'get', sqlVerb: 'select', skipReason: '' };
   }
   if ((m = opId.match(/^Create(.+)$/))) {

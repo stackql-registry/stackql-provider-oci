@@ -1,0 +1,480 @@
+filename,path,operationId,formatted_op_id,verb,response_object,tags,formatted_tags,stackql_resource_name,stackql_method_name,stackql_verb,stackql_object_key,op_description
+identity.yaml,/allowedDomainLicenseTypes,ListAllowedDomainLicenseTypes,list_allowed_domain_license_types,get,AllowedDomainLicenseTypeSummary,identity,identity,allowed_domain_license_types,list,select,$.allowed_domain_license_types,List allowed identity domain license types
+identity.yaml,/authenticationPolicies/{compartmentId},GetAuthenticationPolicy,get_authentication_policy,get,AuthenticationPolicy,identity,identity,authentication_policies,get,select,,GetAuthenticationPolicy
+identity.yaml,/authenticationPolicies/{compartmentId},UpdateAuthenticationPolicy,update_authentication_policy,put,AuthenticationPolicy,identity,identity,authentication_policies,update,update,,UpdateAuthenticationPolicy
+identity.yaml,/availabilityDomains/,ListAvailabilityDomains,list_availability_domains,get,AvailabilityDomain,identity,identity,availability_domains,list,select,$.availability_domains,ListAvailabilityDomains
+identity.yaml,/compartments/,ListCompartments,list_compartments,get,Compartment,identity,identity,compartments,list,select,$.compartments,ListCompartments
+identity.yaml,/compartments/,CreateCompartment,create_compartment,post,Compartment,identity,identity,compartments,create,insert,,CreateCompartment
+identity.yaml,/compartments/bulkActionResourceTypes,ListBulkActionResourceTypes,list_bulk_action_resource_types,get,BulkActionResourceTypeCollection,identity,identity,bulk_action_resource_types,list,select,$.items,ListBulkActionResourceTypes
+identity.yaml,/compartments/{compartmentId},DeleteCompartment,delete_compartment,delete,,identity,identity,compartments,delete,delete,,DeleteCompartment
+identity.yaml,/compartments/{compartmentId},GetCompartment,get_compartment,get,Compartment,identity,identity,compartments,get_compartment,exec,,GetCompartment
+identity.yaml,/compartments/{compartmentId},UpdateCompartment,update_compartment,put,Compartment,identity,identity,compartments,update,update,,UpdateCompartment
+identity.yaml,/compartments/{compartmentId}/actions/bulkDeleteResources,BulkDeleteResources,bulk_delete_resources,post,,identity,identity,compartments,bulk_delete_resources,exec,,Bulk delete resources in the compartment
+identity.yaml,/compartments/{compartmentId}/actions/bulkMoveResources,BulkMoveResources,bulk_move_resources,post,,identity,identity,compartments,bulk_move_resources,exec,,Move multiple resources at once to a different compartment.
+identity.yaml,/compartments/{compartmentId}/actions/moveCompartment,MoveCompartment,move_compartment,post,,identity,identity,compartments,move_compartment,exec,,"Moves a compartment tree to a different parent compartment. When provided,
+If-Match is checked against ETag values of the resource.
+"
+identity.yaml,/compartments/{compartmentId}/actions/recoverCompartment,RecoverCompartment,recover_compartment,post,Compartment,identity,identity,compartments,recover_compartment,exec,,RecoverCompartment
+identity.yaml,/domains/,ListDomains,list_domains,get,DomainSummary,identity,identity,domains,list,select,$.domains,ListDomains
+identity.yaml,/domains/,CreateDomain,create_domain,post,,identity,identity,domains,create,insert,,CreateDomain
+identity.yaml,/domains/{domainId},DeleteDomain,delete_domain,delete,,identity,identity,domains,delete,delete,,DeleteDomain
+identity.yaml,/domains/{domainId},GetDomain,get_domain,get,Domain,identity,identity,domains,get,select,,GetDomain
+identity.yaml,/domains/{domainId},UpdateDomain,update_domain,put,,identity,identity,domains,update,update,,UpdateDomain
+identity.yaml,/domains/{domainId}/actions/activate,ActivateDomain,activate_domain,post,,identity,identity,domains,activate_domain,exec,,Activate a deactivated domain
+identity.yaml,/domains/{domainId}/actions/changeCompartment,ChangeDomainCompartment,change_domain_compartment,post,,identity,identity,domains,change_compartment,exec,,Change domain compartment
+identity.yaml,/domains/{domainId}/actions/changeLicenseType,ChangeDomainLicenseType,change_domain_license_type,post,,identity,identity,domains,change_domain_license_type,exec,,Change the license type of an identity domain
+identity.yaml,/domains/{domainId}/actions/deactivate,DeactivateDomain,deactivate_domain,post,,identity,identity,domains,deactivate_domain,exec,,Deactivate an active identity domain.
+identity.yaml,/domains/{domainId}/actions/enableReplicationToRegion,EnableReplicationToRegion,enable_replication_to_region,post,,identity,identity,domains,enable_replication_to_region,exec,,Replicate identity domain to a new region
+identity.yaml,/dynamicGroups/,ListDynamicGroups,list_dynamic_groups,get,DynamicGroup,identity,identity,dynamic_groups,list,select,$.dynamic_groups,ListDynamicGroups
+identity.yaml,/dynamicGroups/,CreateDynamicGroup,create_dynamic_group,post,DynamicGroup,identity,identity,dynamic_groups,create,insert,,CreateDynamicGroup
+identity.yaml,/dynamicGroups/{dynamicGroupId},DeleteDynamicGroup,delete_dynamic_group,delete,,identity,identity,dynamic_groups,delete,delete,,DeleteDynamicGroup
+identity.yaml,/dynamicGroups/{dynamicGroupId},GetDynamicGroup,get_dynamic_group,get,DynamicGroup,identity,identity,dynamic_groups,get,select,,GetDynamicGroup
+identity.yaml,/dynamicGroups/{dynamicGroupId},UpdateDynamicGroup,update_dynamic_group,put,DynamicGroup,identity,identity,dynamic_groups,update,update,,UpdateDynamicGroup
+identity.yaml,/faultDomains/,ListFaultDomains,list_fault_domains,get,FaultDomain,identity,identity,fault_domains,list,select,$.fault_domains,ListFaultDomains
+identity.yaml,/groups/,ListGroups,list_groups,get,Group,identity,identity,groups,list,select,$.groups,ListGroups
+identity.yaml,/groups/,CreateGroup,create_group,post,Group,identity,identity,groups,create,insert,,CreateGroup
+identity.yaml,/groups/{groupId},DeleteGroup,delete_group,delete,,identity,identity,groups,delete,delete,,DeleteGroup
+identity.yaml,/groups/{groupId},GetGroup,get_group,get,Group,identity,identity,groups,get,select,,GetGroup
+identity.yaml,/groups/{groupId},UpdateGroup,update_group,put,Group,identity,identity,groups,update,update,,UpdateGroup
+identity.yaml,/iamWorkRequests,ListIamWorkRequests,list_iam_work_requests,get,IamWorkRequestSummary,identity,identity,iam_work_requests,list,select,$.iam_work_requests,List IAM work requests
+identity.yaml,/iamWorkRequests/{iamWorkRequestId},GetIamWorkRequest,get_iam_work_request,get,IamWorkRequest,identity,identity,iam_work_requests,get,select,,Gets IAM work request
+identity.yaml,/iamWorkRequests/{iamWorkRequestId}/errors,ListIamWorkRequestErrors,list_iam_work_request_errors,get,IamWorkRequestErrorSummary,identity,identity,iam_work_request_errors,list,select,$.iam_work_request_errors,Lists work request errors
+identity.yaml,/iamWorkRequests/{iamWorkRequestId}/logs,ListIamWorkRequestLogs,list_iam_work_request_logs,get,IamWorkRequestLogSummary,identity,identity,iam_work_request_logs,list,select,$.iam_work_request_logs,List IAM workrequest logs
+identity.yaml,/idcsDomainServiceStatus,GetIdcsDomainServiceStatus,get_idcs_domain_service_status,get,IdcsDomainServiceStatusDetails,identity,identity,idcs_domain_service_status,get,select,,GetIdcsDomainServiceStatus
+identity.yaml,/identityProviders/,ListIdentityProviders,list_identity_providers,get,IdentityProvider,identity,identity,identity_providers,list,select,$.identity_providers,ListIdentityProviders
+identity.yaml,/identityProviders/,CreateIdentityProvider,create_identity_provider,post,IdentityProvider,identity,identity,identity_providers,create,insert,,CreateIdentityProvider
+identity.yaml,/identityProviders/{identityProviderId},DeleteIdentityProvider,delete_identity_provider,delete,,identity,identity,identity_providers,delete,delete,,DeleteIdentityProvider
+identity.yaml,/identityProviders/{identityProviderId},GetIdentityProvider,get_identity_provider,get,IdentityProvider,identity,identity,identity_providers,get,select,,GetIdentityProvider
+identity.yaml,/identityProviders/{identityProviderId},UpdateIdentityProvider,update_identity_provider,put,IdentityProvider,identity,identity,identity_providers,update,update,,UpdateIdentityProvider
+identity.yaml,/identityProviders/{identityProviderId}/actions/resetScimClient/,ResetIdpScimClient,reset_idp_scim_client,post,ScimClientCredentials,identity,identity,identity_providers,reset_idp_scim_client,exec,,ResetIdpScimClient
+identity.yaml,/identityProviders/{identityProviderId}/groupMappings/,ListIdpGroupMappings,list_idp_group_mappings,get,IdpGroupMapping,identity,identity,idp_group_mappings,list,select,$.idp_group_mappings,ListIdpGroupMappings
+identity.yaml,/identityProviders/{identityProviderId}/groupMappings/,CreateIdpGroupMapping,create_idp_group_mapping,post,IdpGroupMapping,identity,identity,idp_group_mappings,create,insert,,CreateIdpGroupMapping
+identity.yaml,/identityProviders/{identityProviderId}/groupMappings/{mappingId},DeleteIdpGroupMapping,delete_idp_group_mapping,delete,,identity,identity,idp_group_mappings,delete,delete,,DeleteIdpGroupMapping
+identity.yaml,/identityProviders/{identityProviderId}/groupMappings/{mappingId},GetIdpGroupMapping,get_idp_group_mapping,get,IdpGroupMapping,identity,identity,idp_group_mappings,get,select,,GetIdpGroupMapping
+identity.yaml,/identityProviders/{identityProviderId}/groupMappings/{mappingId},UpdateIdpGroupMapping,update_idp_group_mapping,put,IdpGroupMapping,identity,identity,idp_group_mappings,update,update,,UpdateIdpGroupMapping
+identity.yaml,/identityProviders/{identityProviderId}/groups/,ListIdentityProviderGroups,list_identity_provider_groups,get,IdentityProviderGroupSummary,identity,identity,identity_provider_groups,list,select,$.identity_provider_groups,Gets the identity provider groups.
+identity.yaml,/networkSources,ListNetworkSources,list_network_sources,get,NetworkSourcesSummary,identity,identity,network_sources,list,select,$.network_sources,ListNetworkSources
+identity.yaml,/networkSources,CreateNetworkSource,create_network_source,post,NetworkSources,identity,identity,network_sources,create,insert,,CreateNetworkSource
+identity.yaml,/networkSources/{networkSourceId},DeleteNetworkSource,delete_network_source,delete,,identity,identity,network_sources,delete,delete,,DeleteNetworkSource
+identity.yaml,/networkSources/{networkSourceId},GetNetworkSource,get_network_source,get,NetworkSources,identity,identity,network_sources,get,select,,GetNetworkSource
+identity.yaml,/networkSources/{networkSourceId},UpdateNetworkSource,update_network_source,put,NetworkSources,identity,identity,network_sources,update,update,,UpdateNetworkSource
+identity.yaml,/policies/,ListPolicies,list_policies,get,Policy,identity,identity,policies,list,select,$.policies,ListPolicies
+identity.yaml,/policies/,CreatePolicy,create_policy,post,Policy,identity,identity,policies,create,insert,,CreatePolicy
+identity.yaml,/policies/{policyId},DeletePolicy,delete_policy,delete,,identity,identity,policies,delete,delete,,DeletePolicy
+identity.yaml,/policies/{policyId},GetPolicy,get_policy,get,Policy,identity,identity,policies,get,select,,GetPolicy
+identity.yaml,/policies/{policyId},UpdatePolicy,update_policy,put,Policy,identity,identity,policies,update,update,,UpdatePolicy
+identity.yaml,/policies/{policyId}/actions/addLock,AddPolicyLock,add_policy_lock,post,Policy,identity,identity,policies,add_policy_lock,exec,,Add a resource lock to a policy
+identity.yaml,/policies/{policyId}/actions/removeLock,RemovePolicyLock,remove_policy_lock,post,Policy,identity,identity,policies,remove_policy_lock,exec,,Remove a resource lock to a policy
+identity.yaml,/regions,ListRegions,list_regions,get,Region,identity,identity,regions,list,select,$.regions,ListRegions
+identity.yaml,/tagDefaults,ListTagDefaults,list_tag_defaults,get,TagDefaultSummary,identity,identity,tag_defaults,list,select,$.tag_defaults,ListTagDefaults
+identity.yaml,/tagDefaults,CreateTagDefault,create_tag_default,post,TagDefault,identity,identity,tag_defaults,create,insert,,CreateTagDefault
+identity.yaml,/tagDefaults/actions/assembleEffectiveTagSet,AssembleEffectiveTagSet,assemble_effective_tag_set,get,TagDefaultSummary,identity,identity,tag_defaults,assemble_effective_tag_set,exec,,AssembleEffectiveTagSet
+identity.yaml,/tagDefaults/{tagDefaultId},DeleteTagDefault,delete_tag_default,delete,,identity,identity,tag_defaults,delete,delete,,DeleteTagDefault
+identity.yaml,/tagDefaults/{tagDefaultId},GetTagDefault,get_tag_default,get,TagDefault,identity,identity,tag_defaults,get,select,,GetTagDefault
+identity.yaml,/tagDefaults/{tagDefaultId},UpdateTagDefault,update_tag_default,put,TagDefault,identity,identity,tag_defaults,update,update,,UpdateTagDefault
+identity.yaml,/tagDefaults/{tagDefaultId}/actions/addLock,AddTagDefaultLock,add_tag_default_lock,post,TagDefault,identity,identity,tag_defaults,add_tag_default_lock,exec,,Add a resource lock to a tag default
+identity.yaml,/tagDefaults/{tagDefaultId}/actions/removeLock,RemoveTagDefaultLock,remove_tag_default_lock,post,TagDefault,identity,identity,tag_defaults,remove_tag_default_lock,exec,,Remove a resource lock from a tag default
+identity.yaml,/tagNamespaces,ListTagNamespaces,list_tag_namespaces,get,TagNamespaceSummary,identity,identity,tag_namespaces,list,select,$.tag_namespaces,ListTagNamespaces
+identity.yaml,/tagNamespaces,CreateTagNamespace,create_tag_namespace,post,TagNamespace,identity,identity,tag_namespaces,create,insert,,CreateTagNamespace
+identity.yaml,/tagNamespaces/actions/listCostTrackingTags,ListCostTrackingTags,list_cost_tracking_tags,get,Tag,identity,identity,cost_tracking_tags,list,select,$.cost_tracking_tags,ListCostTrackingTags
+identity.yaml,/tagNamespaces/{tagNamespaceId},DeleteTagNamespace,delete_tag_namespace,delete,,identity,identity,tag_namespaces,delete,delete,,DeleteTagNamespace
+identity.yaml,/tagNamespaces/{tagNamespaceId},GetTagNamespace,get_tag_namespace,get,TagNamespace,identity,identity,tag_namespaces,get,select,,GetTagNamespace
+identity.yaml,/tagNamespaces/{tagNamespaceId},UpdateTagNamespace,update_tag_namespace,put,TagNamespace,identity,identity,tag_namespaces,update,update,,UpdateTagNamespace
+identity.yaml,/tagNamespaces/{tagNamespaceId}/actions/addLock,AddTagNamespaceLock,add_tag_namespace_lock,post,TagNamespace,identity,identity,tag_namespaces,add_tag_namespace_lock,exec,,Add a resource lock to a tag namespace
+identity.yaml,/tagNamespaces/{tagNamespaceId}/actions/cascadeDelete,CascadeDeleteTagNamespace,cascade_delete_tag_namespace,post,,identity,identity,tag_namespaces,cascade_delete_tag_namespace,exec,,Delete tag namespace that contains tags
+identity.yaml,/tagNamespaces/{tagNamespaceId}/actions/changeCompartment,ChangeTagNamespaceCompartment,change_tag_namespace_compartment,post,,identity,identity,tag_namespaces,change_compartment,exec,,changes compartment of a tag namespace.
+identity.yaml,/tagNamespaces/{tagNamespaceId}/actions/removeLock,RemoveTagNamespaceLock,remove_tag_namespace_lock,post,TagNamespace,identity,identity,tag_namespaces,remove_tag_namespace_lock,exec,,Remove a resource lock from a tag namespace
+identity.yaml,/tagNamespaces/{tagNamespaceId}/tags,ListTags,list_tags,get,TagSummary,identity,identity,tags,list,select,$.tags,ListTags
+identity.yaml,/tagNamespaces/{tagNamespaceId}/tags,CreateTag,create_tag,post,Tag,identity,identity,tags,create,insert,,CreateTag
+identity.yaml,/tagNamespaces/{tagNamespaceId}/tags/{tagName},DeleteTag,delete_tag,delete,,identity,identity,tags,delete,delete,,DeleteTag
+identity.yaml,/tagNamespaces/{tagNamespaceId}/tags/{tagName},GetTag,get_tag,get,Tag,identity,identity,tags,get,select,,GetTag
+identity.yaml,/tagNamespaces/{tagNamespaceId}/tags/{tagName},UpdateTag,update_tag,put,Tag,identity,identity,tags,update,update,,UpdateTag
+identity.yaml,/taggingWorkRequests/,ListTaggingWorkRequests,list_tagging_work_requests,get,TaggingWorkRequestSummary,identity,identity,tagging_work_requests,list,select,$.tagging_work_requests,ListTaggingWorkRequests
+identity.yaml,/taggingWorkRequests/{workRequestId},GetTaggingWorkRequest,get_tagging_work_request,get,TaggingWorkRequest,identity,identity,tagging_work_requests,get,select,,GetTaggingWorkRequest
+identity.yaml,/taggingWorkRequests/{workRequestId}/errors,ListTaggingWorkRequestErrors,list_tagging_work_request_errors,get,TaggingWorkRequestErrorSummary,identity,identity,tagging_work_request_errors,list,select,$.tagging_work_request_errors,ListTaggingWorkRequestErrors
+identity.yaml,/taggingWorkRequests/{workRequestId}/logs,ListTaggingWorkRequestLogs,list_tagging_work_request_logs,get,TaggingWorkRequestLogSummary,identity,identity,tagging_work_request_logs,list,select,$.tagging_work_request_logs,ListTaggingWorkRequestLogs
+identity.yaml,/tags/actions/bulkDelete,BulkDeleteTags,bulk_delete_tags,post,,identity,identity,tags,bulk_delete_tags,exec,,Delete multiple tag key definitions at the same time
+identity.yaml,/tags/actions/bulkEdit,BulkEditTags,bulk_edit_tags,post,,identity,identity,tags,bulk_edit_tags,exec,,Edit multiple tag key definitions on resources
+identity.yaml,/tags/actions/importStandardTags,ImportStandardTags,import_standard_tags,post,,identity,identity,tags,import_standard_tags,exec,,"Create or update tag namespace and their tag definitions if a given tag namespace is a standard tag namespace.
+If the tag namespace already exists, any missing tag definitions will be added. For existing enum tags, any new enum values will be added.
+Deleting tagging entities nor removing enum values are not supported.
+"
+identity.yaml,/tags/bulkEditResourceTypes,ListBulkEditTagsResourceTypes,list_bulk_edit_tags_resource_types,get,BulkEditTagsResourceTypeCollection,identity,identity,bulk_edit_tags_resource_types,list,select,$.items,ListBulkEditTagsResourceTypes
+identity.yaml,/tags/standardTagNamespaceTemplates,ListStandardTagNamespaces,list_standard_tag_namespaces,get,StandardTagNamespaceTemplateSummary,identity,identity,standard_tag_namespaces,list,select,$.standard_tag_namespaces,ListStandardTagNamespaceTemplates
+identity.yaml,/tags/standardTagNamespaceTemplates/{standardTagNamespaceName},GetStandardTagTemplate,get_standard_tag_template,get,StandardTagNamespaceTemplate,identity,identity,standard_tag_templates,get,select,,GetStandardTagTemplate
+identity.yaml,/tenancies/{tenancyId},GetTenancy,get_tenancy,get,Tenancy,identity,identity,tenancies,get,select,,GetTenancy
+identity.yaml,/tenancies/{tenancyId}/regionSubscriptions,ListRegionSubscriptions,list_region_subscriptions,get,RegionSubscription,identity,identity,region_subscriptions,list,select,$.region_subscriptions,ListRegionSubscriptions
+identity.yaml,/tenancies/{tenancyId}/regionSubscriptions,CreateRegionSubscription,create_region_subscription,post,RegionSubscription,identity,identity,region_subscriptions,create,insert,,CreateRegionSubscription
+identity.yaml,/userGroupMemberships/,ListUserGroupMemberships,list_user_group_memberships,get,UserGroupMembership,identity,identity,user_group_memberships,list,select,$.user_group_memberships,ListUserGroupMemberships
+identity.yaml,/userGroupMemberships/,AddUserToGroup,add_user_to_group,post,UserGroupMembership,identity,identity,user_group_memberships,add_user_to_group,exec,,AddUserToGroup
+identity.yaml,/userGroupMemberships/{userGroupMembershipId},RemoveUserFromGroup,remove_user_from_group,delete,,identity,identity,user_group_memberships,remove_user_from_group,exec,,RemoveUserFromGroup
+identity.yaml,/userGroupMemberships/{userGroupMembershipId},GetUserGroupMembership,get_user_group_membership,get,UserGroupMembership,identity,identity,user_group_memberships,get,select,,GetUserGroupMembership
+identity.yaml,/users/,ListUsers,list_users,get,User,identity,identity,users,list,select,$.users,ListUsers
+identity.yaml,/users/,CreateUser,create_user,post,User,identity,identity,users,create,insert,,CreateUser
+identity.yaml,/users/{userId},DeleteUser,delete_user,delete,,identity,identity,users,delete,delete,,DeleteUser
+identity.yaml,/users/{userId},GetUser,get_user,get,User,identity,identity,users,get,select,,GetUser
+identity.yaml,/users/{userId},UpdateUser,update_user,put,User,identity,identity,users,update,update,,UpdateUser
+identity.yaml,/users/{userId}/apiKeys/,ListApiKeys,list_api_keys,get,ApiKey,identity,identity,api_keys,list,select,$.api_keys,ListApiKeys
+identity.yaml,/users/{userId}/apiKeys/,UploadApiKey,upload_api_key,post,ApiKey,identity,identity,api_keys,upload_api_key,exec,,UploadApiKey
+identity.yaml,/users/{userId}/apiKeys/{fingerprint},DeleteApiKey,delete_api_key,delete,,identity,identity,api_keys,delete,delete,,DeleteApiKey
+identity.yaml,/users/{userId}/authTokens/,ListAuthTokens,list_auth_tokens,get,AuthToken,identity,identity,auth_tokens,list,select,$.auth_tokens,ListAuthTokens
+identity.yaml,/users/{userId}/authTokens/,CreateAuthToken,create_auth_token,post,AuthToken,identity,identity,auth_tokens,create,insert,,CreateAuthToken
+identity.yaml,/users/{userId}/authTokens/{authTokenId},DeleteAuthToken,delete_auth_token,delete,,identity,identity,auth_tokens,delete,delete,,DeleteAuthToken
+identity.yaml,/users/{userId}/authTokens/{authTokenId},UpdateAuthToken,update_auth_token,put,AuthToken,identity,identity,auth_tokens,update,update,,UpdateAuthToken
+identity.yaml,/users/{userId}/capabilities/,UpdateUserCapabilities,update_user_capabilities,put,User,identity,identity,user_capabilities,update,update,,UpdateUserCapabilities
+identity.yaml,/users/{userId}/customerSecretKeys/,ListCustomerSecretKeys,list_customer_secret_keys,get,CustomerSecretKeySummary,identity,identity,customer_secret_keys,list,select,$.customer_secret_keys,ListCustomerSecretKeys
+identity.yaml,/users/{userId}/customerSecretKeys/,CreateCustomerSecretKey,create_customer_secret_key,post,CustomerSecretKey,identity,identity,customer_secret_keys,create,insert,,CreateCustomerSecretKey
+identity.yaml,/users/{userId}/customerSecretKeys/{customerSecretKeyId},DeleteCustomerSecretKey,delete_customer_secret_key,delete,,identity,identity,customer_secret_keys,delete,delete,,DeleteCustomerSecretKey
+identity.yaml,/users/{userId}/customerSecretKeys/{customerSecretKeyId},UpdateCustomerSecretKey,update_customer_secret_key,put,CustomerSecretKeySummary,identity,identity,customer_secret_keys,update,update,,UpdateCustomerSecretKey
+identity.yaml,/users/{userId}/dbCredentials/,ListDbCredentials,list_db_credentials,get,DbCredentialSummary,identity,identity,db_credentials,list,select,$.db_credentials,ListDbCredentials
+identity.yaml,/users/{userId}/dbCredentials/,CreateDbCredential,create_db_credential,post,DbCredential,identity,identity,db_credentials,create,insert,,CreateDbCredential
+identity.yaml,/users/{userId}/dbCredentials/{dbCredentialId},DeleteDbCredential,delete_db_credential,delete,,identity,identity,db_credentials,delete,delete,,DeleteDbCredential
+identity.yaml,/users/{userId}/mfaTotpDevices,ListMfaTotpDevices,list_mfa_totp_devices,get,MfaTotpDeviceSummary,identity,identity,mfa_totp_devices,list,select,$.mfa_totp_devices,ListMfaTotpDevices
+identity.yaml,/users/{userId}/mfaTotpDevices,CreateMfaTotpDevice,create_mfa_totp_device,post,MfaTotpDevice,identity,identity,mfa_totp_devices,create,insert,,CreateMfaTotpDevice
+identity.yaml,/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId},DeleteMfaTotpDevice,delete_mfa_totp_device,delete,,identity,identity,mfa_totp_devices,delete,delete,,DeleteMfaTotpDevice
+identity.yaml,/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId},GetMfaTotpDevice,get_mfa_totp_device,get,MfaTotpDeviceSummary,identity,identity,mfa_totp_devices,get,select,,GetMfaTotpDevice
+identity.yaml,/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId}/actions/activate,ActivateMfaTotpDevice,activate_mfa_totp_device,post,MfaTotpDeviceSummary,identity,identity,mfa_totp_devices,activate_mfa_totp_device,exec,,ActivateMfaTotpDevice
+identity.yaml,/users/{userId}/mfaTotpDevices/{mfaTotpDeviceId}/actions/generateSeed,GenerateTotpSeed,generate_totp_seed,post,MfaTotpDevice,identity,identity,mfa_totp_devices,generate_totp_seed,exec,,GenerateTotpSeed
+identity.yaml,/users/{userId}/oauth2ClientCredentials,ListOAuthClientCredentials,list_oauth_client_credentials,get,OAuth2ClientCredentialSummary,identity,identity,o_auth_client_credentials,list,select,$.oauth_client_credentials,List of Oauth tokens for the user
+identity.yaml,/users/{userId}/oauth2ClientCredentials,CreateOAuthClientCredential,create_oauth_client_credential,post,OAuth2ClientCredential,identity,identity,o_auth_client_credentials,create,insert,,Creates Oauth token for the user
+identity.yaml,/users/{userId}/oauth2ClientCredentials/{oauth2ClientCredentialId},DeleteOAuthClientCredential,delete_oauth_client_credential,delete,,identity,identity,o_auth_client_credentials,delete,delete,,Delete Oauth token for the user
+identity.yaml,/users/{userId}/oauth2ClientCredentials/{oauth2ClientCredentialId},UpdateOAuthClientCredential,update_oauth_client_credential,put,OAuth2ClientCredential,identity,identity,o_auth_client_credentials,update,update,,Updates Oauth token for the user
+identity.yaml,/users/{userId}/smtpCredentials/,ListSmtpCredentials,list_smtp_credentials,get,SmtpCredentialSummary,identity,identity,smtp_credentials,list,select,$.smtp_credentials,ListSmtpCredentials
+identity.yaml,/users/{userId}/smtpCredentials/,CreateSmtpCredential,create_smtp_credential,post,SmtpCredential,identity,identity,smtp_credentials,create,insert,,CreateSmtpCredential
+identity.yaml,/users/{userId}/smtpCredentials/{smtpCredentialId},DeleteSmtpCredential,delete_smtp_credential,delete,,identity,identity,smtp_credentials,delete,delete,,DeleteSmtpCredential
+identity.yaml,/users/{userId}/smtpCredentials/{smtpCredentialId},UpdateSmtpCredential,update_smtp_credential,put,SmtpCredentialSummary,identity,identity,smtp_credentials,update,update,,UpdateSmtpCredential
+identity.yaml,/users/{userId}/state/,UpdateUserState,update_user_state,put,User,identity,identity,user_states,update,update,,UpdateUserState
+identity.yaml,/users/{userId}/swiftPasswords/,ListSwiftPasswords,list_swift_passwords,get,SwiftPassword,identity,identity,swift_passwords,list,select,$.swift_passwords,ListSwiftPasswords
+identity.yaml,/users/{userId}/swiftPasswords/,CreateSwiftPassword,create_swift_password,post,SwiftPassword,identity,identity,swift_passwords,create,insert,,CreateSwiftPassword
+identity.yaml,/users/{userId}/swiftPasswords/{swiftPasswordId},DeleteSwiftPassword,delete_swift_password,delete,,identity,identity,swift_passwords,delete,delete,,DeleteSwiftPassword
+identity.yaml,/users/{userId}/swiftPasswords/{swiftPasswordId},UpdateSwiftPassword,update_swift_password,put,SwiftPassword,identity,identity,swift_passwords,update,update,,UpdateSwiftPassword
+identity.yaml,/users/{userId}/uiPassword,GetUserUIPasswordInformation,get_user_uipassword_information,get,UIPasswordInformation,identity,identity,user_ui_password_informations,get,select,,GetUserUIPasswordInformation
+identity.yaml,/users/{userId}/uiPassword,CreateOrResetUIPassword,create_or_reset_uipassword,post,UIPassword,identity,identity,or_reset_ui_passwords,create,insert,,CreateOrResetUIPassword
+identity.yaml,/workRequests/,ListWorkRequests,list_work_requests,get,WorkRequestSummary,identity,identity,work_requests,list,select,$.work_requests,ListWorkRequests
+identity.yaml,/workRequests/{workRequestId},GetWorkRequest,get_work_request,get,WorkRequest,identity,identity,work_requests,get,select,,GetWorkRequest
+network.yaml,/allowedPeerRegionsForRemotePeering,ListAllowedPeerRegionsForRemotePeering,list_allowed_peer_regions_for_remote_peering,get,PeerRegionForRemotePeering,virtualNetwork,virtual_network,allowed_peer_regions_for_remote_peering,list,select,$.allowed_peer_regions_for_remote_peering,ListAllowedPeerRegionsForRemotePeering
+network.yaml,/byoasns,ListByoasns,list_byoasns,get,ByoasnCollection,virtualNetwork,virtual_network,byoasns,list,select,$.items,ListByoasns
+network.yaml,/byoasns,CreateByoasn,create_byoasn,post,Byoasn,virtualNetwork,virtual_network,byoasns,create,insert,,CreateByoasn
+network.yaml,/byoasns/{byoasnId},DeleteByoasn,delete_byoasn,delete,,virtualNetwork,virtual_network,byoasns,delete,delete,,DeleteByoasn
+network.yaml,/byoasns/{byoasnId},GetByoasn,get_byoasn,get,Byoasn,virtualNetwork,virtual_network,byoasns,get,select,,GetByoasn
+network.yaml,/byoasns/{byoasnId},UpdateByoasn,update_byoasn,put,Byoasn,virtualNetwork,virtual_network,byoasns,update,update,,UpdateByoasn
+network.yaml,/byoasns/{byoasnId}/actions/changeCompartment,ChangeByoasnCompartment,change_byoasn_compartment,post,,virtualNetwork,virtual_network,byoasns,change_compartment,exec,,ChangeByoasnCompartment
+network.yaml,/byoasns/{byoasnId}/actions/validate,ValidateByoasn,validate_byoasn,post,,virtualNetwork,virtual_network,byoasns,validate_byoasn,exec,,ValidateByoasn
+network.yaml,/byoipRanges,ListByoipRanges,list_byoip_ranges,get,ByoipRangeCollection,virtualNetwork,virtual_network,byoip_ranges,list,select,$.items,ListByoipRanges
+network.yaml,/byoipRanges,CreateByoipRange,create_byoip_range,post,ByoipRange,virtualNetwork,virtual_network,byoip_ranges,create,insert,,CreateByoipRange
+network.yaml,/byoipRanges/{byoipRangeId},DeleteByoipRange,delete_byoip_range,delete,,virtualNetwork,virtual_network,byoip_ranges,delete,delete,,DeleteByoipRange
+network.yaml,/byoipRanges/{byoipRangeId},GetByoipRange,get_byoip_range,get,ByoipRange,virtualNetwork,virtual_network,byoip_ranges,get,select,,GetByoipRange
+network.yaml,/byoipRanges/{byoipRangeId},UpdateByoipRange,update_byoip_range,put,ByoipRange,virtualNetwork,virtual_network,byoip_ranges,update,update,,UpdateByoipRange
+network.yaml,/byoipRanges/{byoipRangeId}/actions/advertise,AdvertiseByoipRange,advertise_byoip_range,post,,virtualNetwork,virtual_network,byoip_ranges,advertise_byoip_range,exec,,AdvertiseByoipRange
+network.yaml,/byoipRanges/{byoipRangeId}/actions/changeCompartment,ChangeByoipRangeCompartment,change_byoip_range_compartment,post,,virtualNetwork,virtual_network,byoip_ranges,change_compartment,exec,,ChangeByoipRangeCompartment
+network.yaml,/byoipRanges/{byoipRangeId}/actions/setOrigin/byoasn,SetOriginAsn,set_origin_asn,post,,virtualNetwork,virtual_network,byoip_ranges,set_origin_asn,exec,,SetOriginAsn
+network.yaml,/byoipRanges/{byoipRangeId}/actions/setOrigin/oracleAsn,SetOriginAsnToOracle,set_origin_asn_to_oracle,post,,virtualNetwork,virtual_network,byoip_ranges,set_origin_asn_to_oracle,exec,,SetOriginAsnToOracle
+network.yaml,/byoipRanges/{byoipRangeId}/actions/validate,ValidateByoipRange,validate_byoip_range,post,,virtualNetwork,virtual_network,byoip_ranges,validate_byoip_range,exec,,ValidateByoipRange
+network.yaml,/byoipRanges/{byoipRangeId}/actions/withdraw,WithdrawByoipRange,withdraw_byoip_range,post,,virtualNetwork,virtual_network,byoip_ranges,withdraw_byoip_range,exec,,WithdrawByoipRange
+network.yaml,/byoipRanges/{byoipRangeId}/byoipAllocatedRanges,ListByoipAllocatedRanges,list_byoip_allocated_ranges,get,ByoipAllocatedRangeCollection,virtualNetwork,virtual_network,byoip_allocated_ranges,list,select,$.items,ListByoipAllocatedRanges
+network.yaml,/captureFilters,ListCaptureFilters,list_capture_filters,get,CaptureFilter,virtualNetwork,virtual_network,capture_filters,list,select,$.capture_filters,ListCaptureFilters
+network.yaml,/captureFilters,CreateCaptureFilter,create_capture_filter,post,CaptureFilter,virtualNetwork,virtual_network,capture_filters,create,insert,,CreateCaptureFilter
+network.yaml,/captureFilters/{captureFilterId},DeleteCaptureFilter,delete_capture_filter,delete,,virtualNetwork,virtual_network,capture_filters,delete,delete,,DeleteCaptureFilter
+network.yaml,/captureFilters/{captureFilterId},GetCaptureFilter,get_capture_filter,get,CaptureFilter,virtualNetwork,virtual_network,capture_filters,get,select,,GetCaptureFilter
+network.yaml,/captureFilters/{captureFilterId},UpdateCaptureFilter,update_capture_filter,put,CaptureFilter,virtualNetwork,virtual_network,capture_filters,update,update,,UpdateCaptureFilter
+network.yaml,/captureFilters/{captureFilterId}/actions/changeCompartment,ChangeCaptureFilterCompartment,change_capture_filter_compartment,post,,virtualNetwork,virtual_network,capture_filters,change_compartment,exec,,ChangeCaptureFilterCompartment
+network.yaml,/cpeDeviceShapes,ListCpeDeviceShapes,list_cpe_device_shapes,get,CpeDeviceShapeSummary,virtualNetwork,virtual_network,cpe_device_shapes,list,select,$.cpe_device_shapes,ListCpeDeviceShapes
+network.yaml,/cpeDeviceShapes/{cpeDeviceShapeId},GetCpeDeviceShape,get_cpe_device_shape,get,CpeDeviceShapeDetail,virtualNetwork,virtual_network,cpe_device_shapes,get,select,,GetCpeDeviceShape
+network.yaml,/cpes,ListCpes,list_cpes,get,Cpe,virtualNetwork,virtual_network,cpes,list,select,$.cpes,ListCpes
+network.yaml,/cpes,CreateCpe,create_cpe,post,Cpe,virtualNetwork,virtual_network,cpes,create,insert,,CreateCpe
+network.yaml,/cpes/{cpeId},DeleteCpe,delete_cpe,delete,,virtualNetwork,virtual_network,cpes,delete,delete,,DeleteCpe
+network.yaml,/cpes/{cpeId},GetCpe,get_cpe,get,Cpe,virtualNetwork,virtual_network,cpes,get,select,,GetCpe
+network.yaml,/cpes/{cpeId},UpdateCpe,update_cpe,put,Cpe,virtualNetwork,virtual_network,cpes,update,update,,UpdateCpe
+network.yaml,/cpes/{cpeId}/actions/changeCompartment,ChangeCpeCompartment,change_cpe_compartment,post,,virtualNetwork,virtual_network,cpes,change_compartment,exec,,ChangeCpeCompartment
+network.yaml,/cpes/{cpeId}/cpeConfigContent,GetCpeDeviceConfigContent,get_cpe_device_config_content,get,,virtualNetwork,virtual_network,cpe_device_config_contents,get,select,,GetCpeDeviceConfigContent
+network.yaml,/crossConnectGroups,ListCrossConnectGroups,list_cross_connect_groups,get,CrossConnectGroup,virtualNetwork,virtual_network,cross_connect_groups,list,select,$.cross_connect_groups,ListCrossConnectGroups
+network.yaml,/crossConnectGroups,CreateCrossConnectGroup,create_cross_connect_group,post,CrossConnectGroup,virtualNetwork,virtual_network,cross_connect_groups,create,insert,,CreateCrossConnectGroup
+network.yaml,/crossConnectGroups/{crossConnectGroupId},DeleteCrossConnectGroup,delete_cross_connect_group,delete,,virtualNetwork,virtual_network,cross_connect_groups,delete,delete,,DeleteCrossConnectGroup
+network.yaml,/crossConnectGroups/{crossConnectGroupId},GetCrossConnectGroup,get_cross_connect_group,get,CrossConnectGroup,virtualNetwork,virtual_network,cross_connect_groups,get,select,,GetCrossConnectGroups
+network.yaml,/crossConnectGroups/{crossConnectGroupId},UpdateCrossConnectGroup,update_cross_connect_group,put,CrossConnectGroup,virtualNetwork,virtual_network,cross_connect_groups,update,update,,UpdateCrossConnectGroup
+network.yaml,/crossConnectGroups/{crossConnectGroupId}/actions/changeCompartment,ChangeCrossConnectGroupCompartment,change_cross_connect_group_compartment,post,,virtualNetwork,virtual_network,cross_connect_groups,change_compartment,exec,,ChangeCrossConnectGroupCompartment
+network.yaml,/crossConnectLocations,ListCrossConnectLocations,list_cross_connect_locations,get,CrossConnectLocation,virtualNetwork,virtual_network,cross_connect_locations,list,select,$.cross_connect_locations,ListCrossConnectLocations
+network.yaml,/crossConnectPortSpeedShapes,ListCrossconnectPortSpeedShapes,list_crossconnect_port_speed_shapes,get,CrossConnectPortSpeedShape,virtualNetwork,virtual_network,crossconnect_port_speed_shapes,list,select,$.crossconnect_port_speed_shapes,ListCrossConnectPortSpeedShapes
+network.yaml,/crossConnects,ListCrossConnects,list_cross_connects,get,CrossConnect,virtualNetwork,virtual_network,cross_connects,list,select,$.cross_connects,ListCrossConnects
+network.yaml,/crossConnects,CreateCrossConnect,create_cross_connect,post,CrossConnect,virtualNetwork,virtual_network,cross_connects,create,insert,,CreateCrossConnect
+network.yaml,/crossConnects/{crossConnectId},DeleteCrossConnect,delete_cross_connect,delete,,virtualNetwork,virtual_network,cross_connects,delete,delete,,DeleteCrossConnect
+network.yaml,/crossConnects/{crossConnectId},GetCrossConnect,get_cross_connect,get,CrossConnect,virtualNetwork,virtual_network,cross_connects,get,select,,GetCrossConnect
+network.yaml,/crossConnects/{crossConnectId},UpdateCrossConnect,update_cross_connect,put,CrossConnect,virtualNetwork,virtual_network,cross_connects,update,update,,UpdateCrossConnect
+network.yaml,/crossConnects/{crossConnectId}/actions/changeCompartment,ChangeCrossConnectCompartment,change_cross_connect_compartment,post,,virtualNetwork,virtual_network,cross_connects,change_compartment,exec,,ChangeCrossConnectCompartment
+network.yaml,/crossConnects/{crossConnectId}/letterOfAuthority,GetCrossConnectLetterOfAuthority,get_cross_connect_letter_of_authority,get,LetterOfAuthority,virtualNetwork,virtual_network,cross_connect_letter_of_authorities,get,select,,Gets the Letter of Authority associated with the mentioned cross-connect.
+network.yaml,/crossConnects/{crossConnectId}/status,GetCrossConnectStatus,get_cross_connect_status,get,CrossConnectStatus,virtualNetwork,virtual_network,cross_connect_status,get,select,,GetCrossConnectStatus
+network.yaml,/dhcps,ListDhcpOptions,list_dhcp_options,get,DhcpOptions,virtualNetwork,virtual_network,dhcp_options,list,select,$.dhcp_options,ListDhcpOptions
+network.yaml,/dhcps,CreateDhcpOptions,create_dhcp_options,post,DhcpOptions,virtualNetwork,virtual_network,dhcp_options,create,insert,,CreateDhcpOptions
+network.yaml,/dhcps/{dhcpId},DeleteDhcpOptions,delete_dhcp_options,delete,,virtualNetwork,virtual_network,dhcp_options,delete,delete,,DeleteDhcpOptions
+network.yaml,/dhcps/{dhcpId},GetDhcpOptions,get_dhcp_options,get,DhcpOptions,virtualNetwork,virtual_network,dhcp_options,get,select,,GetDhcpOptions
+network.yaml,/dhcps/{dhcpId},UpdateDhcpOptions,update_dhcp_options,put,DhcpOptions,virtualNetwork,virtual_network,dhcp_options,update,update,,UpdateDhcpOptions
+network.yaml,/dhcps/{dhcpId}/actions/changeCompartment,ChangeDhcpOptionsCompartment,change_dhcp_options_compartment,post,,virtualNetwork,virtual_network,dhcp_options,change_compartment,exec,,ChangeDhcpOptionsCompartment
+network.yaml,/drgAttachments,ListDrgAttachments,list_drg_attachments,get,DrgAttachment,virtualNetwork,virtual_network,drg_attachments,list,select,$.drg_attachments,ListDrgAttachments
+network.yaml,/drgAttachments,CreateDrgAttachment,create_drg_attachment,post,DrgAttachment,virtualNetwork,virtual_network,drg_attachments,create,insert,,CreateDrgAttachment
+network.yaml,/drgAttachments/{drgAttachmentId},DeleteDrgAttachment,delete_drg_attachment,delete,,virtualNetwork,virtual_network,drg_attachments,delete,delete,,DeleteDrgAttachment
+network.yaml,/drgAttachments/{drgAttachmentId},GetDrgAttachment,get_drg_attachment,get,DrgAttachment,virtualNetwork,virtual_network,drg_attachments,get,select,,GetDrgAttachment
+network.yaml,/drgAttachments/{drgAttachmentId},UpdateDrgAttachment,update_drg_attachment,put,DrgAttachment,virtualNetwork,virtual_network,drg_attachments,update,update,,UpdateDrgAttachment
+network.yaml,/drgAttachments/{drgAttachmentId}/actions/removeExportDrgRouteDistribution,RemoveExportDrgRouteDistribution,remove_export_drg_route_distribution,post,DrgAttachment,virtualNetwork,virtual_network,drg_attachments,remove_export_drg_route_distribution,exec,,RemoveExportDrgRouteDistribution
+network.yaml,/drgRouteDistributions,ListDrgRouteDistributions,list_drg_route_distributions,get,DrgRouteDistribution,virtualNetwork,virtual_network,drg_route_distributions,list,select,$.drg_route_distributions,ListDrgRouteDistributionStatements
+network.yaml,/drgRouteDistributions,CreateDrgRouteDistribution,create_drg_route_distribution,post,DrgRouteDistribution,virtualNetwork,virtual_network,drg_route_distributions,create,insert,,CreateDrgRouteDistribution
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId},DeleteDrgRouteDistribution,delete_drg_route_distribution,delete,,virtualNetwork,virtual_network,drg_route_distributions,delete,delete,,DeleteDrgRouteDistribution
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId},GetDrgRouteDistribution,get_drg_route_distribution,get,DrgRouteDistribution,virtualNetwork,virtual_network,drg_route_distributions,get,select,,GetDrgRouteDistribution
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId},UpdateDrgRouteDistribution,update_drg_route_distribution,put,DrgRouteDistribution,virtualNetwork,virtual_network,drg_route_distributions,update,update,,UpdateDrgRouteDistribution
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId}/actions/addDrgRouteDistributionStatements,AddDrgRouteDistributionStatements,add_drg_route_distribution_statements,post,DrgRouteDistributionStatement,virtualNetwork,virtual_network,drg_route_distributions,add_drg_route_distribution_statements,exec,,AddDrgRouteDistributionStatements
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId}/actions/removeDrgRouteDistributionStatements,RemoveDrgRouteDistributionStatements,remove_drg_route_distribution_statements,post,,virtualNetwork,virtual_network,drg_route_distributions,remove_drg_route_distribution_statements,exec,,RemoveDrgRouteDistributionStatements
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId}/actions/updateDrgRouteDistributionStatements,UpdateDrgRouteDistributionStatements,update_drg_route_distribution_statements,post,DrgRouteDistributionStatement,virtualNetwork,virtual_network,drg_route_distribution_statements,update,update,,UpdateDrgRouteDistributionStatements
+network.yaml,/drgRouteDistributions/{drgRouteDistributionId}/drgRouteDistributionStatements,ListDrgRouteDistributionStatements,list_drg_route_distribution_statements,get,DrgRouteDistributionStatement,virtualNetwork,virtual_network,drg_route_distribution_statements,list,select,$.drg_route_distribution_statements,ListDrgRouteDistributionStatements
+network.yaml,/drgRouteTables,ListDrgRouteTables,list_drg_route_tables,get,DrgRouteTable,virtualNetwork,virtual_network,drg_route_tables,list,select,$.drg_route_tables,ListDrgRouteTables
+network.yaml,/drgRouteTables,CreateDrgRouteTable,create_drg_route_table,post,DrgRouteTable,virtualNetwork,virtual_network,drg_route_tables,create,insert,,CreateDrgRouteTable
+network.yaml,/drgRouteTables/{drgRouteTableId},DeleteDrgRouteTable,delete_drg_route_table,delete,,virtualNetwork,virtual_network,drg_route_tables,delete,delete,,DeleteDrgRouteTable
+network.yaml,/drgRouteTables/{drgRouteTableId},GetDrgRouteTable,get_drg_route_table,get,DrgRouteTable,virtualNetwork,virtual_network,drg_route_tables,get,select,,GetDrgRouteTable
+network.yaml,/drgRouteTables/{drgRouteTableId},UpdateDrgRouteTable,update_drg_route_table,put,DrgRouteTable,virtualNetwork,virtual_network,drg_route_tables,update,update,,UpdateDrgRouteTable
+network.yaml,/drgRouteTables/{drgRouteTableId}/actions/addDrgRouteRules,AddDrgRouteRules,add_drg_route_rules,post,DrgRouteRule,virtualNetwork,virtual_network,drg_route_tables,add_drg_route_rules,exec,,AddDrgRouteRules
+network.yaml,/drgRouteTables/{drgRouteTableId}/actions/removeDrgRouteRules,RemoveDrgRouteRules,remove_drg_route_rules,post,,virtualNetwork,virtual_network,drg_route_tables,remove_drg_route_rules,exec,,RemoveDrgRouteRules
+network.yaml,/drgRouteTables/{drgRouteTableId}/actions/removeImportDrgRouteDistribution,RemoveImportDrgRouteDistribution,remove_import_drg_route_distribution,post,DrgRouteTable,virtualNetwork,virtual_network,drg_route_tables,remove_import_drg_route_distribution,exec,,RemoveImportDrgRouteDistribution
+network.yaml,/drgRouteTables/{drgRouteTableId}/actions/updateDrgRouteRules,UpdateDrgRouteRules,update_drg_route_rules,post,DrgRouteRule,virtualNetwork,virtual_network,drg_route_rules,update,update,,UpdateDrgRouteRules
+network.yaml,/drgRouteTables/{drgRouteTableId}/drgRouteRules,ListDrgRouteRules,list_drg_route_rules,get,DrgRouteRule,virtualNetwork,virtual_network,drg_route_rules,list,select,$.drg_route_rules,ListDrgRouteRules
+network.yaml,/drgs,ListDrgs,list_drgs,get,Drg,virtualNetwork,virtual_network,drgs,list,select,$.drgs,ListDrgs
+network.yaml,/drgs,CreateDrg,create_drg,post,Drg,virtualNetwork,virtual_network,drgs,create,insert,,CreateDrg
+network.yaml,/drgs/{drgId},DeleteDrg,delete_drg,delete,,virtualNetwork,virtual_network,drgs,delete,delete,,DeleteDrg
+network.yaml,/drgs/{drgId},GetDrg,get_drg,get,Drg,virtualNetwork,virtual_network,drgs,get,select,,GetDrg
+network.yaml,/drgs/{drgId},UpdateDrg,update_drg,put,Drg,virtualNetwork,virtual_network,drgs,update,update,,UpdateDrg
+network.yaml,/drgs/{drgId}/actions/getAllDrgAttachments,GetAllDrgAttachments,get_all_drg_attachments,post,DrgAttachmentInfo,virtualNetwork,virtual_network,drgs,get_all_drg_attachments,exec,,GetAllDrgAttachments
+network.yaml,/drgs/{drgId}/actions/upgrade,UpgradeDrg,upgrade_drg,post,,virtualNetwork,virtual_network,drgs,upgrade_drg,exec,,UpgradeDrg
+network.yaml,/drgs/{drgId}/actions/upgradeStatus,GetUpgradeStatus,get_upgrade_status,get,UpgradeStatus,virtualNetwork,virtual_network,upgrade_status,get,select,,UpgradeStatus
+network.yaml,/drgs/{drgId}/redundancyStatus,GetDrgRedundancyStatus,get_drg_redundancy_status,get,DrgRedundancyStatus,virtualNetwork,virtual_network,drg_redundancy_status,get,select,,GetDrgRedundancyStatus
+network.yaml,/fastConnectProviderServices,ListFastConnectProviderServices,list_fast_connect_provider_services,get,FastConnectProviderService,virtualNetwork,virtual_network,fast_connect_provider_services,list,select,$.fast_connect_provider_services,ListFastConnectProviderServices
+network.yaml,/fastConnectProviderServices/{providerServiceId},GetFastConnectProviderService,get_fast_connect_provider_service,get,FastConnectProviderService,virtualNetwork,virtual_network,fast_connect_provider_services,get,select,,GetFastConnectProviderService
+network.yaml,/fastConnectProviderServices/{providerServiceId}/providerServiceKeys/{providerServiceKeyName},GetFastConnectProviderServiceKey,get_fast_connect_provider_service_key,get,FastConnectProviderServiceKey,virtualNetwork,virtual_network,fast_connect_provider_service_keys,get,select,,GetFastConnectProviderServiceKey
+network.yaml,/fastConnectProviderServices/{providerServiceId}/virtualCircuitBandwidthShapes,ListFastConnectProviderVirtualCircuitBandwidthShapes,list_fast_connect_provider_virtual_circuit_bandwidth_shapes,get,VirtualCircuitBandwidthShape,virtualNetwork,virtual_network,fast_connect_provider_virtual_circuit_bandwidth_shapes,list,select,$.fast_connect_provider_virtual_circuit_bandwidth_shapes,ListFastConnectProviderVirtualCircuitBandwidthShapes
+network.yaml,/internetGateways,ListInternetGateways,list_internet_gateways,get,InternetGateway,virtualNetwork,virtual_network,internet_gateways,list,select,$.internet_gateways,ListInternetGateways
+network.yaml,/internetGateways,CreateInternetGateway,create_internet_gateway,post,InternetGateway,virtualNetwork,virtual_network,internet_gateways,create,insert,,CreateInternetGateway
+network.yaml,/internetGateways/{igId},DeleteInternetGateway,delete_internet_gateway,delete,,virtualNetwork,virtual_network,internet_gateways,delete,delete,,DeleteInternetGateway
+network.yaml,/internetGateways/{igId},GetInternetGateway,get_internet_gateway,get,InternetGateway,virtualNetwork,virtual_network,internet_gateways,get,select,,GetInternetGateway
+network.yaml,/internetGateways/{igId},UpdateInternetGateway,update_internet_gateway,put,InternetGateway,virtualNetwork,virtual_network,internet_gateways,update,update,,UpdateInternetGateway
+network.yaml,/internetGateways/{igId}/actions/changeCompartment,ChangeInternetGatewayCompartment,change_internet_gateway_compartment,post,,virtualNetwork,virtual_network,internet_gateways,change_compartment,exec,,ChangeInternetGatewayCompartment
+network.yaml,/ipInventory,ListIpInventory,list_ip_inventory,post,IpInventoryCollection,virtualNetwork,virtual_network,ip_inventories,list_ip_inventory,exec,,ListIpInventory
+network.yaml,/ipInventory/subnets/{subnetId},GetSubnetIpInventory,get_subnet_ip_inventory,get,IpInventorySubnetResourceCollection,virtualNetwork,virtual_network,subnet_ip_inventories,get,select,,GetSubnetIpInventory
+network.yaml,/ipInventory/subnets/{subnetId}/cidrs,GetSubnetCidrUtilization,get_subnet_cidr_utilization,get,IpInventoryCidrUtilizationCollection,virtualNetwork,virtual_network,subnet_cidr_utilizations,get,select,,GetSubnetCidrUtilization
+network.yaml,/ipInventory/vcns/{vcnId}/overlaps,GetVcnOverlap,get_vcn_overlap,post,IpInventoryVcnOverlapCollection,virtualNetwork,virtual_network,overlaps,get_vcn_overlap,exec,,GetIpInventoryVcnOverlap
+network.yaml,/ipinventory/DataRequestId/{dataRequestId},GetResourceIpInventory,get_resource_ip_inventory,get,IpInventoryCollection,virtualNetwork,virtual_network,resource_ip_inventories,get,select,,GetResourceIpInventory
+network.yaml,/ipsecAlgorithms,GetAllowedIkeIPSecParameters,get_allowed_ike_ipsec_parameters,get,AllowedIkeIPSecParameters,virtualNetwork,virtual_network,allowed_ike_ip_sec_parameters,get,select,,GetAllowedIkeIPSecParameters
+network.yaml,/ipsecConnections,ListIPSecConnections,list_ipsec_connections,get,IPSecConnection,virtualNetwork,virtual_network,ip_sec_connections,list,select,$.ipsec_connections,ListIPSecConnections
+network.yaml,/ipsecConnections,CreateIPSecConnection,create_ipsec_connection,post,IPSecConnection,virtualNetwork,virtual_network,ip_sec_connections,create,insert,,CreateIPSecConnection
+network.yaml,/ipsecConnections/{ipscId},DeleteIPSecConnection,delete_ipsec_connection,delete,,virtualNetwork,virtual_network,ip_sec_connections,delete,delete,,DeleteIPSecConnection
+network.yaml,/ipsecConnections/{ipscId},GetIPSecConnection,get_ipsec_connection,get,IPSecConnection,virtualNetwork,virtual_network,ip_sec_connections,get,select,,GetIPSecConnection
+network.yaml,/ipsecConnections/{ipscId},UpdateIPSecConnection,update_ipsec_connection,put,IPSecConnection,virtualNetwork,virtual_network,ip_sec_connections,update,update,,UpdateIPSecConnection
+network.yaml,/ipsecConnections/{ipscId}/actions/changeCompartment,ChangeIPSecConnectionCompartment,change_ipsec_connection_compartment,post,,virtualNetwork,virtual_network,ip_sec_connections,change_compartment,exec,,ChangeIPSecConnectionCompartment
+network.yaml,/ipsecConnections/{ipscId}/cpeConfigContent,GetIpsecCpeDeviceConfigContent,get_ipsec_cpe_device_config_content,get,,virtualNetwork,virtual_network,ipsec_cpe_device_config_contents,get,select,,GetIpsecCpeDeviceConfigContent
+network.yaml,/ipsecConnections/{ipscId}/deviceConfig,GetIPSecConnectionDeviceConfig,get_ipsec_connection_device_config,get,IPSecConnectionDeviceConfig,virtualNetwork,virtual_network,ip_sec_connection_device_configs,get,select,,GetIPSecConnectionDeviceConfig
+network.yaml,/ipsecConnections/{ipscId}/deviceStatus,GetIPSecConnectionDeviceStatus,get_ipsec_connection_device_status,get,IPSecConnectionDeviceStatus,virtualNetwork,virtual_network,ip_sec_connection_device_status,get,select,,GetIPSecConnectionDeviceStatus
+network.yaml,/ipsecConnections/{ipscId}/tunnels,ListIPSecConnectionTunnels,list_ipsec_connection_tunnels,get,IPSecConnectionTunnel,virtualNetwork,virtual_network,ip_sec_connection_tunnels,list,select,$.ipsec_connection_tunnels,ListIPSecConnectionTunnels
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId},GetIPSecConnectionTunnel,get_ipsec_connection_tunnel,get,IPSecConnectionTunnel,virtualNetwork,virtual_network,ip_sec_connection_tunnels,get,select,,GetIPSecConnectionTunnel
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId},UpdateIPSecConnectionTunnel,update_ipsec_connection_tunnel,put,IPSecConnectionTunnel,virtualNetwork,virtual_network,ip_sec_connection_tunnels,update,update,,UpdateIPSecConnectionTunnelDetails
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/error,GetIPSecConnectionTunnelError,get_ipsec_connection_tunnel_error,get,IPSecConnectionTunnelErrorDetails,virtualNetwork,virtual_network,ip_sec_connection_tunnel_errors,get,select,,GetIPSecConnectionTunnelError
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/routes,ListIPSecConnectionTunnelRoutes,list_ipsec_connection_tunnel_routes,get,TunnelRouteSummary,virtualNetwork,virtual_network,ip_sec_connection_tunnel_routes,list,select,$.ipsec_connection_tunnel_routes,ListIPSecConnectionTunnelRoutes
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/sharedSecret,GetIPSecConnectionTunnelSharedSecret,get_ipsec_connection_tunnel_shared_secret,get,IPSecConnectionTunnelSharedSecret,virtualNetwork,virtual_network,ip_sec_connection_tunnel_shared_secrets,get,select,,GetIPSecConnectionTunnelSharedSecret
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/sharedSecret,UpdateIPSecConnectionTunnelSharedSecret,update_ipsec_connection_tunnel_shared_secret,put,IPSecConnectionTunnelSharedSecret,virtualNetwork,virtual_network,ip_sec_connection_tunnel_shared_secrets,update,update,,UpdateIPSecConnectionTunnelSharedSecret
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/tunnelDeviceConfig,GetTunnelCpeDeviceConfig,get_tunnel_cpe_device_config,get,TunnelCpeDeviceConfig,virtualNetwork,virtual_network,tunnel_cpe_device_configs,get,select,,GetTunnelCpeDeviceConfig
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/tunnelDeviceConfig,UpdateTunnelCpeDeviceConfig,update_tunnel_cpe_device_config,put,TunnelCpeDeviceConfig,virtualNetwork,virtual_network,tunnel_cpe_device_configs,update,update,,UpdateTunnelCpeDeviceConfig
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/tunnelDeviceConfig/content,GetTunnelCpeDeviceConfigContent,get_tunnel_cpe_device_config_content,get,,virtualNetwork,virtual_network,tunnel_cpe_device_config_contents,get,select,,GetTunnelCpeDeviceConfigContent
+network.yaml,/ipsecConnections/{ipscId}/tunnels/{tunnelId}/tunnelSecurityAssociations,ListIPSecConnectionTunnelSecurityAssociations,list_ipsec_connection_tunnel_security_associations,get,TunnelSecurityAssociationSummary,virtualNetwork,virtual_network,ip_sec_connection_tunnel_security_associations,list,select,$.ipsec_connection_tunnel_security_associations,ListIPSecConnectionTunnelSecurityAssociations
+network.yaml,/ipv6,ListIpv6s,list_ipv6s,get,Ipv6,virtualNetwork,virtual_network,ipv6s,list,select,$.ipv6s,ListIpv6s
+network.yaml,/ipv6,CreateIpv6,create_ipv6,post,Ipv6,virtualNetwork,virtual_network,ipv6s,create,insert,,CreateIpv6
+network.yaml,/ipv6/actions/bulkCreateIpv6s,BulkCreateIpv6s,bulk_create_ipv6s,post,,virtualNetwork,virtual_network,ipv6s,bulk_create_ipv6s,exec,,BulkCreateIpv6s
+network.yaml,/ipv6/actions/bulkDeleteIpv6s,BulkDeleteIpv6s,bulk_delete_ipv6s,post,,virtualNetwork,virtual_network,ipv6s,bulk_delete_ipv6s,exec,,BulkDeleteIpv6s
+network.yaml,/ipv6/actions/bulkDetachIpv6s,BulkDetachIpv6s,bulk_detach_ipv6s,post,,virtualNetwork,virtual_network,ipv6s,bulk_detach_ipv6s,exec,,BulkDetachIpv6s
+network.yaml,/ipv6/actions/bulkUpdateIpv6s,BulkUpdateIpv6s,bulk_update_ipv6s,post,,virtualNetwork,virtual_network,ipv6s,bulk_update_ipv6s,exec,,BulkUpdateIpv6s
+network.yaml,/ipv6/{ipv6Id},DeleteIpv6,delete_ipv6,delete,,virtualNetwork,virtual_network,ipv6s,delete,delete,,DeleteIpv6
+network.yaml,/ipv6/{ipv6Id},GetIpv6,get_ipv6,get,Ipv6,virtualNetwork,virtual_network,ipv6s,get,select,,GetIpv6
+network.yaml,/ipv6/{ipv6Id},UpdateIpv6,update_ipv6,put,Ipv6,virtualNetwork,virtual_network,ipv6s,update,update,,UpdateIpv6
+network.yaml,/ipv6/{ipv6Id}/actions/detach,Ipv6VnicDetach,ipv6_vnic_detach,post,Ipv6,virtualNetwork,virtual_network,ipv6s,ipv6_vnic_detach,exec,,Ipv6VnicDetach
+network.yaml,/localPeeringGateways,ListLocalPeeringGateways,list_local_peering_gateways,get,LocalPeeringGateway,virtualNetwork,virtual_network,local_peering_gateways,list,select,$.local_peering_gateways,ListLocalPeeringGateways
+network.yaml,/localPeeringGateways,CreateLocalPeeringGateway,create_local_peering_gateway,post,LocalPeeringGateway,virtualNetwork,virtual_network,local_peering_gateways,create,insert,,CreateLocalPeeringGateway
+network.yaml,/localPeeringGateways/{localPeeringGatewayId},DeleteLocalPeeringGateway,delete_local_peering_gateway,delete,,virtualNetwork,virtual_network,local_peering_gateways,delete,delete,,DeleteLocalPeeringGateway
+network.yaml,/localPeeringGateways/{localPeeringGatewayId},GetLocalPeeringGateway,get_local_peering_gateway,get,LocalPeeringGateway,virtualNetwork,virtual_network,local_peering_gateways,get,select,,GetLocalPeeringGateway
+network.yaml,/localPeeringGateways/{localPeeringGatewayId},UpdateLocalPeeringGateway,update_local_peering_gateway,put,LocalPeeringGateway,virtualNetwork,virtual_network,local_peering_gateways,update,update,,UpdateLocalPeeringGateway
+network.yaml,/localPeeringGateways/{localPeeringGatewayId}/actions/changeCompartment,ChangeLocalPeeringGatewayCompartment,change_local_peering_gateway_compartment,post,,virtualNetwork,virtual_network,local_peering_gateways,change_compartment,exec,,ChangeLocalPeeringGatewayCompartment
+network.yaml,/localPeeringGateways/{localPeeringGatewayId}/actions/connect,ConnectLocalPeeringGateways,connect_local_peering_gateways,post,,virtualNetwork,virtual_network,local_peering_gateways,connect_local_peering_gateways,exec,,ConnectLocalPeeringGateways
+network.yaml,/natGateways,ListNatGateways,list_nat_gateways,get,NatGateway,virtualNetwork,virtual_network,nat_gateways,list,select,$.nat_gateways,ListNatGateways
+network.yaml,/natGateways,CreateNatGateway,create_nat_gateway,post,NatGateway,virtualNetwork,virtual_network,nat_gateways,create,insert,,CreateNatGateway
+network.yaml,/natGateways/{natGatewayId},DeleteNatGateway,delete_nat_gateway,delete,,virtualNetwork,virtual_network,nat_gateways,delete,delete,,DeleteNatGateway
+network.yaml,/natGateways/{natGatewayId},GetNatGateway,get_nat_gateway,get,NatGateway,virtualNetwork,virtual_network,nat_gateways,get,select,,GetNatGateway
+network.yaml,/natGateways/{natGatewayId},UpdateNatGateway,update_nat_gateway,put,NatGateway,virtualNetwork,virtual_network,nat_gateways,update,update,,UpdateNatGateway
+network.yaml,/natGateways/{natGatewayId}/actions/changeCompartment,ChangeNatGatewayCompartment,change_nat_gateway_compartment,post,,virtualNetwork,virtual_network,nat_gateways,change_compartment,exec,,ChangeNatGatewayCompartment
+network.yaml,/networkSecurityGroups,ListNetworkSecurityGroups,list_network_security_groups,get,NetworkSecurityGroup,virtualNetwork,virtual_network,network_security_groups,list,select,$.network_security_groups,ListNetworkSecurityGroups
+network.yaml,/networkSecurityGroups,CreateNetworkSecurityGroup,create_network_security_group,post,NetworkSecurityGroup,virtualNetwork,virtual_network,network_security_groups,create,insert,,CreateNetworkSecurityGroup
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId},DeleteNetworkSecurityGroup,delete_network_security_group,delete,,virtualNetwork,virtual_network,network_security_groups,delete,delete,,DeleteNetworkSecurityGroup
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId},GetNetworkSecurityGroup,get_network_security_group,get,NetworkSecurityGroup,virtualNetwork,virtual_network,network_security_groups,get,select,,GetNetworkSecurityGroup
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId},UpdateNetworkSecurityGroup,update_network_security_group,put,NetworkSecurityGroup,virtualNetwork,virtual_network,network_security_groups,update,update,,UpdateNetworkSecurityGroup
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId}/actions/addSecurityRules,AddNetworkSecurityGroupSecurityRules,add_network_security_group_security_rules,post,AddedNetworkSecurityGroupSecurityRules,virtualNetwork,virtual_network,network_security_groups,add_network_security_group_security_rules,exec,,AddNetworkSecurityGroupSecurityRules
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId}/actions/changeCompartment,ChangeNetworkSecurityGroupCompartment,change_network_security_group_compartment,post,,virtualNetwork,virtual_network,network_security_groups,change_compartment,exec,,ChangeNetworkSecurityGroupCompartment
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId}/actions/removeSecurityRules,RemoveNetworkSecurityGroupSecurityRules,remove_network_security_group_security_rules,post,,virtualNetwork,virtual_network,network_security_groups,remove_network_security_group_security_rules,exec,,RemoveNetworkSecurityGroupSecurityRules
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId}/actions/updateSecurityRules,UpdateNetworkSecurityGroupSecurityRules,update_network_security_group_security_rules,post,UpdatedNetworkSecurityGroupSecurityRules,virtualNetwork,virtual_network,network_security_group_security_rules,update,update,,UpdateNetworkSecurityGroupSecurityRules
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId}/securityRules,ListNetworkSecurityGroupSecurityRules,list_network_security_group_security_rules,get,SecurityRule,virtualNetwork,virtual_network,network_security_group_security_rules,list,select,$.network_security_group_security_rules,ListNetworkSecurityGroupSecurityRules
+network.yaml,/networkSecurityGroups/{networkSecurityGroupId}/vnics,ListNetworkSecurityGroupVnics,list_network_security_group_vnics,get,NetworkSecurityGroupVnic,virtualNetwork,virtual_network,network_security_group_vnics,list,select,$.network_security_group_vnics,ListNetworkSecurityGroupVnics
+network.yaml,/networkingTopology,GetNetworkingTopology,get_networking_topology,get,NetworkingTopology,virtualNetwork,virtual_network,networking_topologies,get,select,,Get a Virtual Networking topology for the current region
+network.yaml,/privateIps,ListPrivateIps,list_private_ips,get,PrivateIp,virtualNetwork,virtual_network,private_ips,list,select,$.private_ips,ListPrivateIps
+network.yaml,/privateIps,CreatePrivateIp,create_private_ip,post,PrivateIp,virtualNetwork,virtual_network,private_ips,create,insert,,CreatePrivateIp
+network.yaml,/privateIps/actions/bulkCreatePrivateIps,BulkCreatePrivateIps,bulk_create_private_ips,post,,virtualNetwork,virtual_network,private_ips,bulk_create_private_ips,exec,,BulkCreatePrivateIps
+network.yaml,/privateIps/actions/bulkDeletePrivateIps,BulkDeletePrivateIps,bulk_delete_private_ips,post,,virtualNetwork,virtual_network,private_ips,bulk_delete_private_ips,exec,,BulkDeletePrivateIps
+network.yaml,/privateIps/actions/bulkDetachPrivateIps,BulkDetachPrivateIps,bulk_detach_private_ips,post,,virtualNetwork,virtual_network,private_ips,bulk_detach_private_ips,exec,,DetachPrivateIps
+network.yaml,/privateIps/actions/bulkUpdatePrivateIps,BulkUpdatePrivateIps,bulk_update_private_ips,post,,virtualNetwork,virtual_network,private_ips,bulk_update_private_ips,exec,,UpdatePrivateIps
+network.yaml,/privateIps/{privateIpId},DeletePrivateIp,delete_private_ip,delete,,virtualNetwork,virtual_network,private_ips,delete,delete,,DeletePrivateIp
+network.yaml,/privateIps/{privateIpId},GetPrivateIp,get_private_ip,get,PrivateIp,virtualNetwork,virtual_network,private_ips,get,select,,GetPrivateIp
+network.yaml,/privateIps/{privateIpId},UpdatePrivateIp,update_private_ip,put,PrivateIp,virtualNetwork,virtual_network,private_ips,update,update,,UpdatePrivateIp
+network.yaml,/privateIps/{privateIpId}/actions/detach,PrivateIpVnicDetach,private_ip_vnic_detach,post,PrivateIp,virtualNetwork,virtual_network,private_ips,private_ip_vnic_detach,exec,,PrivateIpVnicDetach
+network.yaml,/publicIpPools,ListPublicIpPools,list_public_ip_pools,get,PublicIpPoolCollection,virtualNetwork,virtual_network,public_ip_pools,list,select,$.items,ListPublicIpPools
+network.yaml,/publicIpPools,CreatePublicIpPool,create_public_ip_pool,post,PublicIpPool,virtualNetwork,virtual_network,public_ip_pools,create,insert,,CreatePublicIpPool
+network.yaml,/publicIpPools/{publicIpPoolId},DeletePublicIpPool,delete_public_ip_pool,delete,,virtualNetwork,virtual_network,public_ip_pools,delete,delete,,DeletePublicIpPool
+network.yaml,/publicIpPools/{publicIpPoolId},GetPublicIpPool,get_public_ip_pool,get,PublicIpPool,virtualNetwork,virtual_network,public_ip_pools,get,select,,GetPublicIpPool
+network.yaml,/publicIpPools/{publicIpPoolId},UpdatePublicIpPool,update_public_ip_pool,put,PublicIpPool,virtualNetwork,virtual_network,public_ip_pools,update,update,,UpdatePublicIpPool
+network.yaml,/publicIpPools/{publicIpPoolId}/actions/addCapacity,AddPublicIpPoolCapacity,add_public_ip_pool_capacity,post,PublicIpPool,virtualNetwork,virtual_network,public_ip_pools,add_public_ip_pool_capacity,exec,,AddPublicIpPoolCapacity
+network.yaml,/publicIpPools/{publicIpPoolId}/actions/changeCompartment,ChangePublicIpPoolCompartment,change_public_ip_pool_compartment,post,,virtualNetwork,virtual_network,public_ip_pools,change_compartment,exec,,ChangePublicIpPoolCompartment
+network.yaml,/publicIpPools/{publicIpPoolId}/actions/removeCapacity,RemovePublicIpPoolCapacity,remove_public_ip_pool_capacity,post,PublicIpPool,virtualNetwork,virtual_network,public_ip_pools,remove_public_ip_pool_capacity,exec,,RemovePublicIpPoolCapacity
+network.yaml,/publicIps,ListPublicIps,list_public_ips,get,PublicIp,virtualNetwork,virtual_network,public_ips,list,select,$.public_ips,ListPublicIps
+network.yaml,/publicIps,CreatePublicIp,create_public_ip,post,PublicIp,virtualNetwork,virtual_network,public_ips,create,insert,,CreatePublicIp
+network.yaml,/publicIps/actions/getByIpAddress,GetPublicIpByIpAddress,get_public_ip_by_ip_address,post,PublicIp,virtualNetwork,virtual_network,public_ips,get_public_ip_by_ip_address,exec,,GetPublicIpByIpAddress
+network.yaml,/publicIps/actions/getByPrivateIpId,GetPublicIpByPrivateIpId,get_public_ip_by_private_ip_id,post,PublicIp,virtualNetwork,virtual_network,public_ips,get_public_ip_by_private_ip_id,exec,,GetPublicIpByPrivateIpId
+network.yaml,/publicIps/{publicIpId},DeletePublicIp,delete_public_ip,delete,,virtualNetwork,virtual_network,public_ips,delete,delete,,DeletePublicIp
+network.yaml,/publicIps/{publicIpId},GetPublicIp,get_public_ip,get,PublicIp,virtualNetwork,virtual_network,public_ips,get,select,,GetPublicIp
+network.yaml,/publicIps/{publicIpId},UpdatePublicIp,update_public_ip,put,PublicIp,virtualNetwork,virtual_network,public_ips,update,update,,UpdatePublicIp
+network.yaml,/publicIps/{publicIpId}/actions/changeCompartment,ChangePublicIpCompartment,change_public_ip_compartment,post,,virtualNetwork,virtual_network,public_ips,change_compartment,exec,,ChangePublicIpCompartment
+network.yaml,/remotePeeringConnections,ListRemotePeeringConnections,list_remote_peering_connections,get,RemotePeeringConnection,virtualNetwork,virtual_network,remote_peering_connections,list,select,$.remote_peering_connections,ListRemotePeeringConnections
+network.yaml,/remotePeeringConnections,CreateRemotePeeringConnection,create_remote_peering_connection,post,RemotePeeringConnection,virtualNetwork,virtual_network,remote_peering_connections,create,insert,,CreateRemotePeeringConnection
+network.yaml,/remotePeeringConnections/{remotePeeringConnectionId},DeleteRemotePeeringConnection,delete_remote_peering_connection,delete,,virtualNetwork,virtual_network,remote_peering_connections,delete,delete,,DeleteRemotePeeringConnection
+network.yaml,/remotePeeringConnections/{remotePeeringConnectionId},GetRemotePeeringConnection,get_remote_peering_connection,get,RemotePeeringConnection,virtualNetwork,virtual_network,remote_peering_connections,get,select,,GetRemotePeeringConnection
+network.yaml,/remotePeeringConnections/{remotePeeringConnectionId},UpdateRemotePeeringConnection,update_remote_peering_connection,put,RemotePeeringConnection,virtualNetwork,virtual_network,remote_peering_connections,update,update,,UpdateRemotePeeringConnection
+network.yaml,/remotePeeringConnections/{remotePeeringConnectionId}/actions/changeCompartment,ChangeRemotePeeringConnectionCompartment,change_remote_peering_connection_compartment,post,,virtualNetwork,virtual_network,remote_peering_connections,change_compartment,exec,,ChangeRemotePeeringConnectionCompartment
+network.yaml,/remotePeeringConnections/{remotePeeringConnectionId}/actions/connect,ConnectRemotePeeringConnections,connect_remote_peering_connections,post,,virtualNetwork,virtual_network,remote_peering_connections,connect_remote_peering_connections,exec,,ConnectRemotePeeringConnections
+network.yaml,/routeTables,ListRouteTables,list_route_tables,get,RouteTable,virtualNetwork,virtual_network,route_tables,list,select,$.route_tables,ListRouteTables
+network.yaml,/routeTables,CreateRouteTable,create_route_table,post,RouteTable,virtualNetwork,virtual_network,route_tables,create,insert,,CreateRouteTable
+network.yaml,/routeTables/{rtId},DeleteRouteTable,delete_route_table,delete,,virtualNetwork,virtual_network,route_tables,delete,delete,,DeleteRouteTable
+network.yaml,/routeTables/{rtId},GetRouteTable,get_route_table,get,RouteTable,virtualNetwork,virtual_network,route_tables,get,select,,GetRouteTable
+network.yaml,/routeTables/{rtId},UpdateRouteTable,update_route_table,put,RouteTable,virtualNetwork,virtual_network,route_tables,update,update,,UpdateRouteTable
+network.yaml,/routeTables/{rtId}/actions/changeCompartment,ChangeRouteTableCompartment,change_route_table_compartment,post,,virtualNetwork,virtual_network,route_tables,change_compartment,exec,,ChangeRouteTableCompartment
+network.yaml,/securityLists,ListSecurityLists,list_security_lists,get,SecurityList,virtualNetwork,virtual_network,security_lists,list,select,$.security_lists,ListSecurityLists
+network.yaml,/securityLists,CreateSecurityList,create_security_list,post,SecurityList,virtualNetwork,virtual_network,security_lists,create,insert,,CreateSecurityList
+network.yaml,/securityLists/{securityListId},DeleteSecurityList,delete_security_list,delete,,virtualNetwork,virtual_network,security_lists,delete,delete,,DeleteSecurityList
+network.yaml,/securityLists/{securityListId},GetSecurityList,get_security_list,get,SecurityList,virtualNetwork,virtual_network,security_lists,get,select,,GetSecurityList
+network.yaml,/securityLists/{securityListId},UpdateSecurityList,update_security_list,put,SecurityList,virtualNetwork,virtual_network,security_lists,update,update,,UpdateSecurityList
+network.yaml,/securityLists/{securityListId}/actions/changeCompartment,ChangeSecurityListCompartment,change_security_list_compartment,post,,virtualNetwork,virtual_network,security_lists,change_compartment,exec,,ChangeSecurityListCompartment
+network.yaml,/serviceGateways,ListServiceGateways,list_service_gateways,get,ServiceGateway,virtualNetwork,virtual_network,service_gateways,list,select,$.service_gateways,ListServiceGateways
+network.yaml,/serviceGateways,CreateServiceGateway,create_service_gateway,post,ServiceGateway,virtualNetwork,virtual_network,service_gateways,create,insert,,CreateServiceGateway
+network.yaml,/serviceGateways/{serviceGatewayId},DeleteServiceGateway,delete_service_gateway,delete,,virtualNetwork,virtual_network,service_gateways,delete,delete,,DeleteServiceGateway
+network.yaml,/serviceGateways/{serviceGatewayId},GetServiceGateway,get_service_gateway,get,ServiceGateway,virtualNetwork,virtual_network,service_gateways,get,select,,GetServiceGateway
+network.yaml,/serviceGateways/{serviceGatewayId},UpdateServiceGateway,update_service_gateway,put,ServiceGateway,virtualNetwork,virtual_network,service_gateways,update,update,,UpdateServiceGateway
+network.yaml,/serviceGateways/{serviceGatewayId}/actions/attachService,AttachServiceId,attach_service_id,post,ServiceGateway,virtualNetwork,virtual_network,service_gateways,attach,insert,,AttachService
+network.yaml,/serviceGateways/{serviceGatewayId}/actions/changeCompartment,ChangeServiceGatewayCompartment,change_service_gateway_compartment,post,,virtualNetwork,virtual_network,service_gateways,change_compartment,exec,,ChangeServiceGatewayCompartment
+network.yaml,/serviceGateways/{serviceGatewayId}/actions/detachService,DetachServiceId,detach_service_id,post,ServiceGateway,virtualNetwork,virtual_network,service_gateways,detach_service_id,exec,,DetachService
+network.yaml,/services,ListServices,list_services,get,Service,virtualNetwork,virtual_network,services,list,select,$.services,ListServices
+network.yaml,/services/{serviceId},GetService,get_service,get,Service,virtualNetwork,virtual_network,services,get,select,,GetService
+network.yaml,/subnetTopology,GetSubnetTopology,get_subnet_topology,get,SubnetTopology,virtualNetwork,virtual_network,subnet_topologies,get,select,,Get virtual network subnet topology
+network.yaml,/subnets,ListSubnets,list_subnets,get,Subnet,virtualNetwork,virtual_network,subnets,list,select,$.subnets,ListSubnets
+network.yaml,/subnets,CreateSubnet,create_subnet,post,Subnet,virtualNetwork,virtual_network,subnets,create,insert,,CreateSubnet
+network.yaml,/subnets/{subnetId},DeleteSubnet,delete_subnet,delete,,virtualNetwork,virtual_network,subnets,delete,delete,,DeleteSubnet
+network.yaml,/subnets/{subnetId},GetSubnet,get_subnet,get,Subnet,virtualNetwork,virtual_network,subnets,get,select,,GetSubnet
+network.yaml,/subnets/{subnetId},UpdateSubnet,update_subnet,put,Subnet,virtualNetwork,virtual_network,subnets,update,update,,UpdateSubnet
+network.yaml,/subnets/{subnetId}/actions/addIpv4Cidr,AddIpv4SubnetCidr,add_ipv4_subnet_cidr,post,,virtualNetwork,virtual_network,subnets,add_ipv4_subnet_cidr,exec,,AddIpv4SubnetCidr
+network.yaml,/subnets/{subnetId}/actions/addIpv6Cidr,AddIpv6SubnetCidr,add_ipv6_subnet_cidr,post,,virtualNetwork,virtual_network,subnets,add_ipv6_subnet_cidr,exec,,AddIpv6SubnetCidr
+network.yaml,/subnets/{subnetId}/actions/changeCompartment,ChangeSubnetCompartment,change_subnet_compartment,post,,virtualNetwork,virtual_network,subnets,change_compartment,exec,,ChangeSubnetCompartment
+network.yaml,/subnets/{subnetId}/actions/modifyIpv4Cidr,ModifyIpv4SubnetCidr,modify_ipv4_subnet_cidr,post,,virtualNetwork,virtual_network,subnets,modify_ipv4_subnet_cidr,exec,,ModifyIpv4SubnetCidr
+network.yaml,/subnets/{subnetId}/actions/removeIpv4Cidr,RemoveIpv4SubnetCidr,remove_ipv4_subnet_cidr,post,,virtualNetwork,virtual_network,subnets,remove_ipv4_subnet_cidr,exec,,RemoveIpv4SubnetCidr
+network.yaml,/subnets/{subnetId}/actions/removeIpv6Cidr,RemoveIpv6SubnetCidr,remove_ipv6_subnet_cidr,post,,virtualNetwork,virtual_network,subnets,remove_ipv6_subnet_cidr,exec,,RemoveIpv6SubnetCidr
+network.yaml,/vcnTopology,GetVcnTopology,get_vcn_topology,get,VcnTopology,virtualNetwork,virtual_network,vcn_topologies,get,select,,Get Virtual Network VCN topology
+network.yaml,/vcns,ListVcns,list_vcns,get,Vcn,virtualNetwork,virtual_network,vcns,list,select,$.vcns,ListVcns
+network.yaml,/vcns,CreateVcn,create_vcn,post,Vcn,virtualNetwork,virtual_network,vcns,create,insert,,CreateVcn
+network.yaml,/vcns/{vcnId},DeleteVcn,delete_vcn,delete,,virtualNetwork,virtual_network,vcns,delete,delete,,DeleteVcn
+network.yaml,/vcns/{vcnId},GetVcn,get_vcn,get,Vcn,virtualNetwork,virtual_network,vcns,get,select,,GetVcn
+network.yaml,/vcns/{vcnId},UpdateVcn,update_vcn,put,Vcn,virtualNetwork,virtual_network,vcns,update,update,,UpdateVcn
+network.yaml,/vcns/{vcnId}/actions/addCidr,AddVcnCidr,add_vcn_cidr,post,,virtualNetwork,virtual_network,vcns,add_vcn_cidr,exec,,AddVcnCidr
+network.yaml,/vcns/{vcnId}/actions/addIpv6Cidr,AddIpv6VcnCidr,add_ipv6_vcn_cidr,post,,virtualNetwork,virtual_network,vcns,add_ipv6_vcn_cidr,exec,,AddVcnIpv6Cidr
+network.yaml,/vcns/{vcnId}/actions/changeCompartment,ChangeVcnCompartment,change_vcn_compartment,post,,virtualNetwork,virtual_network,vcns,change_compartment,exec,,ChangeVcnCompartment
+network.yaml,/vcns/{vcnId}/actions/modifyCidr,ModifyVcnCidr,modify_vcn_cidr,post,,virtualNetwork,virtual_network,vcns,modify_vcn_cidr,exec,,ModifyVcnCidr
+network.yaml,/vcns/{vcnId}/actions/removeCidr,RemoveVcnCidr,remove_vcn_cidr,post,,virtualNetwork,virtual_network,vcns,remove_vcn_cidr,exec,,RemoveVcnCidr
+network.yaml,/vcns/{vcnId}/actions/removeIpv6Cidr,RemoveIpv6VcnCidr,remove_ipv6_vcn_cidr,post,,virtualNetwork,virtual_network,vcns,remove_ipv6_vcn_cidr,exec,,RemoveIpv6VcnCidr
+network.yaml,/virtualCircuitBandwidthShapes,ListVirtualCircuitBandwidthShapes,list_virtual_circuit_bandwidth_shapes,get,VirtualCircuitBandwidthShape,virtualNetwork,virtual_network,virtual_circuit_bandwidth_shapes,list,select,$.virtual_circuit_bandwidth_shapes,ListVirtualCircuitBandwidthShapes
+network.yaml,/virtualCircuits,ListVirtualCircuits,list_virtual_circuits,get,VirtualCircuit,virtualNetwork,virtual_network,virtual_circuits,list,select,$.virtual_circuits,ListVirtualCircuits
+network.yaml,/virtualCircuits,CreateVirtualCircuit,create_virtual_circuit,post,VirtualCircuit,virtualNetwork,virtual_network,virtual_circuits,create,insert,,CreateVirtualCircuit
+network.yaml,/virtualCircuits/{virtualCircuitId},DeleteVirtualCircuit,delete_virtual_circuit,delete,,virtualNetwork,virtual_network,virtual_circuits,delete,delete,,DeleteVirtualCircuit
+network.yaml,/virtualCircuits/{virtualCircuitId},GetVirtualCircuit,get_virtual_circuit,get,VirtualCircuit,virtualNetwork,virtual_network,virtual_circuits,get,select,,GetVirtualCircuit
+network.yaml,/virtualCircuits/{virtualCircuitId},UpdateVirtualCircuit,update_virtual_circuit,put,VirtualCircuit,virtualNetwork,virtual_network,virtual_circuits,update,update,,UpdateVirtualCircuit
+network.yaml,/virtualCircuits/{virtualCircuitId}/actions/bulkAddPublicPrefixes,BulkAddVirtualCircuitPublicPrefixes,bulk_add_virtual_circuit_public_prefixes,post,,virtualNetwork,virtual_network,virtual_circuits,bulk_add_virtual_circuit_public_prefixes,exec,,BulkAddVirtualCircuitPublicPrefixes
+network.yaml,/virtualCircuits/{virtualCircuitId}/actions/bulkDeletePublicPrefixes,BulkDeleteVirtualCircuitPublicPrefixes,bulk_delete_virtual_circuit_public_prefixes,post,,virtualNetwork,virtual_network,virtual_circuits,bulk_delete_virtual_circuit_public_prefixes,exec,,BulkDeleteVirtualCircuitPublicPrefixes
+network.yaml,/virtualCircuits/{virtualCircuitId}/actions/changeCompartment,ChangeVirtualCircuitCompartment,change_virtual_circuit_compartment,post,,virtualNetwork,virtual_network,virtual_circuits,change_compartment,exec,,ChangeVirtualCircuitCompartment
+network.yaml,/virtualCircuits/{virtualCircuitId}/associatedTunnels,ListVirtualCircuitAssociatedTunnels,list_virtual_circuit_associated_tunnels,get,VirtualCircuitAssociatedTunnelDetails,virtualNetwork,virtual_network,virtual_circuit_associated_tunnels,list,select,$.virtual_circuit_associated_tunnels,ListVirtualCircuitAssociatedTunnels
+network.yaml,/virtualCircuits/{virtualCircuitId}/crossConnectMappings,ListCrossConnectMappings,list_cross_connect_mappings,get,CrossConnectMappingDetailsCollection,virtualNetwork,virtual_network,cross_connect_mappings,list,select,$.items,ListCrossConnectMappings
+network.yaml,/virtualCircuits/{virtualCircuitId}/publicPrefixes,ListVirtualCircuitPublicPrefixes,list_virtual_circuit_public_prefixes,get,VirtualCircuitPublicPrefix,virtualNetwork,virtual_network,virtual_circuit_public_prefixes,list,select,$.virtual_circuit_public_prefixes,ListVirtualCircuitPublicPrefixes
+network.yaml,/vlans,ListVlans,list_vlans,get,Vlan,virtualNetwork,virtual_network,vlans,list,select,$.vlans,ListVlans
+network.yaml,/vlans,CreateVlan,create_vlan,post,Vlan,virtualNetwork,virtual_network,vlans,create,insert,,CreateVlan
+network.yaml,/vlans/{vlanId},DeleteVlan,delete_vlan,delete,,virtualNetwork,virtual_network,vlans,delete,delete,,DeleteVlan
+network.yaml,/vlans/{vlanId},GetVlan,get_vlan,get,Vlan,virtualNetwork,virtual_network,vlans,get,select,,GetVlan
+network.yaml,/vlans/{vlanId},UpdateVlan,update_vlan,put,Vlan,virtualNetwork,virtual_network,vlans,update,update,,UpdateVlan
+network.yaml,/vlans/{vlanId}/actions/changeCompartment,ChangeVlanCompartment,change_vlan_compartment,post,,virtualNetwork,virtual_network,vlans,change_compartment,exec,,ChangeVlanCompartment
+network.yaml,/vnics/{vnicId},GetVnic,get_vnic,get,Vnic,virtualNetwork,virtual_network,vnics,get,select,,GetVnic
+network.yaml,/vnics/{vnicId},UpdateVnic,update_vnic,put,Vnic,virtualNetwork,virtual_network,vnics,update,update,,UpdateVnic
+network.yaml,/vtaps,ListVtaps,list_vtaps,get,Vtap,virtualNetwork,virtual_network,vtaps,list,select,$.vtaps,ListVtaps
+network.yaml,/vtaps,CreateVtap,create_vtap,post,Vtap,virtualNetwork,virtual_network,vtaps,create,insert,,CreateVtap
+network.yaml,/vtaps/{vtapId},DeleteVtap,delete_vtap,delete,,virtualNetwork,virtual_network,vtaps,delete,delete,,DeleteVtap
+network.yaml,/vtaps/{vtapId},GetVtap,get_vtap,get,Vtap,virtualNetwork,virtual_network,vtaps,get,select,,GetVtap
+network.yaml,/vtaps/{vtapId},UpdateVtap,update_vtap,put,Vtap,virtualNetwork,virtual_network,vtaps,update,update,,UpdateVtap
+network.yaml,/vtaps/{vtapId}/actions/changeCompartment,ChangeVtapCompartment,change_vtap_compartment,post,,virtualNetwork,virtual_network,vtaps,change_compartment,exec,,ChangeVtapCompartment
+object_storage.yaml,/n/,GetNamespace,get_namespace,get,,objectStorage,object_storage,namespaces,get,select,,GET Namespace Name
+object_storage.yaml,/n/{namespaceName},GetNamespaceMetadata,get_namespace_metadata,get,NamespaceMetadata,objectStorage,object_storage,namespace_metadatas,get,select,,GET Namespace Metadata
+object_storage.yaml,/n/{namespaceName},UpdateNamespaceMetadata,update_namespace_metadata,put,NamespaceMetadata,objectStorage,object_storage,namespace_metadatas,update,update,,PUT Namespace
+object_storage.yaml,/n/{namespaceName}/b/,ListBuckets,list_buckets,get,BucketSummary,objectStorage,object_storage,buckets,list,select,$.buckets,List Buckets
+object_storage.yaml,/n/{namespaceName}/b/,CreateBucket,create_bucket,post,Bucket,objectStorage,object_storage,buckets,create,insert,,Create Bucket
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/,DeleteBucket,delete_bucket,delete,,objectStorage,object_storage,buckets,delete,delete,,DELETE Bucket
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/,GetBucket,get_bucket,get,Bucket,objectStorage,object_storage,buckets,get,select,,GET Bucket
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/,UpdateBucket,update_bucket,post,Bucket,objectStorage,object_storage,buckets,update,update,,POST Bucket
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/batchDeleteObjects,BatchDeleteObjects,batch_delete_objects,post,BatchDeleteObjectsResult,objectStorage,object_storage,bs,batch_delete_objects,exec,,Deletes a batch of objects.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/copyObject,CopyObject,copy_object,post,,objectStorage,object_storage,bs,copy_object,exec,,Creates a copy object request.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/makeBucketWritable,MakeBucketWritable,make_bucket_writable,post,,objectStorage,object_storage,bs,make_bucket_writable,exec,,Stops the replication policy associated with a destination bucket.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/reencrypt,ReencryptBucket,reencrypt_bucket,post,,objectStorage,object_storage,bs,reencrypt_bucket,exec,,Re-encrypt Bucket Data Encryption Key
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/reencrypt/{objectName},ReencryptObject,reencrypt_object,post,,objectStorage,object_storage,bs,reencrypt_object,exec,,Re-encrypt the data encryption keys associated with an object
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/renameObject,RenameObject,rename_object,post,,objectStorage,object_storage,bs,rename_object,exec,,Rename Object
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/restoreObjects,RestoreObjects,restore_objects,post,,objectStorage,object_storage,bs,restore_objects,exec,,Restore Object
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/actions/updateObjectStorageTier,UpdateObjectStorageTier,update_object_storage_tier,post,,objectStorage,object_storage,object_storage_tiers,update,update,,Move the object into a different storage tier
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/l,DeleteObjectLifecyclePolicy,delete_object_lifecycle_policy,delete,,objectStorage,object_storage,object_lifecycle_policies,delete,delete,,Delete object lifecycle policy
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/l,GetObjectLifecyclePolicy,get_object_lifecycle_policy,get,ObjectLifecyclePolicy,objectStorage,object_storage,object_lifecycle_policies,get,select,,GET object lifecycle policy
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/l,PutObjectLifecyclePolicy,put_object_lifecycle_policy,put,ObjectLifecyclePolicy,objectStorage,object_storage,ls,put_object_lifecycle_policy,exec,,Put object lifecycle policy.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/o,ListObjects,list_objects,get,ListObjects,objectStorage,object_storage,objects,list,select,$.objects,List Objects
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/o/{objectName},DeleteObject,delete_object,delete,,objectStorage,object_storage,objects,delete,delete,,DELETE Object
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/o/{objectName},GetObject,get_object,get,,objectStorage,object_storage,skip_this_resource,get_object,exec,,GET Object
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/o/{objectName},PutObject,put_object,put,,objectStorage,object_storage,skip_this_resource,put_object,exec,,PUT Object
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/objectversions,ListObjectVersions,list_object_versions,get,ObjectVersionCollection,objectStorage,object_storage,object_versions,list,select,$.items,List Object Versions
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/p/,ListPreauthenticatedRequests,list_preauthenticated_requests,get,PreauthenticatedRequestSummary,objectStorage,object_storage,preauthenticated_requests,list,select,$.preauthenticated_requests,List Preauthenticated Requests
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/p/,CreatePreauthenticatedRequest,create_preauthenticated_request,post,PreauthenticatedRequest,objectStorage,object_storage,preauthenticated_requests,create,insert,,Create Preauthenticated Request
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/p/{parId},DeletePreauthenticatedRequest,delete_preauthenticated_request,delete,,objectStorage,object_storage,preauthenticated_requests,delete,delete,,DELETE Preauthenticated Request
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/p/{parId},GetPreauthenticatedRequest,get_preauthenticated_request,get,PreauthenticatedRequestSummary,objectStorage,object_storage,preauthenticated_requests,get,select,,GET Preauthenticated Request
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/replicationPolicies,ListReplicationPolicies,list_replication_policies,get,ReplicationPolicySummary,objectStorage,object_storage,replication_policies,list,select,$.replication_policies,List the replication policies associated with a bucket.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/replicationPolicies,CreateReplicationPolicy,create_replication_policy,post,ReplicationPolicy,objectStorage,object_storage,replication_policies,create,insert,,Create replication policy.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/replicationPolicies/{replicationId},DeleteReplicationPolicy,delete_replication_policy,delete,,objectStorage,object_storage,replication_policies,delete,delete,,Delete replication policy.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/replicationPolicies/{replicationId},GetReplicationPolicy,get_replication_policy,get,ReplicationPolicy,objectStorage,object_storage,replication_policies,get,select,,Get replication policy.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/replicationSources,ListReplicationSources,list_replication_sources,get,ReplicationSource,objectStorage,object_storage,replication_sources,list,select,$.replication_sources,List the replication sources of a destination bucket.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/retentionRules,ListRetentionRules,list_retention_rules,get,RetentionRuleCollection,objectStorage,object_storage,retention_rules,list,select,$.items,List the retention rules for a bucket.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/retentionRules,CreateRetentionRule,create_retention_rule,post,RetentionRule,objectStorage,object_storage,retention_rules,create,insert,,Create a new retention rule.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/retentionRules/{retentionRuleId},DeleteRetentionRule,delete_retention_rule,delete,,objectStorage,object_storage,retention_rules,delete,delete,,Delete the specified retention rule.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/retentionRules/{retentionRuleId},GetRetentionRule,get_retention_rule,get,RetentionRule,objectStorage,object_storage,retention_rules,get,select,,Get the specified retention rule.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/retentionRules/{retentionRuleId},UpdateRetentionRule,update_retention_rule,put,RetentionRule,objectStorage,object_storage,retention_rules,update,update,,Update the specified retention rule.
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/u,ListMultipartUploads,list_multipart_uploads,get,MultipartUpload,objectStorage,object_storage,multipart_uploads,list,select,$.multipart_uploads,List Multipart Uploads
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/u,CreateMultipartUpload,create_multipart_upload,post,MultipartUpload,objectStorage,object_storage,multipart_uploads,create,insert,,Create Multipart Upload
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/u/{objectName},AbortMultipartUpload,abort_multipart_upload,delete,,objectStorage,object_storage,us,abort_multipart_upload,exec,,Abort Multipart Upload
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/u/{objectName},ListMultipartUploadParts,list_multipart_upload_parts,get,MultipartUploadPartSummary,objectStorage,object_storage,multipart_upload_parts,list,select,$.multipart_upload_parts,List Multipart Upload Parts
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/u/{objectName},CommitMultipartUpload,commit_multipart_upload,post,,objectStorage,object_storage,us,commit_multipart_upload,exec,,Commit Multipart Upload
+object_storage.yaml,/n/{namespaceName}/b/{bucketName}/u/{objectName},UploadPart,upload_part,put,,objectStorage,object_storage,skip_this_resource,upload_part,exec,,Upload Multipart Object Part
+object_storage.yaml,/n/{namespaceName}/inventoryRules,ListInventoryRules,list_inventory_rules,get,InventoryRuleCollection,objectStorage,object_storage,inventory_rules,list,select,$.items,List the inventory rules.
+object_storage.yaml,/n/{namespaceName}/inventoryRules,CreateInventoryRule,create_inventory_rule,post,InventoryRule,objectStorage,object_storage,inventory_rules,create,insert,,Create a new inventory rule.
+object_storage.yaml,/n/{namespaceName}/inventoryRules/{inventoryRuleId},DeleteInventoryRule,delete_inventory_rule,delete,,objectStorage,object_storage,inventory_rules,delete,delete,,Delete the specified inventory rule.
+object_storage.yaml,/n/{namespaceName}/inventoryRules/{inventoryRuleId},GetInventoryRule,get_inventory_rule,get,InventoryRule,objectStorage,object_storage,inventory_rules,get,select,,Get the specified inventory rule.
+object_storage.yaml,/n/{namespaceName}/inventoryRules/{inventoryRuleId},UpdateInventoryRule,update_inventory_rule,put,InventoryRule,objectStorage,object_storage,inventory_rules,update,update,,Update the specified inventory rule.
+object_storage.yaml,/n/{namespaceName}/pe/,ListPrivateEndpoints,list_private_endpoints,get,PrivateEndpointSummary,objectStorage,object_storage,private_endpoints,list,select,$.private_endpoints,List Private Endpoints
+object_storage.yaml,/n/{namespaceName}/pe/,CreatePrivateEndpoint,create_private_endpoint,post,,objectStorage,object_storage,private_endpoints,create,insert,,Create PrivateEndpoint
+object_storage.yaml,/n/{namespaceName}/pe/{peName}/,DeletePrivateEndpoint,delete_private_endpoint,delete,,objectStorage,object_storage,private_endpoints,delete,delete,,DELETE Private Endpoint
+object_storage.yaml,/n/{namespaceName}/pe/{peName}/,GetPrivateEndpoint,get_private_endpoint,get,PrivateEndpoint,objectStorage,object_storage,private_endpoints,get,select,,Get PrivateEndpoint
+object_storage.yaml,/n/{namespaceName}/pe/{peName}/,UpdatePrivateEndpoint,update_private_endpoint,post,,objectStorage,object_storage,private_endpoints,update,update,,POST Private Endpoint
+object_storage.yaml,/workRequests,ListWorkRequests,list_work_requests,get,WorkRequestSummary,objectStorage,object_storage,work_requests,list,select,$.work_requests,List Work Requests
+object_storage.yaml,/workRequests/{workRequestId},CancelWorkRequest,cancel_work_request,delete,,objectStorage,object_storage,work_requests,cancel_work_request,exec,,Cancel a work request
+object_storage.yaml,/workRequests/{workRequestId},GetWorkRequest,get_work_request,get,WorkRequest,objectStorage,object_storage,work_requests,get,select,,GET Work Request Status
+object_storage.yaml,/workRequests/{workRequestId}/errors,ListWorkRequestErrors,list_work_request_errors,get,WorkRequestError,objectStorage,object_storage,work_request_errors,list,select,$.work_request_errors,List Work Request Errors
+object_storage.yaml,/workRequests/{workRequestId}/logs,ListWorkRequestLogs,list_work_request_logs,get,WorkRequestLogEntry,objectStorage,object_storage,work_request_logs,list,select,$.work_request_logs,List Work Request Logs

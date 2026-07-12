@@ -1,36 +1,25 @@
 #!/usr/bin/env node
 
-// Split harvested OCI specs (provider-dev/downloaded) into per-service specs
-// (provider-dev/source), driven by provider-dev/config/spec_catalog.csv.
-// Most catalogued specs map 1:1 to a StackQL service; the core `iaas` spec
-// divides into compute / network / block_storage by path prefix (rules in
-// provider-dev/scripts/lib/core_split.mjs once the endpoint inventory lands).
+// Split cleaned OCI specs (provider-dev/downloaded/cleaned, OAS3 output of
+// clean_specs.mjs) into per-service specs (provider-dev/source), driven by
+// provider-dev/config/spec_catalog.csv. Most catalogued specs map 1:1 to a
+// StackQL service; the core `iaas` spec divides into compute / network /
+// block_storage by operation tag (provider-dev/scripts/lib/core_split.mjs).
+//
+// Usage: node bin/split.mjs --provider-name oci --input-dir provider-dev/downloaded/cleaned \
+//          --output-dir provider-dev/source [--only svc1,svc2] [--overwrite] [--verbose]
 
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { providerdev } from '@stackql/provider-utils';
 
-async function splitSingleDoc({ apiDoc, providerName, outputDir, svcDiscriminator, svcDiscriminatorFn, exclude, overwrite, verbose, svcNameOverrides }) {
-  const result = await providerdev.split({
-    apiDoc,
-    providerName,
-    outputDir,
-    svcDiscriminator,
-    svcDiscriminatorFn,
-    exclude,
-    overwrite,
-    verbose,
-    svcNameOverrides
-  });
-  if (!result) {
-    process.exit(1);
-  }
-}
+const BASE_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 // provider-utils split() cleans its output dir on every call, so per-file
 // splits go via a temp dir and collect into outputDir (k8s repo pattern)
-async function splitFileInto({ apiDoc, providerName, outputDir, svcDiscriminator, svcDiscriminatorFn, verbose }) {
+async function splitFileInto({ apiDoc, providerName, outputDir, svcDiscriminatorFn, verbose, keepServices }) {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'stackql-split-'));
   const written = [];
   try {
@@ -38,7 +27,7 @@ async function splitFileInto({ apiDoc, providerName, outputDir, svcDiscriminator
       apiDoc,
       providerName,
       outputDir: tmpDir,
-      svcDiscriminator,
+      svcDiscriminator: 'function',
       svcDiscriminatorFn,
       overwrite: true,
       verbose,
@@ -49,6 +38,8 @@ async function splitFileInto({ apiDoc, providerName, outputDir, svcDiscriminator
       process.exit(1);
     }
     for (const outFile of fs.readdirSync(tmpDir)) {
+      const svc = outFile.replace(/\.(yaml|yml|json)$/, '');
+      if (keepServices && !keepServices.has(svc)) continue;
       const dest = path.join(outputDir, outFile);
       if (fs.existsSync(dest)) {
         console.error(`Error: Duplicate service spec ${outFile} (produced by ${apiDoc})`);
@@ -71,31 +62,20 @@ async function main() {
   };
 
   const providerName = getArg('--provider-name');
-  const apiDoc = getArg('--api-doc');
-  const inputDir = getArg('--input-dir');
+  const inputDir = getArg('--input-dir') || path.join(BASE_DIR, 'provider-dev', 'downloaded', 'cleaned');
   const outputDir = getArg('--output-dir');
-  const svcDiscriminator = getArg('--svc-discriminator') || 'tag';
-  const exclude = getArg('--exclude') || '';
   const overwrite = args.includes('--overwrite');
   const verbose = args.includes('--verbose');
-  const only = getArg('--only'); // comma-separated catalog service names to split (pilot mode)
+  const only = getArg('--only'); // comma-separated StackQL service names (pilot mode)
 
-  if (!providerName || !outputDir || (!apiDoc && !inputDir)) {
+  if (!providerName || !outputDir) {
     console.error('Error: Missing required arguments');
-    console.error('Usage: node split.mjs --provider-name NAME (--api-doc PATH | --input-dir DIR) --output-dir DIR [--only svc1,svc2] [--overwrite] [--verbose]');
+    console.error('Usage: node split.mjs --provider-name NAME [--input-dir DIR] --output-dir DIR [--only svc1,svc2] [--overwrite] [--verbose]');
     process.exit(1);
   }
 
-  if (apiDoc) {
-    await splitSingleDoc({ apiDoc, providerName, outputDir, svcDiscriminator, exclude, overwrite, verbose, svcNameOverrides: {} });
-    console.log('Split operation completed successfully');
-    return;
-  }
-
-  // catalog-driven mode
-  const baseDir = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
-  const { loadCatalog } = await import(path.join(baseDir, 'provider-dev', 'scripts', 'lib', 'catalog.mjs').replace(/\\/g, '/'));
-  const { coreServiceForOperation, CORE_SERVICES } = await import(path.join(baseDir, 'provider-dev', 'scripts', 'lib', 'core_split.mjs').replace(/\\/g, '/'));
+  const { loadCatalog } = await import(pathToFileURL(path.join(BASE_DIR, 'provider-dev', 'scripts', 'lib', 'catalog.mjs')));
+  const { coreServiceForOperation, CORE_SERVICES } = await import(pathToFileURL(path.join(BASE_DIR, 'provider-dev', 'scripts', 'lib', 'core_split.mjs')));
 
   const catalog = loadCatalog();
   const onlySet = only ? new Set(only.split(',').map((s) => s.trim())) : null;
@@ -110,16 +90,18 @@ async function main() {
   const written = [];
   for (const entry of catalog.filter((e) => e.tier === '1')) {
     const specServices = entry.service === 'core' ? CORE_SERVICES : [entry.service];
-    if (onlySet && !specServices.some((s) => onlySet.has(s))) {
+    const wanted = onlySet ? specServices.filter((s) => onlySet.has(s)) : specServices;
+    if (wanted.length === 0) {
       continue;
     }
-    const specPath = path.join(inputDir, entry.local_file);
+    const cleanedFile = entry.local_file.replace(/\.(yaml|json)$/, '.json');
+    const specPath = path.join(inputDir, cleanedFile);
     if (!fs.existsSync(specPath)) {
-      console.error(`Error: Catalogued spec not found: ${specPath} (run npm run fetch-specs)`);
+      console.error(`Error: Cleaned spec not found: ${specPath} (run bin/fetch-specs.sh then clean_specs.mjs)`);
       process.exit(1);
     }
-    // clear any prior outputs this spec produces (idempotent re-runs)
-    for (const svc of specServices) {
+    // clear prior outputs this spec produces (idempotent re-runs)
+    for (const svc of wanted) {
       const dest = path.join(outputDir, `${svc}.yaml`);
       if (fs.existsSync(dest)) fs.rmSync(dest);
     }
@@ -127,14 +109,14 @@ async function main() {
     const svcDiscriminatorFn = entry.service === 'core'
       ? (pathKey, operationId, tags, ctx) => coreServiceForOperation(pathKey, operationId, tags, ctx)
       : () => entry.service;
-    console.log(`Splitting ${entry.local_file} -> ${specServices.join(', ')}`);
+    console.log(`Splitting ${cleanedFile} -> ${wanted.join(', ')}`);
     const files = await splitFileInto({
       apiDoc: specPath,
       providerName,
       outputDir,
-      svcDiscriminator: 'function',
       svcDiscriminatorFn,
-      verbose
+      verbose,
+      keepServices: onlySet ? new Set(wanted) : null
     });
     written.push(...files);
   }

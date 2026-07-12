@@ -6,9 +6,9 @@
   "scripts": {
     "fetch-specs": "bash ./bin/fetch-specs.sh",
     "split": "node ./bin/split.mjs",
-    "generate-mappings": "./bin/generate-mappings.sh",
+    "generate-mappings": "node ./bin/generate-mappings.mjs",
     "normalize": "node ./bin/normalize.mjs",
-    "generate-provider": "./bin/generate-provider.sh",
+    "generate-provider": "node ./bin/generate-provider.mjs",
     "start-server": "bash ./bin/start-server.sh",
     "stop-server": "bash ./bin/stop-server.sh",
     "server-status": "bash ./bin/server-status.sh",
