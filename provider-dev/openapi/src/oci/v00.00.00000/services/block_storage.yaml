@@ -6113,12 +6113,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1blockVolumeReplicas~1{blockVolumeReplicaId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/block_volume_replicas/methods/get'
@@ -6152,6 +6156,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6161,18 +6167,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1bootVolumeBackups~1{bootVolumeBackupId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1bootVolumeBackups~1{bootVolumeBackupId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6182,6 +6194,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -6191,6 +6205,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         copy_boot_volume_backup:
           config:
             requestBodyTranslate:
@@ -6200,6 +6216,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/boot_volume_backups/methods/get'
@@ -6236,12 +6254,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1bootVolumeReplicas~1{bootVolumeReplicaId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/boot_volume_replicas/methods/get'
@@ -6275,6 +6297,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6284,18 +6308,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1bootVolumes~1{bootVolumeId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1bootVolumes~1{bootVolumeId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6305,6 +6335,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -6314,6 +6346,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/boot_volumes/methods/get'
@@ -6336,12 +6370,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1bootVolumes~1{bootVolumeId}~1kmsKey/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6351,6 +6389,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/boot_volume_kms_keys/methods/get'
@@ -6385,6 +6425,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6394,18 +6436,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1volumeBackupPolicies~1{policyId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumeBackupPolicies~1{policyId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6415,6 +6463,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_backup_policies/methods/get'
@@ -6451,6 +6501,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_backup_policy_asset_assignments/methods/get'
@@ -6472,18 +6524,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1volumeBackupPolicyAssignments~1{policyAssignmentId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumeBackupPolicyAssignments~1{policyAssignmentId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_backup_policy_assignments/methods/get'
@@ -6518,6 +6576,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6527,18 +6587,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1volumeBackups~1{volumeBackupId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumeBackups~1{volumeBackupId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6548,6 +6614,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -6557,6 +6625,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         copy_volume_backup:
           config:
             requestBodyTranslate:
@@ -6566,6 +6636,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_backups/methods/get'
@@ -6602,6 +6674,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6611,18 +6685,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1volumeGroupBackups~1{volumeGroupBackupId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumeGroupBackups~1{volumeGroupBackupId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6632,6 +6712,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -6641,6 +6723,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         copy_volume_group_backup:
           config:
             requestBodyTranslate:
@@ -6650,6 +6734,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_group_backups/methods/get'
@@ -6686,12 +6772,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumeGroupReplicas~1{volumeGroupReplicaId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_group_replicas/methods/get'
@@ -6725,6 +6815,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6734,18 +6826,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1volumeGroups~1{volumeGroupId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumeGroups~1{volumeGroupId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6755,6 +6853,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -6764,6 +6864,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_groups/methods/get'
@@ -6800,6 +6902,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 100
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -6809,18 +6913,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1volumes~1{volumeId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumes~1{volumeId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6830,6 +6940,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -6839,6 +6951,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volumes/methods/get'
@@ -6861,12 +6975,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1volumes~1{volumeId}~1kmsKey/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -6876,6 +6994,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/volume_kms_keys/methods/get'

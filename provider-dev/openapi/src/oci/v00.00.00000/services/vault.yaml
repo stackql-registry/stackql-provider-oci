@@ -1914,6 +1914,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -1923,12 +1925,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1secrets~1{secretId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -1938,18 +1944,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         cancel_secret_deletion:
           operation:
             $ref: '#/paths/~1secrets~1{secretId}~1actions~1cancelDeletion/post'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         cancel_secret_rotation:
           operation:
             $ref: '#/paths/~1secrets~1{secretId}~1actions~1cancelRotation/post'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -1959,12 +1971,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         rotate_secret:
           operation:
             $ref: '#/paths/~1secrets~1{secretId}~1actions~1rotate/post'
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         schedule_secret_deletion:
           config:
             requestBodyTranslate:
@@ -1974,6 +1990,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/secrets/methods/get'
@@ -1995,6 +2013,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         list:
           operation:
             $ref: '#/paths/~1secrets~1{secretId}~1versions/get'
@@ -2015,6 +2035,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/secret_versions/methods/get'
@@ -2034,6 +2056,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         schedule_secret_version_deletion:
           config:
             requestBodyTranslate:
@@ -2043,6 +2067,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []

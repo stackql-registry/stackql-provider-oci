@@ -3112,6 +3112,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 50
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3121,18 +3123,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1applications~1{applicationId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1applications~1{applicationId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3142,6 +3150,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -3151,6 +3161,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/applications/methods/get'
@@ -3187,6 +3199,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 50
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3196,18 +3210,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1functions~1{functionId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1functions~1{functionId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3217,6 +3237,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         invoke_function:
           config:
             requestBodyTranslate:
@@ -3226,6 +3248,8 @@ components:
           response:
             mediaType: '*/*'
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/functions/methods/get'
@@ -3254,12 +3278,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 50
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1pbfListingVersions~1{pbfListingVersionId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/pbf_listing_versions/methods/get'
@@ -3285,12 +3313,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 50
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1pbfListings~1{pbfListingId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/pbf_listings/methods/get'
@@ -3316,6 +3348,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 50
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/triggers/methods/list'

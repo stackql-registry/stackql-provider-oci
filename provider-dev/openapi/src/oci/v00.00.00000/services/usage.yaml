@@ -3560,6 +3560,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []
@@ -3577,6 +3579,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []
@@ -3594,6 +3598,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []
@@ -3617,6 +3623,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3626,18 +3634,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1customTables~1{customTableId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1customTables~1{customTableId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3647,6 +3661,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/custom_tables/methods/get'
@@ -3675,6 +3691,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3684,18 +3702,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1queries~1{queryId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1queries~1{queryId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3705,6 +3729,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/queries/methods/get'
@@ -3733,12 +3759,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1scheduledRuns~1{scheduledRunId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/scheduled_runs/methods/get'
@@ -3764,6 +3794,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3773,18 +3805,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1schedules~1{scheduleId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1schedules~1{scheduleId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3794,6 +3832,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/schedules/methods/get'
@@ -3823,6 +3863,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []
@@ -3847,6 +3889,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []
@@ -3864,6 +3908,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select: []
         insert: []
@@ -3887,6 +3933,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3896,18 +3944,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1usageCarbonEmissionsQueries~1{usageCarbonEmissionsQueryId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1usageCarbonEmissionsQueries~1{usageCarbonEmissionsQueryId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3917,6 +3971,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/usage_carbon_emissions_queries/methods/get'
@@ -3945,6 +4001,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -3954,18 +4012,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~1usageStatements~1{subscriptionId}~1emailRecipientsGroups~1{emailRecipientsGroupId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~1usageStatements~1{subscriptionId}~1emailRecipientsGroups~1{emailRecipientsGroupId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -3975,6 +4039,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/email_recipients_groups/methods/get'

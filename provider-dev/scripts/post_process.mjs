@@ -15,7 +15,15 @@
 //    `nextStartWith` body token) get method-level overrides, which win
 //    over the service default per any-sdk config inheritance.
 //
-// 3. queryParamPushdown - method-level, derived from each operation's
+// 3. snake_case surface - `snake_case_aliases: true` on the provider config
+//    (snake_case column names in SELECT/DESCRIBE output) and
+//    `request.nativeCasing: camel` on every method (snake_case WHERE and
+//    INSERT keys resolve against the camelCase wire parameters and body
+//    attributes; the wire casing itself is untouched). Both are any-sdk
+//    v0.5.4-alpha01 primitives; a snake alias never clobbers a real wire
+//    name of the same spelling.
+//
+// 4. queryParamPushdown - method-level, derived from each operation's
 //    declared query parameters (any-sdk's top/select pushdowns are
 //    dialect-agnostic; filter/orderBy render OData syntax only, which OCI
 //    does not speak, so WHERE pushdown remains ordinary query-parameter
@@ -270,6 +278,7 @@ async function main() {
           if (pushdown.top) topCount++;
           if (pushdown.select) selectCount++;
         }
+        method.request = { ...(method.request || {}), nativeCasing: 'camel' };
       }
     }
 
@@ -291,9 +300,20 @@ async function main() {
     process.exit(1);
   }
 
+  // provider.yaml: snake_case aliases at the provider surface
+  const providerYamlPath = path.join(providerDir, 'provider.yaml');
+  if (!fs.existsSync(providerYamlPath)) {
+    console.error(`Error: provider.yaml not found: ${providerYamlPath}`);
+    process.exit(1);
+  }
+  const providerDoc = yaml.load(fs.readFileSync(providerYamlPath, 'utf8'));
+  providerDoc.config = { ...(providerDoc.config || {}), snake_case_aliases: true };
+
   for (const [filePath, doc] of pending) {
     fs.writeFileSync(filePath, yaml.dump(doc, { lineWidth: -1, noRefs: true }));
   }
+  fs.writeFileSync(providerYamlPath, yaml.dump(providerDoc, { lineWidth: -1, noRefs: true }));
+  console.log('provider.yaml: snake_case_aliases enabled');
 
   console.log(`Post-processed ${pending.length} service specs:`);
   for (const r of report) {

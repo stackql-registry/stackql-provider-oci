@@ -7260,6 +7260,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -7269,18 +7271,24 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         delete:
           operation:
             $ref: '#/paths/~120180608~1ekmsPrivateEndpoints~1{ekmsPrivateEndpointId}/delete'
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~120180608~1ekmsPrivateEndpoints~1{ekmsPrivateEndpointId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -7290,6 +7298,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/ekms_private_endpoints/methods/get'
@@ -7318,6 +7328,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -7327,12 +7339,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~120180608~1hsmClusters~1{hsmClusterId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -7342,12 +7358,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         cancel_hsm_cluster_deletion:
           operation:
             $ref: '#/paths/~120180608~1hsmClusters~1{hsmClusterId}~1actions~1cancelDeletion/post'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -7357,12 +7377,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         download_certificate_signing_request:
           operation:
             $ref: '#/paths/~120180608~1hsmClusters~1{hsmClusterId}~1actions~1downloadCertificateSigningRequest/post'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         schedule_hsm_cluster_deletion:
           config:
             requestBodyTranslate:
@@ -7372,6 +7396,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         upload_partition_certificates:
           config:
             requestBodyTranslate:
@@ -7381,6 +7407,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/hsm_clusters/methods/get'
@@ -7408,12 +7436,16 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~120180608~1hsmClusters~1{hsmClusterId}~1hsmPartitions~1{hsmPartitionId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/hsm_partitions/methods/get'
@@ -7433,6 +7465,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/pre_co_user_credentials/methods/get'
@@ -7465,6 +7499,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
         create:
           config:
             requestBodyTranslate:
@@ -7474,6 +7510,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         restore_vault_from_file:
           config:
             requestBodyTranslate:
@@ -7483,6 +7521,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         restore_vault_from_object_store:
           config:
             requestBodyTranslate:
@@ -7492,12 +7532,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         get:
           operation:
             $ref: '#/paths/~120180608~1vaults~1{vaultId}/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:
@@ -7507,6 +7551,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         backup_vault:
           config:
             requestBodyTranslate:
@@ -7516,12 +7562,16 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         cancel_vault_deletion:
           operation:
             $ref: '#/paths/~120180608~1vaults~1{vaultId}~1actions~1cancelDeletion/post'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
         change_compartment:
           config:
             requestBodyTranslate:
@@ -7531,6 +7581,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '204'
+          request:
+            nativeCasing: camel
         delete_vault_replica:
           config:
             requestBodyTranslate:
@@ -7540,6 +7592,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         schedule_vault_deletion:
           config:
             requestBodyTranslate:
@@ -7549,6 +7603,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/vaults/methods/get'
@@ -7573,6 +7629,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '202'
+          request:
+            nativeCasing: camel
         list:
           operation:
             $ref: '#/paths/~120180608~1vaults~1{vaultId}~1actions~1listReplicas/get'
@@ -7593,6 +7651,8 @@ components:
               top:
                 paramName: limit
                 maxValue: 1000
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/vault_replicas/methods/list'
@@ -7612,6 +7672,8 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          request:
+            nativeCasing: camel
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/vault_usages/methods/get'

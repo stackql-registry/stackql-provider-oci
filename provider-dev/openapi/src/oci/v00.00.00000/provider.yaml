@@ -203,3 +203,4 @@ providerServices:
 config:
   auth:
     type: oci_signing_v1
+  snake_case_aliases: true
