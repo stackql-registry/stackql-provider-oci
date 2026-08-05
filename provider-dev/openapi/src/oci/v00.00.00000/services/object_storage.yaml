@@ -328,11 +328,6 @@ paths:
         date: Fri, 20 Jan 2017 22:52:33 GMT
         authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/Bucket'
-      x-stackql-bare-array-wrap:
-        wrapperKey: buckets
-        wrapperName: ListBucketsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a bucket in the given namespace with a bucket name and optional user-defined metadata. Avoid entering
@@ -2717,11 +2712,6 @@ paths:
       tags:
         - objectStorage
       x-related-resource: '#/definitions/PreauthenticatedRequest'
-      x-stackql-bare-array-wrap:
-        wrapperKey: preauthenticated_requests
-        wrapperName: ListPreauthenticatedRequestsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a pre-authenticated request specific to the bucket.
@@ -2925,11 +2915,6 @@ paths:
         Date: Fri, 10 Mar 2017 11:50:24 GMT
         Authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/Replication'
-      x-stackql-bare-array-wrap:
-        wrapperKey: replication_policies
-        wrapperName: ListReplicationPoliciesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a replication policy for the specified bucket.
@@ -3166,11 +3151,6 @@ paths:
         Date: Fri, 10 Mar 2017 11:50:24 GMT
         Authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/Replication'
-      x-stackql-bare-array-wrap:
-        wrapperKey: replication_sources
-        wrapperName: ListReplicationSourcesResponse
-        mediaType: application/json
-        scalar: false
   /n/{namespaceName}/b/{bucketName}/retentionRules:
     get:
       description: |
@@ -3679,11 +3659,6 @@ paths:
         Date: Fri, 10 Mar 2017 11:19:32 GMT
         Authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/MultipartUpload'
-      x-stackql-bare-array-wrap:
-        wrapperKey: multipart_uploads
-        wrapperName: ListMultipartUploadsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Starts a new multipart upload to a specific object in the given bucket in the given namespace.
@@ -3911,11 +3886,6 @@ paths:
         Date: Fri, 10 Mar 2017 11:50:55 GMT
         Authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/MultipartUpload'
-      x-stackql-bare-array-wrap:
-        wrapperKey: multipart_upload_parts
-        wrapperName: ListMultipartUploadPartsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Commits a multipart upload, which involves checking part numbers and entity tags (ETags) of the parts, to create an aggregate object.
@@ -4720,11 +4690,6 @@ paths:
         user-agent: python-requests/2.11.0
         date: Fri, 20 Jan 2017 22:52:33 GMT
         authorization: <var>&lt;authorization and other headers&gt;</var>
-      x-stackql-bare-array-wrap:
-        wrapperKey: private_endpoints
-        wrapperName: ListPrivateEndpointsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Create a PrivateEndpoint.
@@ -5322,11 +5287,6 @@ paths:
         date: Fri, 12 Aug 2016 23:00:25 GMT
         authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/WorkRequest'
-      x-stackql-bare-array-wrap:
-        wrapperKey: work_requests
-        wrapperName: ListWorkRequestsResponse
-        mediaType: application/json
-        scalar: false
   /workRequests/{workRequestId}:
     delete:
       description: |
@@ -5553,11 +5513,6 @@ paths:
         date: Fri, 19 Aug 2016 23:43:49 GMT
         authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/WorkRequestError'
-      x-stackql-bare-array-wrap:
-        wrapperKey: work_request_errors
-        wrapperName: ListWorkRequestErrorsResponse
-        mediaType: application/json
-        scalar: false
   /workRequests/{workRequestId}/logs:
     get:
       description: Lists the logs of the work request with the given ID.
@@ -5640,11 +5595,6 @@ paths:
         date: Fri, 19 Aug 2016 23:43:49 GMT
         authorization: <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/WorkRequestLogEntry'
-      x-stackql-bare-array-wrap:
-        wrapperKey: work_request_logs
-        wrapperName: ListWorkRequestLogsResponse
-        mediaType: application/json
-        scalar: false
 components:
   schemas:
     NamespaceMetadata:
@@ -9254,5 +9204,793 @@ components:
       required: true
       schema:
         type: string
+  x-stackQL-resources:
+    namespaces:
+      id: oci.object_storage.namespaces
+      name: namespaces
+      title: Namespaces
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1n~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/namespaces/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    namespace_metadatas:
+      id: oci.object_storage.namespace_metadatas
+      name: namespace_metadatas
+      title: Namespace Metadatas
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/namespace_metadatas/methods/get'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/namespace_metadatas/methods/update'
+        delete: []
+        replace: []
+    buckets:
+      id: oci.object_storage.buckets
+      name: buckets
+      title: Buckets
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.buckets
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListBucketsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"buckets\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/buckets/methods/get'
+          - $ref: '#/components/x-stackQL-resources/buckets/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/buckets/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/buckets/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/buckets/methods/delete'
+        replace: []
+    bs:
+      id: oci.object_storage.bs
+      name: bs
+      title: Bs
+      methods:
+        batch_delete_objects:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1batchDeleteObjects/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        copy_object:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1copyObject/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        make_bucket_writable:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1makeBucketWritable/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        reencrypt_bucket:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1reencrypt/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        reencrypt_object:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1reencrypt~1{objectName}/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        rename_object:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1renameObject/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        restore_objects:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1restoreObjects/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    object_storage_tiers:
+      id: oci.object_storage.object_storage_tiers
+      name: object_storage_tiers
+      title: Object Storage Tiers
+      methods:
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1actions~1updateObjectStorageTier/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/object_storage_tiers/methods/update'
+        delete: []
+        replace: []
+    object_lifecycle_policies:
+      id: oci.object_storage.object_lifecycle_policies
+      name: object_lifecycle_policies
+      title: Object Lifecycle Policies
+      methods:
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1l/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1l/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/object_lifecycle_policies/methods/get'
+        insert: []
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/object_lifecycle_policies/methods/delete'
+        replace: []
+    ls:
+      id: oci.object_storage.ls
+      name: ls
+      title: Ls
+      methods:
+        put_object_lifecycle_policy:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1l/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    objects:
+      id: oci.object_storage.objects
+      name: objects
+      title: Objects
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1o/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.objects
+          config:
+            pagination:
+              requestToken:
+                key: start
+                location: query
+              responseToken:
+                key: nextStartWith
+                location: body
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1o~1{objectName}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/objects/methods/list'
+        insert: []
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/objects/methods/delete'
+        replace: []
+    object_versions:
+      id: oci.object_storage.object_versions
+      name: object_versions
+      title: Object Versions
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1objectversions/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/object_versions/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    preauthenticated_requests:
+      id: oci.object_storage.preauthenticated_requests
+      name: preauthenticated_requests
+      title: Preauthenticated Requests
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1p~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.preauthenticated_requests
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListPreauthenticatedRequestsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"preauthenticated_requests\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1p~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1p~1{parId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1p~1{parId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/preauthenticated_requests/methods/get'
+          - $ref: '#/components/x-stackQL-resources/preauthenticated_requests/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/preauthenticated_requests/methods/create'
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/preauthenticated_requests/methods/delete'
+        replace: []
+    replication_policies:
+      id: oci.object_storage.replication_policies
+      name: replication_policies
+      title: Replication Policies
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1replicationPolicies/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.replication_policies
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListReplicationPoliciesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"replication_policies\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1replicationPolicies/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1replicationPolicies~1{replicationId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1replicationPolicies~1{replicationId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/replication_policies/methods/get'
+          - $ref: '#/components/x-stackQL-resources/replication_policies/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/replication_policies/methods/create'
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/replication_policies/methods/delete'
+        replace: []
+    replication_sources:
+      id: oci.object_storage.replication_sources
+      name: replication_sources
+      title: Replication Sources
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1replicationSources/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.replication_sources
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListReplicationSourcesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"replication_sources\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/replication_sources/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    retention_rules:
+      id: oci.object_storage.retention_rules
+      name: retention_rules
+      title: Retention Rules
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1retentionRules/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1retentionRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1retentionRules~1{retentionRuleId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1retentionRules~1{retentionRuleId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1retentionRules~1{retentionRuleId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/retention_rules/methods/get'
+          - $ref: '#/components/x-stackQL-resources/retention_rules/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/retention_rules/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/retention_rules/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/retention_rules/methods/delete'
+        replace: []
+    multipart_uploads:
+      id: oci.object_storage.multipart_uploads
+      name: multipart_uploads
+      title: Multipart Uploads
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1u/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.multipart_uploads
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListMultipartUploadsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"multipart_uploads\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1u/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/multipart_uploads/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/multipart_uploads/methods/create'
+        update: []
+        delete: []
+        replace: []
+    us:
+      id: oci.object_storage.us
+      name: us
+      title: Us
+      methods:
+        abort_multipart_upload:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1u~1{objectName}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        commit_multipart_upload:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1u~1{objectName}/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    multipart_upload_parts:
+      id: oci.object_storage.multipart_upload_parts
+      name: multipart_upload_parts
+      title: Multipart Upload Parts
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1u~1{objectName}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.multipart_upload_parts
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListMultipartUploadPartsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"multipart_upload_parts\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/multipart_upload_parts/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    inventory_rules:
+      id: oci.object_storage.inventory_rules
+      name: inventory_rules
+      title: Inventory Rules
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1inventoryRules/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1inventoryRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1inventoryRules~1{inventoryRuleId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1inventoryRules~1{inventoryRuleId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1inventoryRules~1{inventoryRuleId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/inventory_rules/methods/get'
+          - $ref: '#/components/x-stackQL-resources/inventory_rules/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/inventory_rules/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/inventory_rules/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/inventory_rules/methods/delete'
+        replace: []
+    private_endpoints:
+      id: oci.object_storage.private_endpoints
+      name: private_endpoints
+      title: Private Endpoints
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1pe~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.private_endpoints
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListPrivateEndpointsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"private_endpoints\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1pe~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        delete:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1pe~1{peName}~1/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get:
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1pe~1{peName}~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1n~1{namespaceName}~1pe~1{peName}~1/post'
+          response:
+            mediaType: application-json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/private_endpoints/methods/get'
+          - $ref: '#/components/x-stackQL-resources/private_endpoints/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/private_endpoints/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/private_endpoints/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/private_endpoints/methods/delete'
+        replace: []
+    work_requests:
+      id: oci.object_storage.work_requests
+      name: work_requests
+      title: Work Requests
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1workRequests/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.work_requests
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListWorkRequestsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"work_requests\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        cancel_work_request:
+          operation:
+            $ref: '#/paths/~1workRequests~1{workRequestId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get:
+          operation:
+            $ref: '#/paths/~1workRequests~1{workRequestId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/work_requests/methods/get'
+          - $ref: '#/components/x-stackQL-resources/work_requests/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    work_request_errors:
+      id: oci.object_storage.work_request_errors
+      name: work_request_errors
+      title: Work Request Errors
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1workRequests~1{workRequestId}~1errors/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.work_request_errors
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListWorkRequestErrorsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"work_request_errors\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/work_request_errors/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    work_request_logs:
+      id: oci.object_storage.work_request_logs
+      name: work_request_logs
+      title: Work Request Logs
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1workRequests~1{workRequestId}~1logs/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.work_request_logs
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListWorkRequestLogsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"work_request_logs\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/work_request_logs/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
 servers:
-  - url: https://localhost:9000
+  - url: https://objectstorage.{region}.oraclecloud.com
+    variables:
+      region:
+        default: us-ashburn-1
+        description: OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_CLI_REGION when not supplied in the query.
+        x-stackQL-envVar: OCI_CLI_REGION
+x-stackQL-config:
+  pagination:
+    requestToken:
+      key: page
+      location: query
+    responseToken:
+      key: opc-next-page
+      location: header

@@ -34,11 +34,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: allowed_peer_regions_for_remote_peering
-        wrapperName: ListAllowedPeerRegionsForRemotePeeringResponse
-        mediaType: application/json
-        scalar: false
   /byoasns:
     get:
       description: |
@@ -942,11 +937,6 @@ paths:
       summary: ListCaptureFilters
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: capture_filters
-        wrapperName: ListCaptureFiltersResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a virtual test access point (VTAP) capture filter in the specified compartment.
@@ -1246,11 +1236,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: cpe_device_shapes
-        wrapperName: ListCpeDeviceShapesResponse
-        mediaType: application/json
-        scalar: false
   /cpeDeviceShapes/{cpeDeviceShapeId}:
     get:
       description: |
@@ -1334,11 +1319,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: cpes
-        wrapperName: ListCpesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new virtual customer-premises equipment (CPE) object in the specified compartment. For
@@ -1704,11 +1684,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: cross_connect_groups
-        wrapperName: ListCrossConnectGroupsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new cross-connect group to use with Oracle Cloud Infrastructure
@@ -1986,11 +1961,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: cross_connect_locations
-        wrapperName: ListCrossConnectLocationsResponse
-        mediaType: application/json
-        scalar: false
   /crossConnectPortSpeedShapes:
     get:
       description: |
@@ -2035,11 +2005,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: crossconnect_port_speed_shapes
-        wrapperName: ListCrossconnectPortSpeedShapesResponse
-        mediaType: application/json
-        scalar: false
   /crossConnects:
     get:
       description: |
@@ -2096,11 +2061,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: cross_connects
-        wrapperName: ListCrossConnectsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new cross-connect. Oracle recommends you create each cross-connect in a
@@ -2463,11 +2423,6 @@ paths:
       summary: ListDhcpOptions
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: dhcp_options
-        wrapperName: ListDhcpOptionsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new set of DHCP options for the specified VCN. For more information, see
@@ -2776,11 +2731,6 @@ paths:
       summary: ListDrgAttachments
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: drg_attachments
-        wrapperName: ListDrgAttachmentsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Attaches the specified DRG to the specified network resource. A VCN can be attached to only one DRG
@@ -3062,11 +3012,6 @@ paths:
       summary: ListDrgRouteDistributionStatements
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: drg_route_distributions
-        wrapperName: ListDrgRouteDistributionsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new route distribution for the specified DRG.
@@ -3286,11 +3231,6 @@ paths:
       tags:
         - virtualNetwork
       x-related-resource: '#/definitions/DrgRouteDistributionStatement'
-      x-stackql-bare-array-wrap:
-        wrapperKey: add_drg_route_distribution_statements
-        wrapperName: AddDrgRouteDistributionStatementsResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgRouteDistributions/{drgRouteDistributionId}/actions/removeDrgRouteDistributionStatements:
     post:
@@ -3379,11 +3319,6 @@ paths:
       tags:
         - virtualNetwork
       x-related-resource: '#/definitions/DrgRouteDistributionStatement'
-      x-stackql-bare-array-wrap:
-        wrapperKey: update_drg_route_distribution_statements
-        wrapperName: UpdateDrgRouteDistributionStatementsResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgRouteDistributions/{drgRouteDistributionId}/drgRouteDistributionStatements:
     get:
@@ -3429,11 +3364,6 @@ paths:
       summary: ListDrgRouteDistributionStatements
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: drg_route_distribution_statements
-        wrapperName: ListDrgRouteDistributionStatementsResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgRouteTables:
     get:
@@ -3493,11 +3423,6 @@ paths:
       summary: ListDrgRouteTables
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: drg_route_tables
-        wrapperName: ListDrgRouteTablesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new DRG route table for the specified DRG. Assign the DRG route table to a DRG attachment
@@ -3714,11 +3639,6 @@ paths:
       tags:
         - virtualNetwork
       x-related-resource: '#/definitions/DrgRouteRule'
-      x-stackql-bare-array-wrap:
-        wrapperKey: add_drg_route_rules
-        wrapperName: AddDrgRouteRulesResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgRouteTables/{drgRouteTableId}/actions/removeDrgRouteRules:
     post:
@@ -3853,11 +3773,6 @@ paths:
       tags:
         - virtualNetwork
       x-related-resource: '#/definitions/DrgRouteRule'
-      x-stackql-bare-array-wrap:
-        wrapperKey: update_drg_route_rules
-        wrapperName: UpdateDrgRouteRulesResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgRouteTables/{drgRouteTableId}/drgRouteRules:
     get:
@@ -3902,11 +3817,6 @@ paths:
       summary: ListDrgRouteRules
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: drg_route_rules
-        wrapperName: ListDrgRouteRulesResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgs:
     get:
@@ -3949,11 +3859,6 @@ paths:
       summary: ListDrgs
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: drgs
-        wrapperName: ListDrgsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new dynamic routing gateway (DRG) in the specified compartment. For more information,
@@ -4190,11 +4095,6 @@ paths:
       tags:
         - virtualNetwork
       x-related-resource: '#/definitions/Drg'
-      x-stackql-bare-array-wrap:
-        wrapperKey: drg_attachments
-        wrapperName: GetAllDrgAttachmentsResponse
-        mediaType: application/json
-        scalar: false
     x-obmcs-client-retries-enabled: true
   /drgs/{drgId}/actions/upgrade:
     post:
@@ -4360,11 +4260,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: fast_connect_provider_services
-        wrapperName: ListFastConnectProviderServicesResponse
-        mediaType: application/json
-        scalar: false
   /fastConnectProviderServices/{providerServiceId}:
     get:
       description: |
@@ -4486,11 +4381,6 @@ paths:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
       x-related-resource: '#/definitions/FastConnectProviderService'
-      x-stackql-bare-array-wrap:
-        wrapperKey: fast_connect_provider_virtual_circuit_bandwidth_shapes
-        wrapperName: ListFastConnectProviderVirtualCircuitBandwidthShapesResponse
-        mediaType: application/json
-        scalar: false
   /internetGateways:
     get:
       description: |
@@ -4546,11 +4436,6 @@ paths:
       summary: ListInternetGateways
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: internet_gateways
-        wrapperName: ListInternetGatewaysResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new internet gateway for the specified VCN. For more information, see
@@ -5190,11 +5075,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: ipsec_connections
-        wrapperName: ListIPSecConnectionsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new IPSec connection between the specified DRG and CPE. For more information, see
@@ -5665,11 +5545,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: ipsec_connection_tunnels
-        wrapperName: ListIPSecConnectionTunnelsResponse
-        mediaType: application/json
-        scalar: false
   /ipsecConnections/{ipscId}/tunnels/{tunnelId}:
     get:
       description: |
@@ -5871,11 +5746,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: ipsec_connection_tunnel_routes
-        wrapperName: ListIPSecConnectionTunnelRoutesResponse
-        mediaType: application/json
-        scalar: false
   /ipsecConnections/{ipscId}/tunnels/{tunnelId}/sharedSecret:
     get:
       description: |
@@ -6177,11 +6047,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: ipsec_connection_tunnel_security_associations
-        wrapperName: ListIPSecConnectionTunnelSecurityAssociationsResponse
-        mediaType: application/json
-        scalar: false
   /ipv6:
     get:
       description: |
@@ -6237,11 +6102,6 @@ paths:
       summary: ListIpv6s
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: ipv6s
-        wrapperName: ListIpv6sResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates an IPv6 for the specified VNIC.
@@ -6728,11 +6588,6 @@ paths:
       summary: ListLocalPeeringGateways
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: local_peering_gateways
-        wrapperName: ListLocalPeeringGatewaysResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new local peering gateway (LPG) for the specified VCN.
@@ -7058,11 +6913,6 @@ paths:
       summary: ListNatGateways
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: nat_gateways
-        wrapperName: ListNatGatewaysResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new NAT gateway for the specified VCN. You must also set up a route rule with the
@@ -7345,11 +7195,6 @@ paths:
       summary: ListNetworkSecurityGroups
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: network_security_groups
-        wrapperName: ListNetworkSecurityGroupsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new network security group for the specified VCN.
@@ -7769,11 +7614,6 @@ paths:
       summary: ListNetworkSecurityGroupSecurityRules
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: network_security_group_security_rules
-        wrapperName: ListNetworkSecurityGroupSecurityRulesResponse
-        mediaType: application/json
-        scalar: false
   /networkSecurityGroups/{networkSecurityGroupId}/vnics:
     get:
       description: |
@@ -7819,11 +7659,6 @@ paths:
       summary: ListNetworkSecurityGroupVnics
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: network_security_group_vnics
-        wrapperName: ListNetworkSecurityGroupVnicsResponse
-        mediaType: application/json
-        scalar: false
   /networkingTopology:
     get:
       description: Gets a virtual networking topology for the current region.
@@ -7932,11 +7767,6 @@ paths:
       summary: ListPrivateIps
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: private_ips
-        wrapperName: ListPrivateIpsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a private IP.
@@ -8822,11 +8652,6 @@ paths:
       summary: ListPublicIps
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: public_ips
-        wrapperName: ListPublicIpsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a public IP. Use the `lifetime` property to specify whether it's an ephemeral or
@@ -9275,11 +9100,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: remote_peering_connections
-        wrapperName: ListRemotePeeringConnectionsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new remote peering connection (RPC) for the specified DRG.
@@ -9607,11 +9427,6 @@ paths:
       summary: ListRouteTables
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: route_tables
-        wrapperName: ListRouteTablesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new route table for the specified VCN. In the request you must also include at least one route
@@ -9913,11 +9728,6 @@ paths:
       summary: ListSecurityLists
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: security_lists
-        wrapperName: ListSecurityListsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new security list for the specified VCN. For more information
@@ -10243,11 +10053,6 @@ paths:
       summary: ListServiceGateways
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: service_gateways
-        wrapperName: ListServiceGatewaysResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new service gateway in the specified compartment.
@@ -10623,11 +10428,6 @@ paths:
       summary: ListServices
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: services
-        wrapperName: ListServicesResponse
-        mediaType: application/json
-        scalar: false
   /services/{serviceId}:
     get:
       description: |
@@ -10762,11 +10562,6 @@ paths:
       summary: ListSubnets
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: subnets
-        wrapperName: ListSubnetsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new subnet in the specified VCN. You can't change the size of the subnet after creation,
@@ -11412,11 +11207,6 @@ paths:
       summary: ListVcns
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: vcns
-        wrapperName: ListVcnsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new virtual cloud network (VCN). For more information, see
@@ -11998,11 +11788,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: virtual_circuit_bandwidth_shapes
-        wrapperName: ListVirtualCircuitBandwidthShapesResponse
-        mediaType: application/json
-        scalar: false
   /virtualCircuits:
     get:
       description: |
@@ -12059,11 +11844,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: virtual_circuits
-        wrapperName: ListVirtualCircuitsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new virtual circuit to use with Oracle Cloud
@@ -12449,11 +12229,6 @@ paths:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
       x-related-resource: '#/definitions/VirtualCircuitAssociatedTunnelDetails'
-      x-stackql-bare-array-wrap:
-        wrapperKey: virtual_circuit_associated_tunnels
-        wrapperName: ListVirtualCircuitAssociatedTunnelsResponse
-        mediaType: application/json
-        scalar: false
   /virtualCircuits/{virtualCircuitId}/crossConnectMappings:
     get:
       description: |
@@ -12534,11 +12309,6 @@ paths:
       tags:
         - virtualNetwork
       x-obmcs-client-retries-enabled: true
-      x-stackql-bare-array-wrap:
-        wrapperKey: virtual_circuit_public_prefixes
-        wrapperName: ListVirtualCircuitPublicPrefixesResponse
-        mediaType: application/json
-        scalar: false
   /vlans:
     get:
       description: |
@@ -12596,11 +12366,6 @@ paths:
       summary: ListVlans
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: vlans
-        wrapperName: ListVlansResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a VLAN in the specified VCN and the specified compartment.
@@ -12965,11 +12730,6 @@ paths:
       summary: ListVtaps
       tags:
         - virtualNetwork
-      x-stackql-bare-array-wrap:
-        wrapperKey: vtaps
-        wrapperName: ListVtapsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a virtual test access point (VTAP) in the specified compartment.
@@ -28960,5 +28720,3411 @@ components:
         type: string
         minLength: 1
         maxLength: 255
+  x-stackQL-resources:
+    allowed_peer_regions_for_remote_peering:
+      id: oci.network.allowed_peer_regions_for_remote_peering
+      name: allowed_peer_regions_for_remote_peering
+      title: Allowed Peer Regions For Remote Peering
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1allowedPeerRegionsForRemotePeering/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.allowed_peer_regions_for_remote_peering
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListAllowedPeerRegionsForRemotePeeringResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"allowed_peer_regions_for_remote_peering\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/allowed_peer_regions_for_remote_peering/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    byoasns:
+      id: oci.network.byoasns
+      name: byoasns
+      title: Byoasns
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1byoasns/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoasns/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1byoasns~1{byoasnId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1byoasns~1{byoasnId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoasns~1{byoasnId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoasns~1{byoasnId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        validate_byoasn:
+          operation:
+            $ref: '#/paths/~1byoasns~1{byoasnId}~1actions~1validate/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/byoasns/methods/get'
+          - $ref: '#/components/x-stackQL-resources/byoasns/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/byoasns/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/byoasns/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/byoasns/methods/delete'
+        replace: []
+    byoip_ranges:
+      id: oci.network.byoip_ranges
+      name: byoip_ranges
+      title: Byoip Ranges
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1byoipRanges/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoipRanges/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        advertise_byoip_range:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1actions~1advertise/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        set_origin_asn:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1actions~1setOrigin~1byoasn/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        set_origin_asn_to_oracle:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1actions~1setOrigin~1oracleAsn/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        validate_byoip_range:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1actions~1validate/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        withdraw_byoip_range:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1actions~1withdraw/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/byoip_ranges/methods/get'
+          - $ref: '#/components/x-stackQL-resources/byoip_ranges/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/byoip_ranges/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/byoip_ranges/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/byoip_ranges/methods/delete'
+        replace: []
+    byoip_allocated_ranges:
+      id: oci.network.byoip_allocated_ranges
+      name: byoip_allocated_ranges
+      title: Byoip Allocated Ranges
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1byoipRanges~1{byoipRangeId}~1byoipAllocatedRanges/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/byoip_allocated_ranges/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    capture_filters:
+      id: oci.network.capture_filters
+      name: capture_filters
+      title: Capture Filters
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1captureFilters/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.capture_filters
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCaptureFiltersResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"capture_filters\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1captureFilters/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1captureFilters~1{captureFilterId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1captureFilters~1{captureFilterId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1captureFilters~1{captureFilterId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1captureFilters~1{captureFilterId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/capture_filters/methods/get'
+          - $ref: '#/components/x-stackQL-resources/capture_filters/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/capture_filters/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/capture_filters/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/capture_filters/methods/delete'
+        replace: []
+    cpe_device_shapes:
+      id: oci.network.cpe_device_shapes
+      name: cpe_device_shapes
+      title: Cpe Device Shapes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1cpeDeviceShapes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.cpe_device_shapes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCpeDeviceShapesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"cpe_device_shapes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1cpeDeviceShapes~1{cpeDeviceShapeId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cpe_device_shapes/methods/get'
+          - $ref: '#/components/x-stackQL-resources/cpe_device_shapes/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    cpes:
+      id: oci.network.cpes
+      name: cpes
+      title: Cpes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1cpes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.cpes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCpesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"cpes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1cpes/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1cpes~1{cpeId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1cpes~1{cpeId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1cpes~1{cpeId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1cpes~1{cpeId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cpes/methods/get'
+          - $ref: '#/components/x-stackQL-resources/cpes/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/cpes/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/cpes/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/cpes/methods/delete'
+        replace: []
+    cpe_device_config_contents:
+      id: oci.network.cpe_device_config_contents
+      name: cpe_device_config_contents
+      title: Cpe Device Config Contents
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1cpes~1{cpeId}~1cpeConfigContent/get'
+          response:
+            mediaType: text/plain; charset=utf-8
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cpe_device_config_contents/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    cross_connect_groups:
+      id: oci.network.cross_connect_groups
+      name: cross_connect_groups
+      title: Cross Connect Groups
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1crossConnectGroups/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.cross_connect_groups
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCrossConnectGroupsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"cross_connect_groups\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1crossConnectGroups/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1crossConnectGroups~1{crossConnectGroupId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1crossConnectGroups~1{crossConnectGroupId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1crossConnectGroups~1{crossConnectGroupId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1crossConnectGroups~1{crossConnectGroupId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_groups/methods/get'
+          - $ref: '#/components/x-stackQL-resources/cross_connect_groups/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_groups/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_groups/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_groups/methods/delete'
+        replace: []
+    cross_connect_locations:
+      id: oci.network.cross_connect_locations
+      name: cross_connect_locations
+      title: Cross Connect Locations
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1crossConnectLocations/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.cross_connect_locations
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCrossConnectLocationsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"cross_connect_locations\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_locations/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    crossconnect_port_speed_shapes:
+      id: oci.network.crossconnect_port_speed_shapes
+      name: crossconnect_port_speed_shapes
+      title: Crossconnect Port Speed Shapes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1crossConnectPortSpeedShapes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.crossconnect_port_speed_shapes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCrossconnectPortSpeedShapesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"crossconnect_port_speed_shapes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/crossconnect_port_speed_shapes/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    cross_connects:
+      id: oci.network.cross_connects
+      name: cross_connects
+      title: Cross Connects
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1crossConnects/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.cross_connects
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCrossConnectsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"cross_connects\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1crossConnects/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1crossConnects~1{crossConnectId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1crossConnects~1{crossConnectId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1crossConnects~1{crossConnectId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1crossConnects~1{crossConnectId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cross_connects/methods/get'
+          - $ref: '#/components/x-stackQL-resources/cross_connects/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/cross_connects/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/cross_connects/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/cross_connects/methods/delete'
+        replace: []
+    cross_connect_letter_of_authorities:
+      id: oci.network.cross_connect_letter_of_authorities
+      name: cross_connect_letter_of_authorities
+      title: Cross Connect Letter Of Authorities
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1crossConnects~1{crossConnectId}~1letterOfAuthority/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_letter_of_authorities/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    cross_connect_status:
+      id: oci.network.cross_connect_status
+      name: cross_connect_status
+      title: Cross Connect Status
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1crossConnects~1{crossConnectId}~1status/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_status/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    dhcp_options:
+      id: oci.network.dhcp_options
+      name: dhcp_options
+      title: Dhcp Options
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1dhcps/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.dhcp_options
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDhcpOptionsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"dhcp_options\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1dhcps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1dhcps~1{dhcpId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        get:
+          operation:
+            $ref: '#/paths/~1dhcps~1{dhcpId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1dhcps~1{dhcpId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1dhcps~1{dhcpId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/dhcp_options/methods/get'
+          - $ref: '#/components/x-stackQL-resources/dhcp_options/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/dhcp_options/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/dhcp_options/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/dhcp_options/methods/delete'
+        replace: []
+    drg_attachments:
+      id: oci.network.drg_attachments
+      name: drg_attachments
+      title: Drg Attachments
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1drgAttachments/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.drg_attachments
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDrgAttachmentsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drg_attachments\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgAttachments/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1drgAttachments~1{drgAttachmentId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1drgAttachments~1{drgAttachmentId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgAttachments~1{drgAttachmentId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        remove_export_drg_route_distribution:
+          operation:
+            $ref: '#/paths/~1drgAttachments~1{drgAttachmentId}~1actions~1removeExportDrgRouteDistribution/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drg_attachments/methods/get'
+          - $ref: '#/components/x-stackQL-resources/drg_attachments/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/drg_attachments/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/drg_attachments/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/drg_attachments/methods/delete'
+        replace: []
+    drg_route_distributions:
+      id: oci.network.drg_route_distributions
+      name: drg_route_distributions
+      title: Drg Route Distributions
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.drg_route_distributions
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDrgRouteDistributionsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drg_route_distributions\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_drg_route_distribution_statements:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}~1actions~1addDrgRouteDistributionStatements/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.add_drg_route_distribution_statements
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/AddDrgRouteDistributionStatementsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"add_drg_route_distribution_statements\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        remove_drg_route_distribution_statements:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}~1actions~1removeDrgRouteDistributionStatements/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drg_route_distributions/methods/get'
+          - $ref: '#/components/x-stackQL-resources/drg_route_distributions/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/drg_route_distributions/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/drg_route_distributions/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/drg_route_distributions/methods/delete'
+        replace: []
+    drg_route_distribution_statements:
+      id: oci.network.drg_route_distribution_statements
+      name: drg_route_distribution_statements
+      title: Drg Route Distribution Statements
+      methods:
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}~1actions~1updateDrgRouteDistributionStatements/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.update_drg_route_distribution_statements
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/UpdateDrgRouteDistributionStatementsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"update_drg_route_distribution_statements\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        list:
+          operation:
+            $ref: '#/paths/~1drgRouteDistributions~1{drgRouteDistributionId}~1drgRouteDistributionStatements/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.drg_route_distribution_statements
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDrgRouteDistributionStatementsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drg_route_distribution_statements\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drg_route_distribution_statements/methods/list'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/drg_route_distribution_statements/methods/update'
+        delete: []
+        replace: []
+    drg_route_tables:
+      id: oci.network.drg_route_tables
+      name: drg_route_tables
+      title: Drg Route Tables
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1drgRouteTables/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.drg_route_tables
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDrgRouteTablesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drg_route_tables\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteTables/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_drg_route_rules:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}~1actions~1addDrgRouteRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.add_drg_route_rules
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/AddDrgRouteRulesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"add_drg_route_rules\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        remove_drg_route_rules:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}~1actions~1removeDrgRouteRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        remove_import_drg_route_distribution:
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}~1actions~1removeImportDrgRouteDistribution/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drg_route_tables/methods/get'
+          - $ref: '#/components/x-stackQL-resources/drg_route_tables/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/drg_route_tables/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/drg_route_tables/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/drg_route_tables/methods/delete'
+        replace: []
+    drg_route_rules:
+      id: oci.network.drg_route_rules
+      name: drg_route_rules
+      title: Drg Route Rules
+      methods:
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}~1actions~1updateDrgRouteRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.update_drg_route_rules
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/UpdateDrgRouteRulesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"update_drg_route_rules\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        list:
+          operation:
+            $ref: '#/paths/~1drgRouteTables~1{drgRouteTableId}~1drgRouteRules/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.drg_route_rules
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDrgRouteRulesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drg_route_rules\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drg_route_rules/methods/list'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/drg_route_rules/methods/update'
+        delete: []
+        replace: []
+    drgs:
+      id: oci.network.drgs
+      name: drgs
+      title: Drgs
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1drgs/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.drgs
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDrgsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drgs\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgs/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        get_all_drg_attachments:
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}~1actions~1getAllDrgAttachments/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+            objectKey: $.drg_attachments
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/GetAllDrgAttachmentsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"drg_attachments\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        upgrade_drg:
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}~1actions~1upgrade/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drgs/methods/get'
+          - $ref: '#/components/x-stackQL-resources/drgs/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/drgs/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/drgs/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/drgs/methods/delete'
+        replace: []
+    upgrade_status:
+      id: oci.network.upgrade_status
+      name: upgrade_status
+      title: Upgrade Status
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}~1actions~1upgradeStatus/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/upgrade_status/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    drg_redundancy_status:
+      id: oci.network.drg_redundancy_status
+      name: drg_redundancy_status
+      title: Drg Redundancy Status
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1drgs~1{drgId}~1redundancyStatus/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/drg_redundancy_status/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    fast_connect_provider_services:
+      id: oci.network.fast_connect_provider_services
+      name: fast_connect_provider_services
+      title: Fast Connect Provider Services
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1fastConnectProviderServices/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.fast_connect_provider_services
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListFastConnectProviderServicesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"fast_connect_provider_services\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1fastConnectProviderServices~1{providerServiceId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/fast_connect_provider_services/methods/get'
+          - $ref: '#/components/x-stackQL-resources/fast_connect_provider_services/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    fast_connect_provider_service_keys:
+      id: oci.network.fast_connect_provider_service_keys
+      name: fast_connect_provider_service_keys
+      title: Fast Connect Provider Service Keys
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1fastConnectProviderServices~1{providerServiceId}~1providerServiceKeys~1{providerServiceKeyName}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/fast_connect_provider_service_keys/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    fast_connect_provider_virtual_circuit_bandwidth_shapes:
+      id: oci.network.fast_connect_provider_virtual_circuit_bandwidth_shapes
+      name: fast_connect_provider_virtual_circuit_bandwidth_shapes
+      title: Fast Connect Provider Virtual Circuit Bandwidth Shapes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1fastConnectProviderServices~1{providerServiceId}~1virtualCircuitBandwidthShapes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.fast_connect_provider_virtual_circuit_bandwidth_shapes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListFastConnectProviderVirtualCircuitBandwidthShapesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"fast_connect_provider_virtual_circuit_bandwidth_shapes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/fast_connect_provider_virtual_circuit_bandwidth_shapes/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    internet_gateways:
+      id: oci.network.internet_gateways
+      name: internet_gateways
+      title: Internet Gateways
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1internetGateways/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.internet_gateways
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListInternetGatewaysResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"internet_gateways\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1internetGateways/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1internetGateways~1{igId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1internetGateways~1{igId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1internetGateways~1{igId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1internetGateways~1{igId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/internet_gateways/methods/get'
+          - $ref: '#/components/x-stackQL-resources/internet_gateways/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/internet_gateways/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/internet_gateways/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/internet_gateways/methods/delete'
+        replace: []
+    ip_inventories:
+      id: oci.network.ip_inventories
+      name: ip_inventories
+      title: Ip Inventories
+      methods:
+        list_ip_inventory:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipInventory/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    subnet_ip_inventories:
+      id: oci.network.subnet_ip_inventories
+      name: subnet_ip_inventories
+      title: Subnet Ip Inventories
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipInventory~1subnets~1{subnetId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/subnet_ip_inventories/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    subnet_cidr_utilizations:
+      id: oci.network.subnet_cidr_utilizations
+      name: subnet_cidr_utilizations
+      title: Subnet Cidr Utilizations
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipInventory~1subnets~1{subnetId}~1cidrs/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/subnet_cidr_utilizations/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    overlaps:
+      id: oci.network.overlaps
+      name: overlaps
+      title: Overlaps
+      methods:
+        get_vcn_overlap:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipInventory~1vcns~1{vcnId}~1overlaps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    resource_ip_inventories:
+      id: oci.network.resource_ip_inventories
+      name: resource_ip_inventories
+      title: Resource Ip Inventories
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipinventory~1DataRequestId~1{dataRequestId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/resource_ip_inventories/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    allowed_ike_ip_sec_parameters:
+      id: oci.network.allowed_ike_ip_sec_parameters
+      name: allowed_ike_ip_sec_parameters
+      title: Allowed Ike Ip Sec Parameters
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecAlgorithms/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/allowed_ike_ip_sec_parameters/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connections:
+      id: oci.network.ip_sec_connections
+      name: ip_sec_connections
+      title: Ip Sec Connections
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1ipsecConnections/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.ipsec_connections
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIPSecConnectionsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"ipsec_connections\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipsecConnections/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connections/methods/get'
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connections/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connections/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connections/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connections/methods/delete'
+        replace: []
+    ipsec_cpe_device_config_contents:
+      id: oci.network.ipsec_cpe_device_config_contents
+      name: ipsec_cpe_device_config_contents
+      title: Ipsec Cpe Device Config Contents
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1cpeConfigContent/get'
+          response:
+            mediaType: text/plain; charset=utf-8
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ipsec_cpe_device_config_contents/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connection_device_configs:
+      id: oci.network.ip_sec_connection_device_configs
+      name: ip_sec_connection_device_configs
+      title: Ip Sec Connection Device Configs
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1deviceConfig/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_device_configs/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connection_device_status:
+      id: oci.network.ip_sec_connection_device_status
+      name: ip_sec_connection_device_status
+      title: Ip Sec Connection Device Status
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1deviceStatus/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_device_status/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connection_tunnels:
+      id: oci.network.ip_sec_connection_tunnels
+      name: ip_sec_connection_tunnels
+      title: Ip Sec Connection Tunnels
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.ipsec_connection_tunnels
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIPSecConnectionTunnelsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"ipsec_connection_tunnels\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnels/methods/get'
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnels/methods/list'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnels/methods/update'
+        delete: []
+        replace: []
+    ip_sec_connection_tunnel_errors:
+      id: oci.network.ip_sec_connection_tunnel_errors
+      name: ip_sec_connection_tunnel_errors
+      title: Ip Sec Connection Tunnel Errors
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1error/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_errors/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connection_tunnel_routes:
+      id: oci.network.ip_sec_connection_tunnel_routes
+      name: ip_sec_connection_tunnel_routes
+      title: Ip Sec Connection Tunnel Routes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1routes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.ipsec_connection_tunnel_routes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIPSecConnectionTunnelRoutesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"ipsec_connection_tunnel_routes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_routes/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connection_tunnel_shared_secrets:
+      id: oci.network.ip_sec_connection_tunnel_shared_secrets
+      name: ip_sec_connection_tunnel_shared_secrets
+      title: Ip Sec Connection Tunnel Shared Secrets
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1sharedSecret/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1sharedSecret/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_shared_secrets/methods/get'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_shared_secrets/methods/update'
+        delete: []
+        replace: []
+    tunnel_cpe_device_configs:
+      id: oci.network.tunnel_cpe_device_configs
+      name: tunnel_cpe_device_configs
+      title: Tunnel Cpe Device Configs
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1tunnelDeviceConfig/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1tunnelDeviceConfig/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tunnel_cpe_device_configs/methods/get'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/tunnel_cpe_device_configs/methods/update'
+        delete: []
+        replace: []
+    tunnel_cpe_device_config_contents:
+      id: oci.network.tunnel_cpe_device_config_contents
+      name: tunnel_cpe_device_config_contents
+      title: Tunnel Cpe Device Config Contents
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1tunnelDeviceConfig~1content/get'
+          response:
+            mediaType: text/plain; charset=utf-8
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tunnel_cpe_device_config_contents/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ip_sec_connection_tunnel_security_associations:
+      id: oci.network.ip_sec_connection_tunnel_security_associations
+      name: ip_sec_connection_tunnel_security_associations
+      title: Ip Sec Connection Tunnel Security Associations
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}~1tunnelSecurityAssociations/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.ipsec_connection_tunnel_security_associations
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIPSecConnectionTunnelSecurityAssociationsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"ipsec_connection_tunnel_security_associations\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_security_associations/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    ipv6s:
+      id: oci.network.ipv6s
+      name: ipv6s
+      title: Ipv6s
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1ipv6/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.ipv6s
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIpv6sResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"ipv6s\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipv6/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        bulk_create_ipv6s:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipv6~1actions~1bulkCreateIpv6s/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_delete_ipv6s:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipv6~1actions~1bulkDeleteIpv6s/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_detach_ipv6s:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipv6~1actions~1bulkDetachIpv6s/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_update_ipv6s:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipv6~1actions~1bulkUpdateIpv6s/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        delete:
+          operation:
+            $ref: '#/paths/~1ipv6~1{ipv6Id}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1ipv6~1{ipv6Id}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1ipv6~1{ipv6Id}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        ipv6_vnic_detach:
+          operation:
+            $ref: '#/paths/~1ipv6~1{ipv6Id}~1actions~1detach/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/ipv6s/methods/get'
+          - $ref: '#/components/x-stackQL-resources/ipv6s/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/ipv6s/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/ipv6s/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/ipv6s/methods/delete'
+        replace: []
+    local_peering_gateways:
+      id: oci.network.local_peering_gateways
+      name: local_peering_gateways
+      title: Local Peering Gateways
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1localPeeringGateways/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.local_peering_gateways
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListLocalPeeringGatewaysResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"local_peering_gateways\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1localPeeringGateways/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1localPeeringGateways~1{localPeeringGatewayId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1localPeeringGateways~1{localPeeringGatewayId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1localPeeringGateways~1{localPeeringGatewayId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1localPeeringGateways~1{localPeeringGatewayId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        connect_local_peering_gateways:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1localPeeringGateways~1{localPeeringGatewayId}~1actions~1connect/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/local_peering_gateways/methods/get'
+          - $ref: '#/components/x-stackQL-resources/local_peering_gateways/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/local_peering_gateways/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/local_peering_gateways/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/local_peering_gateways/methods/delete'
+        replace: []
+    nat_gateways:
+      id: oci.network.nat_gateways
+      name: nat_gateways
+      title: Nat Gateways
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1natGateways/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.nat_gateways
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListNatGatewaysResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"nat_gateways\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1natGateways/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1natGateways~1{natGatewayId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1natGateways~1{natGatewayId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1natGateways~1{natGatewayId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1natGateways~1{natGatewayId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/nat_gateways/methods/get'
+          - $ref: '#/components/x-stackQL-resources/nat_gateways/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/nat_gateways/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/nat_gateways/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/nat_gateways/methods/delete'
+        replace: []
+    network_security_groups:
+      id: oci.network.network_security_groups
+      name: network_security_groups
+      title: Network Security Groups
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.network_security_groups
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListNetworkSecurityGroupsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"network_security_groups\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_network_security_group_security_rules:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}~1actions~1addSecurityRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        remove_network_security_group_security_rules:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}~1actions~1removeSecurityRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/network_security_groups/methods/get'
+          - $ref: '#/components/x-stackQL-resources/network_security_groups/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/network_security_groups/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/network_security_groups/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/network_security_groups/methods/delete'
+        replace: []
+    network_security_group_security_rules:
+      id: oci.network.network_security_group_security_rules
+      name: network_security_group_security_rules
+      title: Network Security Group Security Rules
+      methods:
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}~1actions~1updateSecurityRules/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        list:
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}~1securityRules/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.network_security_group_security_rules
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListNetworkSecurityGroupSecurityRulesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"network_security_group_security_rules\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/network_security_group_security_rules/methods/list'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/network_security_group_security_rules/methods/update'
+        delete: []
+        replace: []
+    network_security_group_vnics:
+      id: oci.network.network_security_group_vnics
+      name: network_security_group_vnics
+      title: Network Security Group Vnics
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1networkSecurityGroups~1{networkSecurityGroupId}~1vnics/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.network_security_group_vnics
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListNetworkSecurityGroupVnicsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"network_security_group_vnics\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/network_security_group_vnics/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    networking_topologies:
+      id: oci.network.networking_topologies
+      name: networking_topologies
+      title: Networking Topologies
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1networkingTopology/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/networking_topologies/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    private_ips:
+      id: oci.network.private_ips
+      name: private_ips
+      title: Private Ips
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1privateIps/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.private_ips
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListPrivateIpsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"private_ips\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1privateIps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        bulk_create_private_ips:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1privateIps~1actions~1bulkCreatePrivateIps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_delete_private_ips:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1privateIps~1actions~1bulkDeletePrivateIps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_detach_private_ips:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1privateIps~1actions~1bulkDetachPrivateIps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_update_private_ips:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1privateIps~1actions~1bulkUpdatePrivateIps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        delete:
+          operation:
+            $ref: '#/paths/~1privateIps~1{privateIpId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1privateIps~1{privateIpId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1privateIps~1{privateIpId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        private_ip_vnic_detach:
+          operation:
+            $ref: '#/paths/~1privateIps~1{privateIpId}~1actions~1detach/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/private_ips/methods/get'
+          - $ref: '#/components/x-stackQL-resources/private_ips/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/private_ips/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/private_ips/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/private_ips/methods/delete'
+        replace: []
+    public_ip_pools:
+      id: oci.network.public_ip_pools
+      name: public_ip_pools
+      title: Public Ip Pools
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1publicIpPools/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIpPools/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1publicIpPools~1{publicIpPoolId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1publicIpPools~1{publicIpPoolId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIpPools~1{publicIpPoolId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_public_ip_pool_capacity:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIpPools~1{publicIpPoolId}~1actions~1addCapacity/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIpPools~1{publicIpPoolId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        remove_public_ip_pool_capacity:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIpPools~1{publicIpPoolId}~1actions~1removeCapacity/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/public_ip_pools/methods/get'
+          - $ref: '#/components/x-stackQL-resources/public_ip_pools/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/public_ip_pools/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/public_ip_pools/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/public_ip_pools/methods/delete'
+        replace: []
+    public_ips:
+      id: oci.network.public_ips
+      name: public_ips
+      title: Public Ips
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1publicIps/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.public_ips
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListPublicIpsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"public_ips\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        get_public_ip_by_ip_address:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIps~1actions~1getByIpAddress/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        get_public_ip_by_private_ip_id:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIps~1actions~1getByPrivateIpId/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1publicIps~1{publicIpId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1publicIps~1{publicIpId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIps~1{publicIpId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1publicIps~1{publicIpId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/public_ips/methods/get'
+          - $ref: '#/components/x-stackQL-resources/public_ips/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/public_ips/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/public_ips/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/public_ips/methods/delete'
+        replace: []
+    remote_peering_connections:
+      id: oci.network.remote_peering_connections
+      name: remote_peering_connections
+      title: Remote Peering Connections
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.remote_peering_connections
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListRemotePeeringConnectionsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"remote_peering_connections\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections~1{remotePeeringConnectionId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections~1{remotePeeringConnectionId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections~1{remotePeeringConnectionId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections~1{remotePeeringConnectionId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        connect_remote_peering_connections:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1remotePeeringConnections~1{remotePeeringConnectionId}~1actions~1connect/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/remote_peering_connections/methods/get'
+          - $ref: '#/components/x-stackQL-resources/remote_peering_connections/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/remote_peering_connections/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/remote_peering_connections/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/remote_peering_connections/methods/delete'
+        replace: []
+    route_tables:
+      id: oci.network.route_tables
+      name: route_tables
+      title: Route Tables
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1routeTables/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.route_tables
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListRouteTablesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"route_tables\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1routeTables/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1routeTables~1{rtId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1routeTables~1{rtId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1routeTables~1{rtId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1routeTables~1{rtId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/route_tables/methods/get'
+          - $ref: '#/components/x-stackQL-resources/route_tables/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/route_tables/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/route_tables/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/route_tables/methods/delete'
+        replace: []
+    security_lists:
+      id: oci.network.security_lists
+      name: security_lists
+      title: Security Lists
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1securityLists/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.security_lists
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListSecurityListsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"security_lists\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1securityLists/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1securityLists~1{securityListId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1securityLists~1{securityListId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1securityLists~1{securityListId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1securityLists~1{securityListId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/security_lists/methods/get'
+          - $ref: '#/components/x-stackQL-resources/security_lists/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/security_lists/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/security_lists/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/security_lists/methods/delete'
+        replace: []
+    service_gateways:
+      id: oci.network.service_gateways
+      name: service_gateways
+      title: Service Gateways
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1serviceGateways/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.service_gateways
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListServiceGatewaysResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"service_gateways\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1serviceGateways/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1serviceGateways~1{serviceGatewayId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1serviceGateways~1{serviceGatewayId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1serviceGateways~1{serviceGatewayId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        attach:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1serviceGateways~1{serviceGatewayId}~1actions~1attachService/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1serviceGateways~1{serviceGatewayId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        detach_service_id:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1serviceGateways~1{serviceGatewayId}~1actions~1detachService/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/service_gateways/methods/get'
+          - $ref: '#/components/x-stackQL-resources/service_gateways/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/service_gateways/methods/attach'
+          - $ref: '#/components/x-stackQL-resources/service_gateways/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/service_gateways/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/service_gateways/methods/delete'
+        replace: []
+    services:
+      id: oci.network.services
+      name: services
+      title: Services
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1services/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.services
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListServicesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"services\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1services~1{serviceId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/services/methods/get'
+          - $ref: '#/components/x-stackQL-resources/services/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    subnet_topologies:
+      id: oci.network.subnet_topologies
+      name: subnet_topologies
+      title: Subnet Topologies
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1subnetTopology/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/subnet_topologies/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    subnets:
+      id: oci.network.subnets
+      name: subnets
+      title: Subnets
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1subnets/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.subnets
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListSubnetsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"subnets\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_ipv4_subnet_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}~1actions~1addIpv4Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        add_ipv6_subnet_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}~1actions~1addIpv6Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        modify_ipv4_subnet_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}~1actions~1modifyIpv4Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        remove_ipv4_subnet_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}~1actions~1removeIpv4Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        remove_ipv6_subnet_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1subnets~1{subnetId}~1actions~1removeIpv6Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/subnets/methods/get'
+          - $ref: '#/components/x-stackQL-resources/subnets/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/subnets/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/subnets/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/subnets/methods/delete'
+        replace: []
+    vcn_topologies:
+      id: oci.network.vcn_topologies
+      name: vcn_topologies
+      title: Vcn Topologies
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1vcnTopology/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/vcn_topologies/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    vcns:
+      id: oci.network.vcns
+      name: vcns
+      title: Vcns
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1vcns/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.vcns
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVcnsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"vcns\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_vcn_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}~1actions~1addCidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        add_ipv6_vcn_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}~1actions~1addIpv6Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        modify_vcn_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}~1actions~1modifyCidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        remove_vcn_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}~1actions~1removeCidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        remove_ipv6_vcn_cidr:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vcns~1{vcnId}~1actions~1removeIpv6Cidr/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/vcns/methods/get'
+          - $ref: '#/components/x-stackQL-resources/vcns/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/vcns/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/vcns/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/vcns/methods/delete'
+        replace: []
+    virtual_circuit_bandwidth_shapes:
+      id: oci.network.virtual_circuit_bandwidth_shapes
+      name: virtual_circuit_bandwidth_shapes
+      title: Virtual Circuit Bandwidth Shapes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1virtualCircuitBandwidthShapes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.virtual_circuit_bandwidth_shapes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVirtualCircuitBandwidthShapesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"virtual_circuit_bandwidth_shapes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuit_bandwidth_shapes/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    virtual_circuits:
+      id: oci.network.virtual_circuits
+      name: virtual_circuits
+      title: Virtual Circuits
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1virtualCircuits/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.virtual_circuits
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVirtualCircuitsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"virtual_circuits\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1virtualCircuits/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        bulk_add_virtual_circuit_public_prefixes:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}~1actions~1bulkAddPublicPrefixes/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        bulk_delete_virtual_circuit_public_prefixes:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}~1actions~1bulkDeletePublicPrefixes/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuits/methods/get'
+          - $ref: '#/components/x-stackQL-resources/virtual_circuits/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuits/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuits/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuits/methods/delete'
+        replace: []
+    virtual_circuit_associated_tunnels:
+      id: oci.network.virtual_circuit_associated_tunnels
+      name: virtual_circuit_associated_tunnels
+      title: Virtual Circuit Associated Tunnels
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}~1associatedTunnels/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.virtual_circuit_associated_tunnels
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVirtualCircuitAssociatedTunnelsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"virtual_circuit_associated_tunnels\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuit_associated_tunnels/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    cross_connect_mappings:
+      id: oci.network.cross_connect_mappings
+      name: cross_connect_mappings
+      title: Cross Connect Mappings
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}~1crossConnectMappings/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cross_connect_mappings/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    virtual_circuit_public_prefixes:
+      id: oci.network.virtual_circuit_public_prefixes
+      name: virtual_circuit_public_prefixes
+      title: Virtual Circuit Public Prefixes
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1virtualCircuits~1{virtualCircuitId}~1publicPrefixes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.virtual_circuit_public_prefixes
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVirtualCircuitPublicPrefixesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"virtual_circuit_public_prefixes\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/virtual_circuit_public_prefixes/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    vlans:
+      id: oci.network.vlans
+      name: vlans
+      title: Vlans
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1vlans/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.vlans
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVlansResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"vlans\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vlans/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1vlans~1{vlanId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1vlans~1{vlanId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vlans~1{vlanId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vlans~1{vlanId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/vlans/methods/get'
+          - $ref: '#/components/x-stackQL-resources/vlans/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/vlans/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/vlans/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/vlans/methods/delete'
+        replace: []
+    vnics:
+      id: oci.network.vnics
+      name: vnics
+      title: Vnics
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1vnics~1{vnicId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vnics~1{vnicId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/vnics/methods/get'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/vnics/methods/update'
+        delete: []
+        replace: []
+    vtaps:
+      id: oci.network.vtaps
+      name: vtaps
+      title: Vtaps
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1vtaps/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.vtaps
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListVtapsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"vtaps\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vtaps/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1vtaps~1{vtapId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get:
+          operation:
+            $ref: '#/paths/~1vtaps~1{vtapId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vtaps~1{vtapId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1vtaps~1{vtapId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/vtaps/methods/get'
+          - $ref: '#/components/x-stackQL-resources/vtaps/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/vtaps/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/vtaps/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/vtaps/methods/delete'
+        replace: []
 servers:
-  - url: /20160918
+  - url: https://iaas.{region}.oraclecloud.com/20160918
+    variables:
+      region:
+        default: us-ashburn-1
+        description: OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_CLI_REGION when not supplied in the query.
+        x-stackQL-envVar: OCI_CLI_REGION
+x-stackQL-config:
+  pagination:
+    requestToken:
+      key: page
+      location: query
+    responseToken:
+      key: opc-next-page
+      location: header

@@ -53,11 +53,6 @@ paths:
       tags:
         - identity
       x-related-resource: '#/definitions/Domain'
-      x-stackql-bare-array-wrap:
-        wrapperKey: allowed_domain_license_types
-        wrapperName: ListAllowedDomainLicenseTypesResponse
-        mediaType: application/json
-        scalar: false
   /authenticationPolicies/{compartmentId}:
     get:
       description: |
@@ -201,11 +196,6 @@ paths:
       summary: ListAvailabilityDomains
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: availability_domains
-        wrapperName: ListAvailabilityDomainsResponse
-        mediaType: application/json
-        scalar: false
   /compartments/:
     get:
       description: |
@@ -283,11 +273,6 @@ paths:
       summary: ListCompartments
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: compartments
-        wrapperName: ListCompartmentsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new compartment in the specified compartment.
@@ -842,11 +827,6 @@ paths:
       summary: ListDomains
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: domains
-        wrapperName: ListDomainsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         (For tenancies that support identity domains) Creates a new identity domain in the tenancy with the identity domain home in `homeRegion`.
@@ -1400,11 +1380,6 @@ paths:
       summary: ListDynamicGroups
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: dynamic_groups
-        wrapperName: ListDynamicGroupsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new dynamic group in your tenancy.
@@ -1666,11 +1641,6 @@ paths:
       summary: ListFaultDomains
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: fault_domains
-        wrapperName: ListFaultDomainsResponse
-        mediaType: application/json
-        scalar: false
   /groups/:
     get:
       description: |
@@ -1731,11 +1701,6 @@ paths:
       summary: ListGroups
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: groups
-        wrapperName: ListGroupsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new group in your tenancy.
@@ -2010,11 +1975,6 @@ paths:
       summary: List IAM work requests
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: iam_work_requests
-        wrapperName: ListIamWorkRequestsResponse
-        mediaType: application/json
-        scalar: false
   /iamWorkRequests/{iamWorkRequestId}:
     get:
       description: |
@@ -2100,11 +2060,6 @@ paths:
       tags:
         - identity
       x-related-resource: '#/definitions/IamWorkRequest'
-      x-stackql-bare-array-wrap:
-        wrapperKey: iam_work_request_errors
-        wrapperName: ListIamWorkRequestErrorsResponse
-        mediaType: application/json
-        scalar: false
   /iamWorkRequests/{iamWorkRequestId}/logs:
     get:
       description: |
@@ -2158,11 +2113,6 @@ paths:
       summary: List IAM workrequest logs
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: iam_work_request_logs
-        wrapperName: ListIamWorkRequestLogsResponse
-        mediaType: application/json
-        scalar: false
   /idcsDomainServiceStatus:
     get:
       description: |
@@ -2265,11 +2215,6 @@ paths:
       summary: ListIdentityProviders
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: identity_providers
-        wrapperName: ListIdentityProvidersResponse
-        mediaType: application/json
-        scalar: false
     post:
       deprecated: true
       description: |
@@ -2569,11 +2514,6 @@ paths:
       summary: ListIdpGroupMappings
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: idp_group_mappings
-        wrapperName: ListIdpGroupMappingsResponse
-        mediaType: application/json
-        scalar: false
     post:
       deprecated: true
       description: |
@@ -2831,11 +2771,6 @@ paths:
       summary: Gets the identity provider groups.
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: identity_provider_groups
-        wrapperName: ListIdentityProviderGroupsResponse
-        mediaType: application/json
-        scalar: false
   /networkSources:
     get:
       description: |
@@ -2894,11 +2829,6 @@ paths:
       summary: ListNetworkSources
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: network_sources
-        wrapperName: ListNetworkSourcesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new network source in your tenancy.
@@ -3189,11 +3119,6 @@ paths:
       summary: ListPolicies
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: policies
-        wrapperName: ListPoliciesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new policy in the specified compartment (either the tenancy or another of your compartments).
@@ -3569,11 +3494,6 @@ paths:
       summary: ListRegions
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: regions
-        wrapperName: ListRegionsResponse
-        mediaType: application/json
-        scalar: false
   /tagDefaults:
     get:
       description: |
@@ -3661,11 +3581,6 @@ paths:
         GET /20160918/tagDefaults?compartmentId=ocid1.compartment.oc1..aaaaaaaamexampleuniqueID
         Host: identity.us-phoenix-1.oraclecloud.com
         <var>&lt;authorization and other headers&gt;</var>
-      x-stackql-bare-array-wrap:
-        wrapperKey: tag_defaults
-        wrapperName: ListTagDefaultsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new tag default in the specified compartment for the specified tag definition.
@@ -3834,11 +3749,6 @@ paths:
         Host: identity.us-phoenix-1.oraclecloud.com
         <var>&lt;authorization and other headers&gt;</var>
       x-related-resource: '#/definitions/TagDefault'
-      x-stackql-bare-array-wrap:
-        wrapperKey: assemble_effective_tag_set
-        wrapperName: AssembleEffectiveTagSetResponse
-        mediaType: application/json
-        scalar: false
   /tagDefaults/{tagDefaultId}:
     delete:
       description: |
@@ -4148,11 +4058,6 @@ paths:
       summary: ListTagNamespaces
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: tag_namespaces
-        wrapperName: ListTagNamespacesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new tag namespace in the specified compartment.
@@ -4279,11 +4184,6 @@ paths:
       summary: ListCostTrackingTags
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: cost_tracking_tags
-        wrapperName: ListCostTrackingTagsResponse
-        mediaType: application/json
-        scalar: false
   /tagNamespaces/{tagNamespaceId}:
     delete:
       description: |
@@ -4683,11 +4583,6 @@ paths:
       summary: ListTags
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: tags
-        wrapperName: ListTagsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new tag in the specified tag namespace.
@@ -5001,11 +4896,6 @@ paths:
       summary: ListTaggingWorkRequests
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: tagging_work_requests
-        wrapperName: ListTaggingWorkRequestsResponse
-        mediaType: application/json
-        scalar: false
   /taggingWorkRequests/{workRequestId}:
     get:
       description: |
@@ -5100,11 +4990,6 @@ paths:
       summary: ListTaggingWorkRequestErrors
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: tagging_work_request_errors
-        wrapperName: ListTaggingWorkRequestErrorsResponse
-        mediaType: application/json
-        scalar: false
   /taggingWorkRequests/{workRequestId}/logs:
     get:
       description: |
@@ -5156,11 +5041,6 @@ paths:
       summary: ListTaggingWorkRequestLogs
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: tagging_work_request_logs
-        wrapperName: ListTaggingWorkRequestLogsResponse
-        mediaType: application/json
-        scalar: false
   /tags/actions/bulkDelete:
     post:
       description: |
@@ -5446,11 +5326,6 @@ paths:
       summary: ListStandardTagNamespaceTemplates
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: standard_tag_namespaces
-        wrapperName: ListStandardTagNamespacesResponse
-        mediaType: application/json
-        scalar: false
   /tags/standardTagNamespaceTemplates/{standardTagNamespaceName}:
     get:
       description: |
@@ -5560,11 +5435,6 @@ paths:
       summary: ListRegionSubscriptions
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: region_subscriptions
-        wrapperName: ListRegionSubscriptionsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a subscription to a region for a tenancy.
@@ -5668,11 +5538,6 @@ paths:
       summary: ListUserGroupMemberships
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: user_group_memberships
-        wrapperName: ListUserGroupMembershipsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Adds the specified user to the specified group and returns a `UserGroupMembership` object with its own OCID.
@@ -5867,11 +5732,6 @@ paths:
       summary: ListUsers
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: users
-        wrapperName: ListUsersResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new user in your tenancy. For conceptual information about users, your tenancy, and other
@@ -6155,11 +6015,6 @@ paths:
       summary: ListApiKeys
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: api_keys
-        wrapperName: ListApiKeysResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Uploads an API signing key for the specified user.
@@ -6335,11 +6190,6 @@ paths:
       summary: ListAuthTokens
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: auth_tokens
-        wrapperName: ListAuthTokensResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new auth token for the specified user. For information about what auth tokens are for, see
@@ -6590,11 +6440,6 @@ paths:
       summary: ListCustomerSecretKeys
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: customer_secret_keys
-        wrapperName: ListCustomerSecretKeysResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new secret key for the specified user. Secret keys are used for authentication with the Object Storage Service's Amazon S3
@@ -6808,11 +6653,6 @@ paths:
       tags:
         - identity
       x-related-resource: '#/definitions/User'
-      x-stackql-bare-array-wrap:
-        wrapperKey: db_credentials
-        wrapperName: ListDbCredentialsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new DB credential for the specified user.
@@ -6958,11 +6798,6 @@ paths:
       summary: ListMfaTotpDevices
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: mfa_totp_devices
-        wrapperName: ListMfaTotpDevicesResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new MFA TOTP device for the user. A user can have one MFA TOTP device.
@@ -7244,11 +7079,6 @@ paths:
       tags:
         - identity
       x-related-resource: '#/definitions/User'
-      x-stackql-bare-array-wrap:
-        wrapperKey: oauth_client_credentials
-        wrapperName: ListOAuthClientCredentialsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates Oauth token for the user
@@ -7435,11 +7265,6 @@ paths:
       summary: ListSmtpCredentials
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: smtp_credentials
-        wrapperName: ListSmtpCredentialsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         Creates a new SMTP credential for the specified user. An SMTP credential has an SMTP user name and an SMTP password.
@@ -7680,11 +7505,6 @@ paths:
       summary: ListSwiftPasswords
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: swift_passwords
-        wrapperName: ListSwiftPasswordsResponse
-        mediaType: application/json
-        scalar: false
     post:
       description: |
         **Deprecated. Use [CreateAuthToken](#/en/identity/20160918/AuthToken/CreateAuthToken) instead.**
@@ -7992,11 +7812,6 @@ paths:
       summary: ListWorkRequests
       tags:
         - identity
-      x-stackql-bare-array-wrap:
-        wrapperKey: work_requests
-        wrapperName: ListWorkRequestsResponse
-        mediaType: application/json
-        scalar: false
   /workRequests/{workRequestId}:
     get:
       description: |
@@ -14485,5 +14300,2042 @@ components:
             $ref: '#/components/schemas/RemoveLockDetails'
       description: Lock that is going to be removed from resource
       required: true
+  x-stackQL-resources:
+    allowed_domain_license_types:
+      id: oci.identity.allowed_domain_license_types
+      name: allowed_domain_license_types
+      title: Allowed Domain License Types
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1allowedDomainLicenseTypes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.allowed_domain_license_types
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListAllowedDomainLicenseTypesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"allowed_domain_license_types\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/allowed_domain_license_types/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    authentication_policies:
+      id: oci.identity.authentication_policies
+      name: authentication_policies
+      title: Authentication Policies
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1authenticationPolicies~1{compartmentId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1authenticationPolicies~1{compartmentId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/authentication_policies/methods/get'
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/authentication_policies/methods/update'
+        delete: []
+        replace: []
+    availability_domains:
+      id: oci.identity.availability_domains
+      name: availability_domains
+      title: Availability Domains
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1availabilityDomains~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.availability_domains
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListAvailabilityDomainsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"availability_domains\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/availability_domains/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    compartments:
+      id: oci.identity.compartments
+      name: compartments
+      title: Compartments
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1compartments~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.compartments
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCompartmentsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"compartments\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1compartments~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get_compartment:
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        bulk_delete_resources:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}~1actions~1bulkDeleteResources/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_move_resources:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}~1actions~1bulkMoveResources/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        move_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}~1actions~1moveCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        recover_compartment:
+          operation:
+            $ref: '#/paths/~1compartments~1{compartmentId}~1actions~1recoverCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/compartments/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/compartments/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/compartments/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/compartments/methods/delete'
+        replace: []
+    bulk_action_resource_types:
+      id: oci.identity.bulk_action_resource_types
+      name: bulk_action_resource_types
+      title: Bulk Action Resource Types
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1compartments~1bulkActionResourceTypes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/bulk_action_resource_types/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    domains:
+      id: oci.identity.domains
+      name: domains
+      title: Domains
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1domains~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.domains
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDomainsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"domains\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1domains~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        delete:
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get:
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        activate_domain:
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}~1actions~1activate/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        change_domain_license_type:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}~1actions~1changeLicenseType/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        deactivate_domain:
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}~1actions~1deactivate/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        enable_replication_to_region:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1domains~1{domainId}~1actions~1enableReplicationToRegion/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/domains/methods/get'
+          - $ref: '#/components/x-stackQL-resources/domains/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/domains/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/domains/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/domains/methods/delete'
+        replace: []
+    dynamic_groups:
+      id: oci.identity.dynamic_groups
+      name: dynamic_groups
+      title: Dynamic Groups
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1dynamicGroups~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.dynamic_groups
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDynamicGroupsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"dynamic_groups\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1dynamicGroups~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1dynamicGroups~1{dynamicGroupId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1dynamicGroups~1{dynamicGroupId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1dynamicGroups~1{dynamicGroupId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/dynamic_groups/methods/get'
+          - $ref: '#/components/x-stackQL-resources/dynamic_groups/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/dynamic_groups/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/dynamic_groups/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/dynamic_groups/methods/delete'
+        replace: []
+    fault_domains:
+      id: oci.identity.fault_domains
+      name: fault_domains
+      title: Fault Domains
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1faultDomains~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.fault_domains
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListFaultDomainsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"fault_domains\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/fault_domains/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    groups:
+      id: oci.identity.groups
+      name: groups
+      title: Groups
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1groups~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.groups
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListGroupsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"groups\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1groups~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1groups~1{groupId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1groups~1{groupId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1groups~1{groupId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/groups/methods/get'
+          - $ref: '#/components/x-stackQL-resources/groups/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/groups/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/groups/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/groups/methods/delete'
+        replace: []
+    iam_work_requests:
+      id: oci.identity.iam_work_requests
+      name: iam_work_requests
+      title: Iam Work Requests
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1iamWorkRequests/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.iam_work_requests
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIamWorkRequestsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"iam_work_requests\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1iamWorkRequests~1{iamWorkRequestId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/iam_work_requests/methods/get'
+          - $ref: '#/components/x-stackQL-resources/iam_work_requests/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    iam_work_request_errors:
+      id: oci.identity.iam_work_request_errors
+      name: iam_work_request_errors
+      title: Iam Work Request Errors
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1iamWorkRequests~1{iamWorkRequestId}~1errors/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.iam_work_request_errors
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIamWorkRequestErrorsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"iam_work_request_errors\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/iam_work_request_errors/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    iam_work_request_logs:
+      id: oci.identity.iam_work_request_logs
+      name: iam_work_request_logs
+      title: Iam Work Request Logs
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1iamWorkRequests~1{iamWorkRequestId}~1logs/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.iam_work_request_logs
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIamWorkRequestLogsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"iam_work_request_logs\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/iam_work_request_logs/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    idcs_domain_service_status:
+      id: oci.identity.idcs_domain_service_status
+      name: idcs_domain_service_status
+      title: Idcs Domain Service Status
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1idcsDomainServiceStatus/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/idcs_domain_service_status/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    identity_providers:
+      id: oci.identity.identity_providers
+      name: identity_providers
+      title: Identity Providers
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1identityProviders~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.identity_providers
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIdentityProvidersResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"identity_providers\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1identityProviders~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        reset_idp_scim_client:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1actions~1resetScimClient~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/identity_providers/methods/get'
+          - $ref: '#/components/x-stackQL-resources/identity_providers/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/identity_providers/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/identity_providers/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/identity_providers/methods/delete'
+        replace: []
+    idp_group_mappings:
+      id: oci.identity.idp_group_mappings
+      name: idp_group_mappings
+      title: Idp Group Mappings
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1groupMappings~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.idp_group_mappings
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIdpGroupMappingsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"idp_group_mappings\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1groupMappings~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1groupMappings~1{mappingId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1groupMappings~1{mappingId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1groupMappings~1{mappingId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/idp_group_mappings/methods/get'
+          - $ref: '#/components/x-stackQL-resources/idp_group_mappings/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/idp_group_mappings/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/idp_group_mappings/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/idp_group_mappings/methods/delete'
+        replace: []
+    identity_provider_groups:
+      id: oci.identity.identity_provider_groups
+      name: identity_provider_groups
+      title: Identity Provider Groups
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1identityProviders~1{identityProviderId}~1groups~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.identity_provider_groups
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListIdentityProviderGroupsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"identity_provider_groups\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/identity_provider_groups/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    network_sources:
+      id: oci.identity.network_sources
+      name: network_sources
+      title: Network Sources
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1networkSources/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.network_sources
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListNetworkSourcesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"network_sources\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSources/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1networkSources~1{networkSourceId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1networkSources~1{networkSourceId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1networkSources~1{networkSourceId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/network_sources/methods/get'
+          - $ref: '#/components/x-stackQL-resources/network_sources/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/network_sources/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/network_sources/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/network_sources/methods/delete'
+        replace: []
+    policies:
+      id: oci.identity.policies
+      name: policies
+      title: Policies
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1policies~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.policies
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListPoliciesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"policies\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1policies~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1policies~1{policyId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1policies~1{policyId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1policies~1{policyId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_policy_lock:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1policies~1{policyId}~1actions~1addLock/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        remove_policy_lock:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1policies~1{policyId}~1actions~1removeLock/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/policies/methods/get'
+          - $ref: '#/components/x-stackQL-resources/policies/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/policies/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/policies/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/policies/methods/delete'
+        replace: []
+    regions:
+      id: oci.identity.regions
+      name: regions
+      title: Regions
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1regions/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.regions
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListRegionsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"regions\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/regions/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    tag_defaults:
+      id: oci.identity.tag_defaults
+      name: tag_defaults
+      title: Tag Defaults
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tagDefaults/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.tag_defaults
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListTagDefaultsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"tag_defaults\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagDefaults/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        assemble_effective_tag_set:
+          operation:
+            $ref: '#/paths/~1tagDefaults~1actions~1assembleEffectiveTagSet/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.assemble_effective_tag_set
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/AssembleEffectiveTagSetResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"assemble_effective_tag_set\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        delete:
+          operation:
+            $ref: '#/paths/~1tagDefaults~1{tagDefaultId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1tagDefaults~1{tagDefaultId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagDefaults~1{tagDefaultId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_tag_default_lock:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagDefaults~1{tagDefaultId}~1actions~1addLock/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        remove_tag_default_lock:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagDefaults~1{tagDefaultId}~1actions~1removeLock/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tag_defaults/methods/get'
+          - $ref: '#/components/x-stackQL-resources/tag_defaults/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/tag_defaults/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/tag_defaults/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/tag_defaults/methods/delete'
+        replace: []
+    tag_namespaces:
+      id: oci.identity.tag_namespaces
+      name: tag_namespaces
+      title: Tag Namespaces
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tagNamespaces/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.tag_namespaces
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListTagNamespacesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"tag_namespaces\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        add_tag_namespace_lock:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1actions~1addLock/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        cascade_delete_tag_namespace:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1actions~1cascadeDelete/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        change_compartment:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1actions~1changeCompartment/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        remove_tag_namespace_lock:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1actions~1removeLock/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tag_namespaces/methods/get'
+          - $ref: '#/components/x-stackQL-resources/tag_namespaces/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/tag_namespaces/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/tag_namespaces/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/tag_namespaces/methods/delete'
+        replace: []
+    cost_tracking_tags:
+      id: oci.identity.cost_tracking_tags
+      name: cost_tracking_tags
+      title: Cost Tracking Tags
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1actions~1listCostTrackingTags/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.cost_tracking_tags
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCostTrackingTagsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"cost_tracking_tags\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/cost_tracking_tags/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    tags:
+      id: oci.identity.tags
+      name: tags
+      title: Tags
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1tags/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.tags
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListTagsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"tags\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1tags/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1tags~1{tagName}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        get:
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1tags~1{tagName}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tagNamespaces~1{tagNamespaceId}~1tags~1{tagName}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        bulk_delete_tags:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tags~1actions~1bulkDelete/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        bulk_edit_tags:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tags~1actions~1bulkEdit/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+        import_standard_tags:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tags~1actions~1importStandardTags/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '202'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tags/methods/get'
+          - $ref: '#/components/x-stackQL-resources/tags/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/tags/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/tags/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/tags/methods/delete'
+        replace: []
+    tagging_work_requests:
+      id: oci.identity.tagging_work_requests
+      name: tagging_work_requests
+      title: Tagging Work Requests
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1taggingWorkRequests~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.tagging_work_requests
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListTaggingWorkRequestsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"tagging_work_requests\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1taggingWorkRequests~1{workRequestId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tagging_work_requests/methods/get'
+          - $ref: '#/components/x-stackQL-resources/tagging_work_requests/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    tagging_work_request_errors:
+      id: oci.identity.tagging_work_request_errors
+      name: tagging_work_request_errors
+      title: Tagging Work Request Errors
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1taggingWorkRequests~1{workRequestId}~1errors/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.tagging_work_request_errors
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListTaggingWorkRequestErrorsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"tagging_work_request_errors\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tagging_work_request_errors/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    tagging_work_request_logs:
+      id: oci.identity.tagging_work_request_logs
+      name: tagging_work_request_logs
+      title: Tagging Work Request Logs
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1taggingWorkRequests~1{workRequestId}~1logs/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.tagging_work_request_logs
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListTaggingWorkRequestLogsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"tagging_work_request_logs\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tagging_work_request_logs/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    bulk_edit_tags_resource_types:
+      id: oci.identity.bulk_edit_tags_resource_types
+      name: bulk_edit_tags_resource_types
+      title: Bulk Edit Tags Resource Types
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tags~1bulkEditResourceTypes/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.items
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/bulk_edit_tags_resource_types/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    standard_tag_namespaces:
+      id: oci.identity.standard_tag_namespaces
+      name: standard_tag_namespaces
+      title: Standard Tag Namespaces
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tags~1standardTagNamespaceTemplates/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.standard_tag_namespaces
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListStandardTagNamespacesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"standard_tag_namespaces\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/standard_tag_namespaces/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    standard_tag_templates:
+      id: oci.identity.standard_tag_templates
+      name: standard_tag_templates
+      title: Standard Tag Templates
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1tags~1standardTagNamespaceTemplates~1{standardTagNamespaceName}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/standard_tag_templates/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    tenancies:
+      id: oci.identity.tenancies
+      name: tenancies
+      title: Tenancies
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1tenancies~1{tenancyId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/tenancies/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    region_subscriptions:
+      id: oci.identity.region_subscriptions
+      name: region_subscriptions
+      title: Region Subscriptions
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1tenancies~1{tenancyId}~1regionSubscriptions/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.region_subscriptions
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListRegionSubscriptionsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"region_subscriptions\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1tenancies~1{tenancyId}~1regionSubscriptions/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/region_subscriptions/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/region_subscriptions/methods/create'
+        update: []
+        delete: []
+        replace: []
+    user_group_memberships:
+      id: oci.identity.user_group_memberships
+      name: user_group_memberships
+      title: User Group Memberships
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1userGroupMemberships~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.user_group_memberships
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListUserGroupMembershipsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"user_group_memberships\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        add_user_to_group:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1userGroupMemberships~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        remove_user_from_group:
+          operation:
+            $ref: '#/paths/~1userGroupMemberships~1{userGroupMembershipId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1userGroupMemberships~1{userGroupMembershipId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/user_group_memberships/methods/get'
+          - $ref: '#/components/x-stackQL-resources/user_group_memberships/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    users:
+      id: oci.identity.users
+      name: users
+      title: Users
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.users
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListUsersResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"users\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1users~1{userId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/users/methods/get'
+          - $ref: '#/components/x-stackQL-resources/users/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/users/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/users/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/users/methods/delete'
+        replace: []
+    api_keys:
+      id: oci.identity.api_keys
+      name: api_keys
+      title: Api Keys
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1apiKeys~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.api_keys
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListApiKeysResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"api_keys\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        upload_api_key:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1apiKeys~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1apiKeys~1{fingerprint}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/api_keys/methods/list'
+        insert: []
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/api_keys/methods/delete'
+        replace: []
+    auth_tokens:
+      id: oci.identity.auth_tokens
+      name: auth_tokens
+      title: Auth Tokens
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1authTokens~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.auth_tokens
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListAuthTokensResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"auth_tokens\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1authTokens~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1authTokens~1{authTokenId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1authTokens~1{authTokenId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/auth_tokens/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/auth_tokens/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/auth_tokens/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/auth_tokens/methods/delete'
+        replace: []
+    user_capabilities:
+      id: oci.identity.user_capabilities
+      name: user_capabilities
+      title: User Capabilities
+      methods:
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1capabilities~1/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/user_capabilities/methods/update'
+        delete: []
+        replace: []
+    customer_secret_keys:
+      id: oci.identity.customer_secret_keys
+      name: customer_secret_keys
+      title: Customer Secret Keys
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1customerSecretKeys~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.customer_secret_keys
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListCustomerSecretKeysResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"customer_secret_keys\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1customerSecretKeys~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1customerSecretKeys~1{customerSecretKeyId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1customerSecretKeys~1{customerSecretKeyId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/customer_secret_keys/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/customer_secret_keys/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/customer_secret_keys/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/customer_secret_keys/methods/delete'
+        replace: []
+    db_credentials:
+      id: oci.identity.db_credentials
+      name: db_credentials
+      title: Db Credentials
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1dbCredentials~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.db_credentials
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListDbCredentialsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"db_credentials\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1dbCredentials~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1dbCredentials~1{dbCredentialId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/db_credentials/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/db_credentials/methods/create'
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/db_credentials/methods/delete'
+        replace: []
+    mfa_totp_devices:
+      id: oci.identity.mfa_totp_devices
+      name: mfa_totp_devices
+      title: Mfa Totp Devices
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.mfa_totp_devices
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListMfaTotpDevicesResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"mfa_totp_devices\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices~1{mfaTotpDeviceId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        get:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices~1{mfaTotpDeviceId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        activate_mfa_totp_device:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices~1{mfaTotpDeviceId}~1actions~1activate/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        generate_totp_seed:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices~1{mfaTotpDeviceId}~1actions~1generateSeed/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/mfa_totp_devices/methods/get'
+          - $ref: '#/components/x-stackQL-resources/mfa_totp_devices/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/mfa_totp_devices/methods/create'
+        update: []
+        delete:
+          - $ref: '#/components/x-stackQL-resources/mfa_totp_devices/methods/delete'
+        replace: []
+    o_auth_client_credentials:
+      id: oci.identity.o_auth_client_credentials
+      name: o_auth_client_credentials
+      title: O Auth Client Credentials
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1oauth2ClientCredentials/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.oauth_client_credentials
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListOAuthClientCredentialsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"oauth_client_credentials\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1oauth2ClientCredentials/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1oauth2ClientCredentials~1{oauth2ClientCredentialId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1oauth2ClientCredentials~1{oauth2ClientCredentialId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/o_auth_client_credentials/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/o_auth_client_credentials/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/o_auth_client_credentials/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/o_auth_client_credentials/methods/delete'
+        replace: []
+    smtp_credentials:
+      id: oci.identity.smtp_credentials
+      name: smtp_credentials
+      title: Smtp Credentials
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1smtpCredentials~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.smtp_credentials
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListSmtpCredentialsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"smtp_credentials\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1smtpCredentials~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1smtpCredentials~1{smtpCredentialId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1smtpCredentials~1{smtpCredentialId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/smtp_credentials/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/smtp_credentials/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/smtp_credentials/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/smtp_credentials/methods/delete'
+        replace: []
+    user_states:
+      id: oci.identity.user_states
+      name: user_states
+      title: User States
+      methods:
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1state~1/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert: []
+        update:
+          - $ref: '#/components/x-stackQL-resources/user_states/methods/update'
+        delete: []
+        replace: []
+    swift_passwords:
+      id: oci.identity.swift_passwords
+      name: swift_passwords
+      title: Swift Passwords
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1swiftPasswords~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.swift_passwords
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListSwiftPasswordsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"swift_passwords\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        create:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1swiftPasswords~1/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+        delete:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1swiftPasswords~1{swiftPasswordId}/delete'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '204'
+        update:
+          config:
+            requestBodyTranslate:
+              algorithm: naive
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1swiftPasswords~1{swiftPasswordId}/put'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/swift_passwords/methods/list'
+        insert:
+          - $ref: '#/components/x-stackQL-resources/swift_passwords/methods/create'
+        update:
+          - $ref: '#/components/x-stackQL-resources/swift_passwords/methods/update'
+        delete:
+          - $ref: '#/components/x-stackQL-resources/swift_passwords/methods/delete'
+        replace: []
+    user_ui_password_informations:
+      id: oci.identity.user_ui_password_informations
+      name: user_ui_password_informations
+      title: User Ui Password Informations
+      methods:
+        get:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1uiPassword/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/user_ui_password_informations/methods/get'
+        insert: []
+        update: []
+        delete: []
+        replace: []
+    or_reset_ui_passwords:
+      id: oci.identity.or_reset_ui_passwords
+      name: or_reset_ui_passwords
+      title: Or Reset Ui Passwords
+      methods:
+        create:
+          operation:
+            $ref: '#/paths/~1users~1{userId}~1uiPassword/post'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select: []
+        insert:
+          - $ref: '#/components/x-stackQL-resources/or_reset_ui_passwords/methods/create'
+        update: []
+        delete: []
+        replace: []
+    work_requests:
+      id: oci.identity.work_requests
+      name: work_requests
+      title: Work Requests
+      methods:
+        list:
+          operation:
+            $ref: '#/paths/~1workRequests~1/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+            objectKey: $.work_requests
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/ListWorkRequestsResponse'
+            transform:
+              body: |-
+                {{- $wrapped := printf "{\"work_requests\":%s}" . -}}
+                {{- $wrapped -}}
+              type: golang_template_text_v0.3.0
+        get:
+          operation:
+            $ref: '#/paths/~1workRequests~1{workRequestId}/get'
+          response:
+            mediaType: application/json
+            openAPIDocKey: '200'
+      sqlVerbs:
+        select:
+          - $ref: '#/components/x-stackQL-resources/work_requests/methods/get'
+          - $ref: '#/components/x-stackQL-resources/work_requests/methods/list'
+        insert: []
+        update: []
+        delete: []
+        replace: []
 servers:
-  - url: http://localhost:9000/20160918
+  - url: https://identity.{region}.oci.oraclecloud.com/20160918
+    variables:
+      region:
+        default: us-ashburn-1
+        description: OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_CLI_REGION when not supplied in the query.
+        x-stackQL-envVar: OCI_CLI_REGION
+x-stackQL-config:
+  pagination:
+    requestToken:
+      key: page
+      location: query
+    responseToken:
+      key: opc-next-page
+      location: header
