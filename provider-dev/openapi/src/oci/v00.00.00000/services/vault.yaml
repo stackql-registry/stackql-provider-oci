@@ -1909,6 +1909,11 @@ components:
                 {{- $wrapped := printf "{\"secrets\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -2005,6 +2010,11 @@ components:
                 {{- $wrapped := printf "{\"secret_versions\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/secret_versions/methods/get'

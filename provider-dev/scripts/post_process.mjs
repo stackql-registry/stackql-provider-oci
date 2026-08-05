@@ -15,6 +15,18 @@
 //    `nextStartWith` body token) get method-level overrides, which win
 //    over the service default per any-sdk config inheritance.
 //
+// 3. queryParamPushdown - method-level, derived from each operation's
+//    declared query parameters (any-sdk's top/select pushdowns are
+//    dialect-agnostic; filter/orderBy render OData syntax only, which OCI
+//    does not speak, so WHERE pushdown remains ordinary query-parameter
+//    mapping):
+//      - top: SQL LIMIT -> the `limit` query parameter, clamped to the
+//        parameter's declared maximum (1000 when the spec is silent)
+//      - select: SQL projection -> a `fields` query parameter whose schema
+//        enumerates field names (object storage ListObjects); the enum is
+//        the supportedColumns allowlist and the engine's all-or-nothing
+//        rule keeps it inert anywhere the projection is not fully covered
+//
 // Everything is derived from the catalog and the specs themselves - no
 // hand-edits. Validates and fails without writing on any violation.
 //
@@ -135,6 +147,37 @@ function paginationStyle(op, pathItem, doc) {
   return null;
 }
 
+const DEFAULT_LIMIT_MAX = 1000;
+
+// pushdown facts of one operation: the `limit` query parameter (top
+// pushdown) and a `fields` query parameter with an enumerated field set
+// (select pushdown). Returns null when neither applies.
+function pushdownConfigFor(op, pathItem, doc) {
+  const params = [...(pathItem.parameters || []), ...(op.parameters || [])]
+    .map((p) => deref(p, doc))
+    .filter((p) => p && p.in === 'query');
+  const pushdown = {};
+
+  const limitParam = params.find((p) => p.name === 'limit');
+  if (limitParam) {
+    const schema = deref(limitParam.schema, doc) || {};
+    const max = Number.isInteger(schema.maximum) ? schema.maximum : DEFAULT_LIMIT_MAX;
+    pushdown.top = { paramName: 'limit', maxValue: max };
+  }
+
+  const fieldsParam = params.find((p) => p.name === 'fields');
+  if (fieldsParam) {
+    const schema = deref(fieldsParam.schema, doc) || {};
+    const itemSchema = schema.type === 'array' ? deref(schema.items, doc) || {} : schema;
+    const supported = Array.isArray(itemSchema.enum) ? itemSchema.enum.filter((v) => typeof v === 'string') : [];
+    if (supported.length > 1) {
+      pushdown.select = { paramName: 'fields', delimiter: ',', supportedColumns: supported };
+    }
+  }
+
+  return Object.keys(pushdown).length > 0 ? pushdown : null;
+}
+
 function opFromMethodRef(methodRef, doc, label, errors) {
   const m = /^#\/paths\/(.+)\/(get|post|put|patch|delete|head)$/.exec(methodRef || '');
   if (!m) {
@@ -202,8 +245,10 @@ async function main() {
       errors.push(`${service}: pagination styles ${[...styles].join(',')} with no header default - extend post_process rules`);
     }
 
-    // method-level overrides where an op's style differs from the service default
+    // method-level pagination overrides and pushdown config
     let overrides = 0;
+    let topCount = 0;
+    let selectCount = 0;
     const resources = doc.components?.['x-stackQL-resources'] || {};
     for (const [resName, res] of Object.entries(resources)) {
       for (const [methodName, method] of Object.entries(res.methods || {})) {
@@ -219,11 +264,24 @@ async function main() {
           method.config = { ...(method.config || {}), pagination: START_PAGINATION };
           overrides++;
         }
+        const pushdown = pushdownConfigFor(target.op, target.pathItem, doc);
+        if (pushdown) {
+          method.config = { ...(method.config || {}), queryParamPushdown: pushdown };
+          if (pushdown.top) topCount++;
+          if (pushdown.select) selectCount++;
+        }
       }
     }
 
     pending.push([filePath, doc]);
-    report.push({ service, url: doc.servers[0].url, pagination: serviceStyle || 'none', overrides });
+    report.push({
+      service,
+      url: doc.servers[0].url,
+      pagination: serviceStyle || 'none',
+      overrides,
+      topCount,
+      selectCount
+    });
   }
 
   if (errors.length > 0) {
@@ -239,7 +297,11 @@ async function main() {
 
   console.log(`Post-processed ${pending.length} service specs:`);
   for (const r of report) {
-    console.log(`  ${r.service.padEnd(18)} ${r.url}  pagination: ${r.pagination}${r.overrides ? ` (+${r.overrides} method override(s))` : ''}`);
+    const extras = [];
+    if (r.overrides) extras.push(`${r.overrides} pagination override(s)`);
+    if (r.topCount) extras.push(`limit pushdown x${r.topCount}`);
+    if (r.selectCount) extras.push(`fields pushdown x${r.selectCount}`);
+    console.log(`  ${r.service.padEnd(18)} ${r.url}  pagination: ${r.pagination}${extras.length ? ` [${extras.join(', ')}]` : ''}`);
   }
 }
 

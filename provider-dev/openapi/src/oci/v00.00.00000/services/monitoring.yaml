@@ -4691,6 +4691,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -4742,6 +4747,11 @@ components:
                 {{- $wrapped := printf "{\"alarms\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -4791,6 +4801,10 @@ components:
           config:
             requestBodyTranslate:
               algorithm: naive
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
           operation:
             $ref: '#/paths/~1alarms~1{alarmId}~1actions~1retrieveDimensionStates/post'
           response:
@@ -4800,6 +4814,10 @@ components:
           config:
             requestBodyTranslate:
               algorithm: naive
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
           operation:
             $ref: '#/paths/~1alarms~1{alarmId}~1actions~1summarizeAlarmSuppressionHistory/post'
           response:
@@ -4836,6 +4854,11 @@ components:
                 {{- $wrapped := printf "{\"alarms_status\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/alarms_status/methods/list'
@@ -4854,6 +4877,11 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/alarm_histories/methods/get'
@@ -4870,6 +4898,10 @@ components:
           config:
             requestBodyTranslate:
               algorithm: naive
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
           operation:
             $ref: '#/paths/~1metrics~1actions~1listMetrics/post'
           response:

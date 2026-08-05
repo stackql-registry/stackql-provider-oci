@@ -20978,6 +20978,11 @@ components:
                 {{- $wrapped := printf "{\"app_catalog_listings\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1appCatalogListings~1{listingId}/get'
@@ -21012,6 +21017,11 @@ components:
                 {{- $wrapped := printf "{\"app_catalog_listing_resource_versions\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1appCatalogListings~1{listingId}~1resourceVersions~1{resourceVersion}/get'
@@ -21070,6 +21080,11 @@ components:
                 {{- $wrapped := printf "{\"app_catalog_subscriptions\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21108,6 +21123,11 @@ components:
                 {{- $wrapped := printf "{\"boot_volume_attachments\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         attach:
           config:
             requestBodyTranslate:
@@ -21159,6 +21179,11 @@ components:
                 {{- $wrapped := printf "{\"cluster_networks\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21229,6 +21254,11 @@ components:
                 {{- $wrapped := printf "{\"cluster_network_instances\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/cluster_network_instances/methods/list'
@@ -21277,6 +21307,11 @@ components:
                 {{- $wrapped := printf "{\"compute_capacity_reservation_instance_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/compute_capacity_reservation_instance_shapes/methods/list'
@@ -21304,6 +21339,11 @@ components:
                 {{- $wrapped := printf "{\"compute_capacity_reservations\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21374,6 +21414,11 @@ components:
                 {{- $wrapped := printf "{\"compute_capacity_reservation_instances\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/compute_capacity_reservation_instances/methods/list'
@@ -21393,6 +21438,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21455,6 +21505,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/compute_capacity_topology_compute_bare_metal_hosts/methods/list'
@@ -21474,6 +21529,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/compute_capacity_topology_compute_hpc_islands/methods/list'
@@ -21493,6 +21553,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/compute_capacity_topology_compute_network_blocks/methods/list'
@@ -21512,6 +21577,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21582,6 +21652,11 @@ components:
                 {{- $wrapped := printf "{\"compute_global_image_capability_schemas\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1computeGlobalImageCapabilitySchemas~1{computeGlobalImageCapabilitySchemaId}/get'
@@ -21616,6 +21691,11 @@ components:
                 {{- $wrapped := printf "{\"compute_global_image_capability_schema_versions\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1computeGlobalImageCapabilitySchemas~1{computeGlobalImageCapabilitySchemaId}~1versions~1{computeGlobalImageCapabilitySchemaVersionName}/get'
@@ -21642,6 +21722,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21704,6 +21789,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/compute_gpu_memory_cluster_instances/methods/list'
@@ -21723,6 +21813,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1computeGpuMemoryFabrics~1{computeGpuMemoryFabricId}/get'
@@ -21768,6 +21863,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21830,6 +21930,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1computeHosts~1{computeHostId}/get'
@@ -21914,6 +22019,11 @@ components:
                 {{- $wrapped := printf "{\"compute_image_capability_schemas\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -21984,6 +22094,11 @@ components:
                 {{- $wrapped := printf "{\"dedicated_vm_host_instance_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/dedicated_vm_host_instance_shapes/methods/list'
@@ -22011,6 +22126,11 @@ components:
                 {{- $wrapped := printf "{\"dedicated_vm_host_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/dedicated_vm_host_shapes/methods/list'
@@ -22038,6 +22158,11 @@ components:
                 {{- $wrapped := printf "{\"dedicated_vm_hosts\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -22108,6 +22233,11 @@ components:
                 {{- $wrapped := printf "{\"dedicated_vm_host_instances\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/dedicated_vm_host_instances/methods/list'
@@ -22127,6 +22257,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1firmwareBundles~1{firmwareBundleId}/get'
@@ -22161,6 +22296,11 @@ components:
                 {{- $wrapped := printf "{\"images\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -22240,6 +22380,11 @@ components:
                 {{- $wrapped := printf "{\"image_shape_compatibility_entries\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1images~1{imageId}~1shapes~1{shapeName}/get'
@@ -22289,6 +22434,11 @@ components:
                 {{- $wrapped := printf "{\"shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/shapes/methods/list'
@@ -22316,6 +22466,11 @@ components:
                 {{- $wrapped := printf "{\"instance_configurations\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -22396,6 +22551,11 @@ components:
                 {{- $wrapped := printf "{\"instance_console_connections\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -22457,6 +22617,11 @@ components:
                 {{- $wrapped := printf "{\"console_histories\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         delete:
           operation:
             $ref: '#/paths/~1instanceConsoleHistories~1{instanceConsoleHistoryId}/delete'
@@ -22546,6 +22711,11 @@ components:
                 {{- $wrapped := printf "{\"instance_maintenance_events\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1instanceMaintenanceEvents~1{instanceMaintenanceEventId}/get'
@@ -22590,6 +22760,11 @@ components:
                 {{- $wrapped := printf "{\"instance_pools\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -22727,6 +22902,11 @@ components:
                 {{- $wrapped := printf "{\"instance_pool_instances\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1instancePools~1{instancePoolId}~1instances~1{instanceId}/get'
@@ -22770,6 +22950,11 @@ components:
                 {{- $wrapped := printf "{\"instances\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         launch:
           config:
             requestBodyTranslate:
@@ -22892,6 +23077,11 @@ components:
                 {{- $wrapped := printf "{\"instance_devices\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/instance_devices/methods/list'
@@ -22973,6 +23163,11 @@ components:
                 {{- $wrapped := printf "{\"vnic_attachments\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         attach:
           config:
             requestBodyTranslate:
@@ -23024,6 +23219,11 @@ components:
                 {{- $wrapped := printf "{\"volume_attachments\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         attach:
           config:
             requestBodyTranslate:

@@ -9271,6 +9271,11 @@ components:
                 {{- $wrapped := printf "{\"buckets\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -9292,6 +9297,15 @@ components:
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+          config:
+            queryParamPushdown:
+              select:
+                paramName: fields
+                delimiter: ','
+                supportedColumns:
+                  - approximateCount
+                  - approximateSize
+                  - autoTiering
         update:
           config:
             requestBodyTranslate:
@@ -9466,6 +9480,22 @@ components:
               responseToken:
                 key: nextStartWith
                 location: body
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
+              select:
+                paramName: fields
+                delimiter: ','
+                supportedColumns:
+                  - name
+                  - size
+                  - etag
+                  - timeCreated
+                  - md5
+                  - timeModified
+                  - storageTier
+                  - archivalState
         delete:
           operation:
             $ref: '#/paths/~1n~1{namespaceName}~1b~1{bucketName}~1o~1{objectName}/delete'
@@ -9492,6 +9522,23 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
+              select:
+                paramName: fields
+                delimiter: ','
+                supportedColumns:
+                  - name
+                  - size
+                  - etag
+                  - timeCreated
+                  - md5
+                  - timeModified
+                  - storageTier
+                  - archivalState
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/object_versions/methods/list'
@@ -9519,6 +9566,11 @@ components:
                 {{- $wrapped := printf "{\"preauthenticated_requests\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -9570,6 +9622,11 @@ components:
                 {{- $wrapped := printf "{\"replication_policies\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -9621,6 +9678,11 @@ components:
                 {{- $wrapped := printf "{\"replication_sources\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/replication_sources/methods/list'
@@ -9701,6 +9763,11 @@ components:
                 {{- $wrapped := printf "{\"multipart_uploads\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -9764,6 +9831,11 @@ components:
                 {{- $wrapped := printf "{\"multipart_upload_parts\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/multipart_upload_parts/methods/list'
@@ -9783,6 +9855,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -9844,6 +9921,11 @@ components:
                 {{- $wrapped := printf "{\"private_endpoints\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -9905,6 +9987,11 @@ components:
                 {{- $wrapped := printf "{\"work_requests\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         cancel_work_request:
           operation:
             $ref: '#/paths/~1workRequests~1{workRequestId}/delete'
@@ -9945,6 +10032,11 @@ components:
                 {{- $wrapped := printf "{\"work_request_errors\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/work_request_errors/methods/list'
@@ -9972,6 +10064,11 @@ components:
                 {{- $wrapped := printf "{\"work_request_logs\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/work_request_logs/methods/list'

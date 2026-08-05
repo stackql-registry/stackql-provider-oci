@@ -28760,6 +28760,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -28828,6 +28833,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -28923,6 +28933,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/byoip_allocated_ranges/methods/list'
@@ -28950,6 +28965,11 @@ components:
                 {{- $wrapped := printf "{\"capture_filters\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29020,6 +29040,11 @@ components:
                 {{- $wrapped := printf "{\"cpe_device_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1cpeDeviceShapes~1{cpeDeviceShapeId}/get'
@@ -29054,6 +29079,11 @@ components:
                 {{- $wrapped := printf "{\"cpes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29142,6 +29172,11 @@ components:
                 {{- $wrapped := printf "{\"cross_connect_groups\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29212,6 +29247,11 @@ components:
                 {{- $wrapped := printf "{\"cross_connect_locations\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/cross_connect_locations/methods/list'
@@ -29239,6 +29279,11 @@ components:
                 {{- $wrapped := printf "{\"crossconnect_port_speed_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/crossconnect_port_speed_shapes/methods/list'
@@ -29266,6 +29311,11 @@ components:
                 {{- $wrapped := printf "{\"cross_connects\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29372,6 +29422,11 @@ components:
                 {{- $wrapped := printf "{\"dhcp_options\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29442,6 +29497,11 @@ components:
                 {{- $wrapped := printf "{\"drg_attachments\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29509,6 +29569,11 @@ components:
                 {{- $wrapped := printf "{\"drg_route_distributions\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29615,6 +29680,11 @@ components:
                 {{- $wrapped := printf "{\"drg_route_distribution_statements\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/drg_route_distribution_statements/methods/list'
@@ -29643,6 +29713,11 @@ components:
                 {{- $wrapped := printf "{\"drg_route_tables\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29755,6 +29830,11 @@ components:
                 {{- $wrapped := printf "{\"drg_route_rules\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/drg_route_rules/methods/list'
@@ -29783,6 +29863,11 @@ components:
                 {{- $wrapped := printf "{\"drgs\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -29828,6 +29913,11 @@ components:
                 {{- $wrapped := printf "{\"drg_attachments\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         upgrade_drg:
           operation:
             $ref: '#/paths/~1drgs~1{drgId}~1actions~1upgrade/post'
@@ -29901,6 +29991,11 @@ components:
                 {{- $wrapped := printf "{\"fast_connect_provider_services\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1fastConnectProviderServices~1{providerServiceId}/get'
@@ -29953,6 +30048,11 @@ components:
                 {{- $wrapped := printf "{\"fast_connect_provider_virtual_circuit_bandwidth_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/fast_connect_provider_virtual_circuit_bandwidth_shapes/methods/list'
@@ -29980,6 +30080,11 @@ components:
                 {{- $wrapped := printf "{\"internet_gateways\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30162,6 +30267,11 @@ components:
                 {{- $wrapped := printf "{\"ipsec_connections\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30286,6 +30396,11 @@ components:
                 {{- $wrapped := printf "{\"ipsec_connection_tunnels\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1ipsecConnections~1{ipscId}~1tunnels~1{tunnelId}/get'
@@ -30348,6 +30463,11 @@ components:
                 {{- $wrapped := printf "{\"ipsec_connection_tunnel_routes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_routes/methods/list'
@@ -30449,6 +30569,11 @@ components:
                 {{- $wrapped := printf "{\"ipsec_connection_tunnel_security_associations\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/ip_sec_connection_tunnel_security_associations/methods/list'
@@ -30476,6 +30601,11 @@ components:
                 {{- $wrapped := printf "{\"ipv6s\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30579,6 +30709,11 @@ components:
                 {{- $wrapped := printf "{\"local_peering_gateways\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30658,6 +30793,11 @@ components:
                 {{- $wrapped := printf "{\"nat_gateways\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30728,6 +30868,11 @@ components:
                 {{- $wrapped := printf "{\"network_security_groups\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30825,6 +30970,11 @@ components:
                 {{- $wrapped := printf "{\"network_security_group_security_rules\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/network_security_group_security_rules/methods/list'
@@ -30853,6 +31003,11 @@ components:
                 {{- $wrapped := printf "{\"network_security_group_vnics\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/network_security_group_vnics/methods/list'
@@ -30898,6 +31053,11 @@ components:
                 {{- $wrapped := printf "{\"private_ips\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -30993,6 +31153,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31081,6 +31246,11 @@ components:
                 {{- $wrapped := printf "{\"public_ips\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31169,6 +31339,11 @@ components:
                 {{- $wrapped := printf "{\"remote_peering_connections\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31248,6 +31423,11 @@ components:
                 {{- $wrapped := printf "{\"route_tables\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31318,6 +31498,11 @@ components:
                 {{- $wrapped := printf "{\"security_lists\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31388,6 +31573,11 @@ components:
                 {{- $wrapped := printf "{\"service_gateways\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31477,6 +31667,11 @@ components:
                 {{- $wrapped := printf "{\"services\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         get:
           operation:
             $ref: '#/paths/~1services~1{serviceId}/get'
@@ -31529,6 +31724,11 @@ components:
                 {{- $wrapped := printf "{\"subnets\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31662,6 +31862,11 @@ components:
                 {{- $wrapped := printf "{\"vcns\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31777,6 +31982,11 @@ components:
                 {{- $wrapped := printf "{\"virtual_circuit_bandwidth_shapes\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/virtual_circuit_bandwidth_shapes/methods/list'
@@ -31804,6 +32014,11 @@ components:
                 {{- $wrapped := printf "{\"virtual_circuits\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -31892,6 +32107,11 @@ components:
                 {{- $wrapped := printf "{\"virtual_circuit_associated_tunnels\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/virtual_circuit_associated_tunnels/methods/list'
@@ -31965,6 +32185,11 @@ components:
                 {{- $wrapped := printf "{\"vlans\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:
@@ -32063,6 +32288,11 @@ components:
                 {{- $wrapped := printf "{\"vtaps\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 100
         create:
           config:
             requestBodyTranslate:

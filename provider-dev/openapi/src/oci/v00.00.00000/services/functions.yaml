@@ -3107,6 +3107,11 @@ components:
                 {{- $wrapped := printf "{\"applications\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 50
         create:
           config:
             requestBodyTranslate:
@@ -3177,6 +3182,11 @@ components:
                 {{- $wrapped := printf "{\"functions\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 50
         create:
           config:
             requestBodyTranslate:
@@ -3239,6 +3249,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 50
         get:
           operation:
             $ref: '#/paths/~1pbfListingVersions~1{pbfListingVersionId}/get'
@@ -3265,6 +3280,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 50
         get:
           operation:
             $ref: '#/paths/~1pbfListings~1{pbfListingId}/get'
@@ -3291,6 +3311,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 50
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/triggers/methods/list'

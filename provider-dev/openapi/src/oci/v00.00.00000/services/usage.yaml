@@ -3612,6 +3612,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -3665,6 +3670,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -3718,6 +3728,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         get:
           operation:
             $ref: '#/paths/~1scheduledRuns~1{scheduledRunId}/get'
@@ -3744,6 +3759,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -3794,6 +3814,10 @@ components:
           config:
             requestBodyTranslate:
               algorithm: naive
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
           operation:
             $ref: '#/paths/~1usage/post'
           response:
@@ -3814,6 +3838,10 @@ components:
           config:
             requestBodyTranslate:
               algorithm: naive
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
           operation:
             $ref: '#/paths/~1usageCarbonEmissions/post'
           response:
@@ -3854,6 +3882,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -3907,6 +3940,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:

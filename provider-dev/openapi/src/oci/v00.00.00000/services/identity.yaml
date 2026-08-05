@@ -14403,6 +14403,11 @@ components:
                 {{- $wrapped := printf "{\"compartments\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -14488,6 +14493,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/bulk_action_resource_types/methods/list'
@@ -14515,6 +14525,11 @@ components:
                 {{- $wrapped := printf "{\"domains\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -14615,6 +14630,11 @@ components:
                 {{- $wrapped := printf "{\"dynamic_groups\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -14703,6 +14723,11 @@ components:
                 {{- $wrapped := printf "{\"groups\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -14764,6 +14789,11 @@ components:
                 {{- $wrapped := printf "{\"iam_work_requests\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         get:
           operation:
             $ref: '#/paths/~1iamWorkRequests~1{iamWorkRequestId}/get'
@@ -14798,6 +14828,11 @@ components:
                 {{- $wrapped := printf "{\"iam_work_request_errors\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/iam_work_request_errors/methods/list'
@@ -14825,6 +14860,11 @@ components:
                 {{- $wrapped := printf "{\"iam_work_request_logs\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/iam_work_request_logs/methods/list'
@@ -14870,6 +14910,11 @@ components:
                 {{- $wrapped := printf "{\"identity_providers\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -14937,6 +14982,11 @@ components:
                 {{- $wrapped := printf "{\"idp_group_mappings\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -14998,6 +15048,11 @@ components:
                 {{- $wrapped := printf "{\"identity_provider_groups\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/identity_provider_groups/methods/list'
@@ -15025,6 +15080,11 @@ components:
                 {{- $wrapped := printf "{\"network_sources\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -15086,6 +15146,11 @@ components:
                 {{- $wrapped := printf "{\"policies\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -15192,6 +15257,11 @@ components:
                 {{- $wrapped := printf "{\"tag_defaults\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -15286,6 +15356,11 @@ components:
                 {{- $wrapped := printf "{\"tag_namespaces\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -15380,6 +15455,11 @@ components:
                 {{- $wrapped := printf "{\"cost_tracking_tags\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/cost_tracking_tags/methods/list'
@@ -15407,6 +15487,11 @@ components:
                 {{- $wrapped := printf "{\"tags\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -15495,6 +15580,11 @@ components:
                 {{- $wrapped := printf "{\"tagging_work_requests\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         get:
           operation:
             $ref: '#/paths/~1taggingWorkRequests~1{workRequestId}/get'
@@ -15529,6 +15619,11 @@ components:
                 {{- $wrapped := printf "{\"tagging_work_request_errors\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/tagging_work_request_errors/methods/list'
@@ -15556,6 +15651,11 @@ components:
                 {{- $wrapped := printf "{\"tagging_work_request_logs\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/tagging_work_request_logs/methods/list'
@@ -15575,6 +15675,11 @@ components:
             mediaType: application/json
             openAPIDocKey: '200'
             objectKey: $.items
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/bulk_edit_tags_resource_types/methods/list'
@@ -15602,6 +15707,11 @@ components:
                 {{- $wrapped := printf "{\"standard_tag_namespaces\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
       sqlVerbs:
         select:
           - $ref: '#/components/x-stackQL-resources/standard_tag_namespaces/methods/list'
@@ -15702,6 +15812,11 @@ components:
                 {{- $wrapped := printf "{\"user_group_memberships\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         add_user_to_group:
           config:
             requestBodyTranslate:
@@ -15751,6 +15866,11 @@ components:
                 {{- $wrapped := printf "{\"users\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -15984,6 +16104,11 @@ components:
                 {{- $wrapped := printf "{\"db_credentials\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -16028,6 +16153,11 @@ components:
                 {{- $wrapped := printf "{\"mfa_totp_devices\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           operation:
             $ref: '#/paths/~1users~1{userId}~1mfaTotpDevices/post'
@@ -16091,6 +16221,11 @@ components:
                 {{- $wrapped := printf "{\"oauth_client_credentials\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         create:
           config:
             requestBodyTranslate:
@@ -16310,6 +16445,11 @@ components:
                 {{- $wrapped := printf "{\"work_requests\":%s}" . -}}
                 {{- $wrapped -}}
               type: golang_template_text_v0.3.0
+          config:
+            queryParamPushdown:
+              top:
+                paramName: limit
+                maxValue: 1000
         get:
           operation:
             $ref: '#/paths/~1workRequests~1{workRequestId}/get'
