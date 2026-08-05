@@ -1,0 +1,60 @@
+#
+# oci networking starter stack - a VCN with a subnet and an object storage
+# bucket, all free-tier resources. Provider authentication comes from the
+# shell environment (OCI_CLI_* variables or ~/.oci/config, the same
+# credentials the OCI CLI uses); stack variables come from a .env file or
+# -e flags.
+#
+version: 1
+name: "oci-networking"
+description: OCI VCN, subnet and object storage bucket managed with stackql-deploy
+providers:
+  - oci
+globals:
+  - name: compartment_id
+    description: compartment OCID to deploy into
+    value: "{{ OCI_COMPARTMENT_ID }}"
+  - name: namespace_name
+    description: object storage namespace for the tenancy
+    value: "{{ OCI_OS_NAMESPACE }}"
+  - name: global_tags
+    value:
+      provisioner: stackql
+      stack_name: "{{ stack_name }}"
+      stack_env: "{{ stack_env }}"
+resources:
+  - name: example_vcn
+    props:
+      - name: vcn_name
+        value: "{{ stack_name }}-{{ stack_env }}-vcn"
+      - name: vcn_cidr
+        values:
+          prd:
+            value: "10.0.0.0/16"
+          sit:
+            value: "10.1.0.0/16"
+          dev:
+            value: "10.2.0.0/16"
+    exports:
+      - vcn_name
+      - vcn_id
+  - name: example_subnet
+    props:
+      - name: subnet_name
+        value: "{{ stack_name }}-{{ stack_env }}-subnet"
+      - name: subnet_cidr
+        values:
+          prd:
+            value: "10.0.1.0/24"
+          sit:
+            value: "10.1.1.0/24"
+          dev:
+            value: "10.2.1.0/24"
+    exports:
+      - subnet_id
+  - name: example_bucket
+    props:
+      - name: bucket_name
+        value: "{{ stack_name }}-{{ stack_env }}-bucket"
+    exports:
+      - bucket_name

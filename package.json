@@ -9,6 +9,8 @@
     "generate-mappings": "node ./bin/generate-mappings.mjs",
     "normalize": "node ./bin/normalize.mjs",
     "generate-provider": "node ./bin/generate-provider.mjs",
+    "post-process": "node ./provider-dev/scripts/post_process.mjs",
+    "generate-docs": "node ./bin/generate-docs.mjs",
     "start-server": "bash ./bin/start-server.sh",
     "stop-server": "bash ./bin/stop-server.sh",
     "server-status": "bash ./bin/server-status.sh",

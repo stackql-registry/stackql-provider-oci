@@ -1,0 +1,32 @@
+/*+ exists */
+SELECT COUNT(*) as count FROM oci.object_storage.buckets
+WHERE namespace_name = '{{ namespace_name }}'
+AND compartment_id = '{{ compartment_id }}'
+AND name = '{{ bucket_name }}'
+
+/*+ create */
+INSERT INTO oci.object_storage.buckets (
+  namespace_name,
+  compartment_id,
+  name,
+  freeform_tags
+)
+SELECT
+  '{{ namespace_name }}',
+  '{{ compartment_id }}',
+  '{{ bucket_name }}',
+  '{{ global_tags }}'
+
+/*+ statecheck, retries=3, retry_delay=5 */
+SELECT COUNT(*) as count FROM oci.object_storage.buckets
+WHERE namespace_name = '{{ namespace_name }}'
+AND compartment_id = '{{ compartment_id }}'
+AND name = '{{ bucket_name }}'
+
+/*+ exports */
+SELECT '{{ bucket_name }}' as bucket_name
+
+/*+ delete */
+DELETE FROM oci.object_storage.buckets
+WHERE namespace_name = '{{ namespace_name }}'
+AND bucket_name = '{{ bucket_name }}'

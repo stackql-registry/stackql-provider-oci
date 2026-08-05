@@ -1,0 +1,40 @@
+/*+ exists */
+SELECT COUNT(*) as count FROM oci.network.subnets
+WHERE compartment_id = '{{ compartment_id }}'
+AND vcn_id = '{{ vcn_id }}'
+AND display_name = '{{ subnet_name }}'
+AND lifecycle_state <> 'TERMINATED'
+
+/*+ create, retries=5, retry_delay=10 */
+INSERT INTO oci.network.subnets (
+  compartment_id,
+  vcn_id,
+  cidr_block,
+  display_name,
+  freeform_tags
+)
+SELECT
+  '{{ compartment_id }}',
+  '{{ vcn_id }}',
+  '{{ subnet_cidr }}',
+  '{{ subnet_name }}',
+  '{{ global_tags }}'
+
+/*+ statecheck, retries=5, retry_delay=10 */
+SELECT COUNT(*) as count FROM oci.network.subnets
+WHERE compartment_id = '{{ compartment_id }}'
+AND vcn_id = '{{ vcn_id }}'
+AND display_name = '{{ subnet_name }}'
+AND lifecycle_state = 'AVAILABLE'
+
+/*+ exports */
+SELECT id as subnet_id
+FROM oci.network.subnets
+WHERE compartment_id = '{{ compartment_id }}'
+AND vcn_id = '{{ vcn_id }}'
+AND display_name = '{{ subnet_name }}'
+AND lifecycle_state = 'AVAILABLE'
+
+/*+ delete, retries=10, retry_delay=10 */
+DELETE FROM oci.network.subnets
+WHERE subnet_id = '{{ subnet_id }}'
