@@ -9316,8 +9316,11 @@ components:
                 delimiter: ','
                 supportedColumns:
                   - approximateCount
+                  - approximate_count
                   - approximateSize
+                  - approximate_size
                   - autoTiering
+                  - auto_tiering
           request:
             nativeCasing: camel
         update:
@@ -9530,10 +9533,15 @@ components:
                   - size
                   - etag
                   - timeCreated
+                  - time_created
                   - md5
+                  - md_5
                   - timeModified
+                  - time_modified
                   - storageTier
+                  - storage_tier
                   - archivalState
+                  - archival_state
           request:
             nativeCasing: camel
         delete:
@@ -9577,10 +9585,15 @@ components:
                   - size
                   - etag
                   - timeCreated
+                  - time_created
                   - md5
+                  - md_5
                   - timeModified
+                  - time_modified
                   - storageTier
+                  - storage_tier
                   - archivalState
+                  - archival_state
           request:
             nativeCasing: camel
       sqlVerbs:

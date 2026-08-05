@@ -157,6 +157,16 @@ function paginationStyle(op, pathItem, doc) {
 
 const DEFAULT_LIMIT_MAX = 1000;
 
+// mirrors any-sdk pkg/casing ToSnake closely enough for the OCI field-name
+// vocabulary (camelCase, digit suffixes: timeCreated, md5, storageTier)
+function toSnake(name) {
+  return name
+    .replace(/(.)([A-Z][a-z]+)/g, '$1_$2')
+    .replace(/([a-z])([0-9]+)/g, '$1_$2')
+    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+    .toLowerCase();
+}
+
 // pushdown facts of one operation: the `limit` query parameter (top
 // pushdown) and a `fields` query parameter with an enumerated field set
 // (select pushdown). Returns null when neither applies.
@@ -179,7 +189,10 @@ function pushdownConfigFor(op, pathItem, doc) {
     const itemSchema = schema.type === 'array' ? deref(schema.items, doc) || {} : schema;
     const supported = Array.isArray(itemSchema.enum) ? itemSchema.enum.filter((v) => typeof v === 'string') : [];
     if (supported.length > 1) {
-      pushdown.select = { paramName: 'fields', delimiter: ',', supportedColumns: supported };
+      // the engine compares projection strings verbatim; the SQL surface is
+      // snake_case, so carry both the wire names and their snake aliases
+      const withSnake = [...new Set(supported.flatMap((v) => [v, toSnake(v)]))];
+      pushdown.select = { paramName: 'fields', delimiter: ',', supportedColumns: withSnake };
     }
   }
 
