@@ -1,10 +1,16 @@
 # Engineering Notes
 
-Phase 1 findings for the `oci` provider build. Evidence is against local checkouts of any-sdk (`c328e2d`, main) and stackql (`2a0297b`, main, binary v0.10.542), as of 2026-07-12. Sibling findings (k8s, proxmox, jira, hetzner NOTES.md) are reused, not re-derived.
+Findings ledger for the `oci` provider build. Phase 1 evidence was against any-sdk `c328e2d` / stackql `2a0297b` (2026-07-12); phase 2 evidence (sections 1-2 updates and 11-13) is against any-sdk `83c0a2e` (= tag `v0.5.4-alpha01`) and stackql branch `any-sdk-v0.5.4-alpha01` (`d104758`, v0.10.582-7), local Linux build at `../../../stackql/core/stackql/build/stackql`, run under WSL, as of 2026-08-05. Sibling findings (k8s, proxmox, jira, hetzner NOTES.md) are reused, not re-derived.
+
+**Release gate**: this build is one step ahead of the released stackql - `oci_signing_v1`, server-variable env resolution (`x-stackQL-envVar`) and the pushdown machinery land in the release cut after the `any-sdk-v0.5.4-alpha01` stackql PR merges. All testing here uses the local build; publish (step 6) stays gated on the release.
 
 ## 1. `oci_signing_v1` verification
 
-**Blocked - the auth type has not landed in any-sdk.** The CLAUDE.md premise ("now supported in any-sdk") is ahead of upstream reality as of 2026-07-12. Evidence:
+**Landed and verified against the signed mock.** any-sdk v0.5.4-alpha01 vendors the official `oci-go-sdk/common` signer behind a RoundTripper (`pkg/ocisign`), per the issue contract. The integration suite (tests/integration, 24 assertions green) verifies both auth variants against a digest-enforcing mock: keyId composition `<tenancy>/<user>/<fingerprint>`, the three-header GET/DELETE form (`date (request-target) host`), the six-header body form with a correct base64 `x-content-sha256`, the config-file (INI profile) variant, and the fail-fast partial-credential error (`cannot compose OCI signing credentials`) with no request despatched. The live-tenancy half of the phase 1 runbook (below) still awaits credentials; `tests/smoke_test.py` executes it.
+
+**Env var convention**: all documentation and examples standardise on the exact names the OCI CLI reads - `OCI_CLI_TENANCY`, `OCI_CLI_USER`, `OCI_CLI_FINGERPRINT`, `OCI_CLI_KEY_FILE`, `OCI_CLI_PASSPHRASE`, `OCI_CLI_REGION` - so a CLI-configured environment works unchanged (the `*_env_var` keys are free-form indirections; there are no baked-in defaults). The provider doc auth block carries the type only (`config.auth.type: oci_signing_v1`); credentials always come from the runtime auth context - the doc-level auth DTO has no OCI fields.
+
+Historical (2026-07-12) blocked status, for the record:
 
 - `stackql/any-sdk` upstream: no branch, tag, or commit mentions OCI signing (checked via `git fetch --all` on the local checkout plus the GitHub API - branches, tags to `v0.5.3-alpha11`, commit search). No `pkg/ocisign` package exists at `c328e2d`.
 - `stackql/stackql` upstream: no OCI branches; the binary string table of the released `v0.10.542` Windows build contains `aws_signing_v4` but not `oci_signing_v1` (raw byte search, control string verified). Same for the local `v0.10.500` build.
@@ -28,7 +34,7 @@ Findings from the runbook get recorded here, replacing this blocked status.
 
 ## 2. Pagination: `opc-next-page` response header
 
-**Answered by code analysis - expressible in config, but broken at runtime for bare-token headers; small engine fix required.** Runtime confirmation against a live multi-page list (identity policies or audit events) is folded into the section 1 runbook.
+**Re-verified at v0.5.4-alpha01: still broken for bare-token headers; the engine ticket below stands.** `internal/anysdk/pagination.go` was untouched between v0.5.3-alpha11 and v0.5.4-alpha01 - `getHeaderTransformer()` still returns the Link-regex closure for every header key, and stackql's raw-header fallback remains unreachable because the token semantic always attaches that non-nil transformer. Empirically confirmed by the integration suite's two-page mock: traversal stops after page 1 (reported as a WARN, not a failure). The config emitted is the correct declaration (`requestToken: page/query`, `responseToken: opc-next-page/header`, service level) and traversal activates when the fix lands. **Body-token pagination works today**: the object storage `nextStartWith` override traverses all mock pages (verified), so `ListObjects` paginates fully while header-token lists return the first page (up to `limit`, which SQL `LIMIT` drives - section 11).
 
 What OCI needs: the next-page token arrives in the `opc-next-page` response header (an opaque string, no `Link` framing) and is applied to the `page` query parameter on the next request, with `limit` as the page-size parameter. Traversal ends when the header is absent.
 
@@ -117,10 +123,27 @@ Recorded now, executed when auth unblocks:
 
 The catalog defers 137 specs with reasons (named reasons for s3objectstorage, identity-domains, logging-dataplane/search, instanceagent, usage-proxy, notification; generic long-tail reason otherwise). Promotion process per release cycle: move the key into `TIER1` in `harvest_catalog.mjs` with its service name -> `fetch-specs` -> `clean_specs` -> `split` -> `generate-mappings` + `map_operations` (extending classifier skip/demotion rules as validation surfaces issues) -> regenerate -> integration suite. Every step validates-and-fails-without-writing, so a promotion that needs new rules cannot silently ship.
 
+## 11. Query pushdown (v0.5.4-alpha01 `queryParamPushdown`)
+
+any-sdk's pushdown vocabulary has six blocks (`select`/`filter`/`orderBy`/`top`/`skip`/`count`); the rendering engine is dialect-agnostic for `top`, `skip`, `count` and `select` (paramName-driven), but `filter` and `orderBy` render OData syntax only. Consequences, all verified against the mock:
+
+- **`top` is wired and works**: SQL `LIMIT` pushes to the OCI `limit` query parameter (`limit=1` observed on the wire), emitted method-level for the 313 operations declaring `limit`, clamped to the declared schema maximum (1000 when silent). post_process derives it from operation facts.
+- **`select` is wired but currently inert**: object storage operations with an enumerated `fields` parameter carry `select` config (allowlist = spec enum + snake aliases), but stackql's pushdown intent unions WHERE and residual-predicate columns into the projection, and the required routing params (`namespace_name`, `bucket_name`) are outside the allowlist - the all-or-nothing rule then declines. Engine enhancement: exclude operation-bound parameters from the projection union. Config stays declared for when that lands.
+- **`filter`/`orderBy` are not emitted**: OCI does not speak OData filter syntax, and OCI's two-param sort convention (`sortBy` + `sortOrder`) is not expressible in the single-param OData `orderBy` rendering. WHERE pushdown for OCI is therefore ordinary OpenAPI query/path parameter mapping (which covers `compartmentId` and friends), with everything else evaluated locally.
+
+## 12. snake_case surface
+
+Two any-sdk primitives, both applied by post_process: `config.snake_case_aliases: true` on provider.yaml (SELECT/DESCRIBE columns present as snake aliases of the camelCase wire properties; extraction stays wire-keyed) and `request.nativeCasing: camel` on every method (snake WHERE/INSERT keys resolve to wire params via the reverse-casing lookup; the naive body matcher accepts snake input). Verified: snake columns in DESCRIBE, snake WHERE key -> `compartmentId` on the wire, snake INSERT columns -> camelCase body attributes. Two caveats: `SHOW METHODS` RequiredParams remain wire-cased (`ToPresentationMap` is not aliased - same presentation as the aws provider), and **EXEC variables resolve by wire name only** (`@instanceId`, not `@instance_id`) - the reverse-casing retry covers WHERE/INSERT surfaces, not exec vars. Docs examples reflect both. Also note nested JSON blob contents keep wire casing (`json_extract(shape_config, '$.memoryInGBs')`) - aliasing is top-level only, by design (botocore xform port).
+
+## 13. Naive request body translation and the exec body quirk
+
+`--naive-req-body-translate` emits method-level `requestBodyTranslate: {algorithm: naive}` on POST/PUT/PATCH: request body attributes are addressed by bare schema property name (no `data__` prefix, no parent key) - verified INSERT `(compartment_id, cidr_block, display_name)` produced the flat camelCase `CreateVcnDetails` body. One surface quirk found: operations whose request body is wire-optional but whose body schema has required fields (InstanceAction's `InstancePowerActionDetails.actionType`) surface those fields as required exec inputs - `EXEC oci.compute.instances.instance_action` needs `@actionType` alongside `@action`. Documented in the exec examples.
+
 ## Open items
 
-1. Land `oci_signing_v1` in any-sdk and run the section 1 runbook (the phase 1 acceptance test) - blocked on engine work + credentials.
-2. File the section 2 any-sdk pagination ticket upstream and verify the header traversal against a live multi-page list (identity policies, audit events).
-3. Generate-phase confirmations: `{region}` routing through the router, version-date base paths in generated servers, pagination config at service level (provider-level inheritance is broken - k8s finding).
-4. KMS per-vault management/crypto endpoints (27 skipped operations): revisit if any-sdk ever supports whole-host server variables spanning dots; until then documented as out of scope.
-5. Decide `secrets`/`vault` naming at docs time (three-service family: kms / vault / secrets) - names locked in service_names.json, revisit only if docs review objects.
+1. Run `tests/smoke_test.py` against the Always Free tenancy once credentials are provisioned (the live half of the section 1 runbook); `--live` variant after publish.
+2. File the section 2 any-sdk pagination ticket upstream (bare header tokens) and the section 11 enhancement (exclude operation-bound params from the pushdown projection union); re-run the integration suite when either lands - the WARNs flip to PASS with no config change.
+3. Publish (step 6) is gated on the stackql release consuming any-sdk v0.5.4-alpha01; until then all testing uses the local build (`STACKQL_BIN`).
+4. Website: scaffold + generated docs committed; `yarn build` verification and yarn.lock commit outstanding; featured image for the blog post (`static/img/blog/stackql-oci-provider-featured-image.png`, 1200x627) still to be produced in the stackql.io repo.
+5. Meta-route tests (`make test-meta`) need a native or WSL-visible server binary at the repo root - wire into CI on linux runners.
+6. KMS per-vault management/crypto endpoints (27 skipped operations): revisit if any-sdk ever supports whole-host server variables spanning dots; until then documented as out of scope.

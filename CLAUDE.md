@@ -19,14 +19,17 @@ auth:
   config_file_path: ~/.oci/config
   profile: DEFAULT
 
-# raw env vars (twelve-factor / CI)
+# raw env vars (twelve-factor / CI) - the exact names the OCI CLI reads,
+# so a CLI-configured environment works unchanged
 auth:
   type: oci_signing_v1
-  tenancy_ocid_env_var: OCI_TENANCY_OCID
-  user_ocid_env_var: OCI_USER_OCID
-  fingerprint_env_var: OCI_FINGERPRINT
-  private_key_path_env_var: OCI_PRIVATE_KEY_PATH
+  tenancy_ocid_env_var: OCI_CLI_TENANCY
+  user_ocid_env_var: OCI_CLI_USER
+  fingerprint_env_var: OCI_CLI_FINGERPRINT
+  private_key_path_env_var: OCI_CLI_KEY_FILE
 ```
+
+The provider doc auth block carries the type only (`config.auth.type: oci_signing_v1`); the auth configs above are runtime `--auth` contexts - the doc-level auth DTO has no OCI credential fields. Region resolves from `OCI_CLI_REGION` via the `x-stackQL-envVar` server-variable extension.
 
 Phase 1 verifies both variants against a live tenancy, including a POST (the six-header body-hash form) and the clock-skew 401 hint. Instance/resource principals and session tokens are any-sdk follow-ups, noted in the docs as not yet supported.
 
@@ -122,7 +125,7 @@ npm run generate-provider -- \
   --input-dir provider-dev/source \
   --output-dir provider-dev/openapi/src/oci \
   --config-path provider-dev/config/all_services.csv \
-  --provider-config '{"auth": {"type": "oci_signing_v1", "tenancy_ocid_env_var": "OCI_TENANCY_OCID", "user_ocid_env_var": "OCI_USER_OCID", "fingerprint_env_var": "OCI_FINGERPRINT", "private_key_path_env_var": "OCI_PRIVATE_KEY_PATH"}}' \
+  --provider-config '{"auth": {"type": "oci_signing_v1"}}' \
   --naive-req-body-translate \
   --overwrite
 ```
