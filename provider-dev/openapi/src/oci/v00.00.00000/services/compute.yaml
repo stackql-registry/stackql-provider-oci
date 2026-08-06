@@ -7597,12 +7597,6 @@ paths:
         - $ref: '#/components/parameters/InstanceActionQueryParam'
         - $ref: '#/components/parameters/RetryTokenHeader'
         - $ref: '#/components/parameters/IfMatchHeader'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/InstancePowerActionDetails'
-        description: Instance Power Action details
       responses:
         '200':
           description: The action is being performed.
@@ -23265,16 +23259,11 @@ components:
           request:
             nativeCasing: camel
         instance_action:
-          config:
-            requestBodyTranslate:
-              algorithm: naive
           operation:
             $ref: '#/paths/~1instances~1{instanceId}/post'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
-          request:
-            nativeCasing: camel
         update:
           config:
             requestBodyTranslate:

@@ -473,7 +473,7 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#instance_action"><CopyableCode code="instance_action" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-instanceId"><code>instanceId</code></a>, <a href="#parameter-action"><code>action</code></a>, <a href="#parameter-region"><code>region</code></a>, <a href="#parameter-actionType"><code>actionType</code></a></td>
+    <td><a href="#parameter-instanceId"><code>instanceId</code></a>, <a href="#parameter-action"><code>action</code></a>, <a href="#parameter-region"><code>region</code></a></td>
     <td><a href="#parameter-opc-retry-token"><code>opc-retry-token</code></a>, <a href="#parameter-if-match"><code>if-match</code></a></td>
     <td>Performs one of the following power actions on the specified instance:&lt;br /&gt;&lt;br /&gt;- **START** - Powers on the instance.&lt;br /&gt;&lt;br /&gt;- **STOP** - Powers off the instance.&lt;br /&gt;&lt;br /&gt;- **RESET** - Powers off the instance and then powers it back on.&lt;br /&gt;&lt;br /&gt;- **SOFTSTOP** - Gracefully shuts down the instance by sending a shutdown command to the operating system.&lt;br /&gt;After waiting 15 minutes for the OS to shut down, the instance is powered off.&lt;br /&gt;If the applications that run on the instance take more than 15 minutes to shut down, they could be improperly stopped, resulting&lt;br /&gt;in data corruption. To avoid this, manually shut down the instance using the commands available in the OS before you softstop the&lt;br /&gt;instance.&lt;br /&gt;&lt;br /&gt;- **SOFTRESET** - Gracefully reboots the instance by sending a shutdown command to the operating system.&lt;br /&gt;After waiting 15 minutes for the OS to shut down, the instance is powered off and&lt;br /&gt;then powered back on.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;- **SENDDIAGNOSTICINTERRUPT** - For advanced users. **Caution: Sending a diagnostic interrupt to a live system can&lt;br /&gt;cause data corruption or system failure.** Sends a diagnostic interrupt that causes the instance's&lt;br /&gt;OS to crash and then reboot. Before you send a diagnostic interrupt, you must configure the instance to generate a&lt;br /&gt;crash dump file when it crashes. The crash dump captures information about the state of the OS at the time of&lt;br /&gt;the crash. After the OS restarts, you can analyze the crash dump to diagnose the issue. For more information, see&lt;br /&gt;&#91;Sending a Diagnostic Interrupt&#93;(/iaas/Content/Compute/Tasks/sendingdiagnosticinterrupt.htm).&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;- **DIAGNOSTICREBOOT** - Powers off the instance, rebuilds it, and then powers it back on.&lt;br /&gt;Before you send a diagnostic reboot, restart the instance's OS, confirm that the instance and networking settings are configured&lt;br /&gt;correctly, and try other &#91;troubleshooting steps&#93;(/iaas/Content/Compute/References/troubleshooting-compute-instances.htm).&lt;br /&gt;Use diagnostic reboot as a final attempt to troubleshoot an unreachable instance. For virtual machine (VM) instances only.&lt;br /&gt;For more information, see &#91;Performing a Diagnostic Reboot&#93;(/iaas/Content/Compute/Tasks/diagnostic-reboot.htm).&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;- **REBOOTMIGRATE** - Powers off the instance, moves it to new hardware, and then powers it back on. For more information, see&lt;br /&gt;&#91;Infrastructure Maintenance&#93;(/iaas/Content/Compute/References/infrastructure-maintenance.htm).&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;For more information about managing instance lifecycle states, see&lt;br /&gt;&#91;Stopping and Starting an Instance&#93;(/iaas/Content/Compute/Tasks/restartinginstance.htm).&lt;br /&gt;</td>
 </tr>
@@ -1344,11 +1344,7 @@ EXEC oci.compute.instances.instance_action
 @action='{{ action }}' --required, 
 @region='{{ region }}' --required, 
 @opc-retry-token='{{ opc-retry-token }}', 
-@if-match='{{ if-match }}' 
-@@json=
-'{
-"actionType": "{{ actionType }}"
-}'
+@if-match='{{ if-match }}'
 ;
 ```
 </TabItem>

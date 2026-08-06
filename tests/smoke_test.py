@@ -361,19 +361,20 @@ def main():
                                 f"select lifecycle_state from oci.compute.instances "
                                 f"where instance_id = '{created['instance']}'"
                             )
-                            # actionType is a required attribute of the power
-                            # action details body on the exec surface (see
-                            # integration scenario 10); exec vars use wire names
+                            # plain power actions despatch bodyless (the
+                            # optional InstancePowerActionDetails body is
+                            # dropped by post_process - its actionType
+                            # discriminator only admits reset-family values)
                             _, err, _ = sq.run(
                                 f"exec oci.compute.instances.instance_action "
-                                f"@instanceId = '{created['instance']}', @action = 'STOP', @actionType = 'stop'"
+                                f"@instanceId = '{created['instance']}', @action = 'STOP'"
                             )
                             ok2, state = wait_state(sq, state_query, "lifecycle_state", "STOPPED", timeout_s=300)
                             note("PASS" if ok2 else "FAIL", "instance STOP (EXEC) -> STOPPED", state or err.strip()[:200])
 
                             _, err, _ = sq.run(
                                 f"exec oci.compute.instances.instance_action "
-                                f"@instanceId = '{created['instance']}', @action = 'START', @actionType = 'start'"
+                                f"@instanceId = '{created['instance']}', @action = 'START'"
                             )
                             ok2, state = wait_state(sq, state_query, "lifecycle_state", "RUNNING", timeout_s=300)
                             note("PASS" if ok2 else "FAIL", "instance START (EXEC) -> RUNNING", state or err.strip()[:200])

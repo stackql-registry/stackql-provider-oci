@@ -225,6 +225,16 @@ const SCALAR_TRANSFORMS = {
   }
 };
 
+// 6. optional-body drops - action operations whose requestBody is optional
+// on the wire but whose body schema carries required attributes. The engine's
+// exec surface demands every required body attribute whenever a requestBody
+// is declared, forcing a body onto plain actions - and live OCI 400s
+// InstanceAction bodies whose actionType is not a reset-family discriminator
+// (found live: STOP/START never despatch). Dropping the optional body lets
+// plain actions despatch bodyless; the reset-variant detail knobs are
+// documented as out of scope until the engine supports optional exec bodies.
+const OPTIONAL_BODY_DROPS = new Set(['compute.instances.instance_action']);
+
 function opFromMethodRef(methodRef, doc, label, errors) {
   const m = /^#\/paths\/(.+)\/(get|post|put|patch|delete|head)$/.exec(methodRef || '');
   if (!m) {
@@ -258,6 +268,7 @@ async function main() {
   const pending = []; // [filePath, doc] - written only if zero errors
   const report = [];
   const appliedScalarTransforms = new Set();
+  const appliedBodyDrops = new Set();
 
   for (const file of files) {
     const service = file.replace(/\.yaml$/, '');
@@ -321,6 +332,29 @@ async function main() {
         }
         method.request = { ...(method.request || {}), nativeCasing: 'camel' };
 
+        if (OPTIONAL_BODY_DROPS.has(label)) {
+          if (!target.op.requestBody) {
+            errors.push(`${label}: optional-body drop matched an operation with no requestBody - rule drift`);
+          } else if (target.op.requestBody.required === true) {
+            errors.push(`${label}: optional-body drop matched a REQUIRED requestBody - refusing`);
+          } else {
+            delete target.op.requestBody;
+            // the generate step attaches naive requestBodyTranslate to every
+            // body verb; with no requestBody left it must go too, else the
+            // engine errors 'no request body for operation'
+            if (method.config?.requestBodyTranslate) {
+              delete method.config.requestBodyTranslate;
+              if (Object.keys(method.config).length === 0) delete method.config;
+            }
+            // the method-level request block (nativeCasing) makes the engine
+            // treat the method as body-bearing (op.Request non-nil ->
+            // getRequestBodySchema error); exec variables resolve by wire
+            // name anyway, so the block does nothing here
+            delete method.request;
+            appliedBodyDrops.add(label);
+          }
+        }
+
         const scalarTf = SCALAR_TRANSFORMS[label];
         if (scalarTf) {
           doc.components.schemas = doc.components.schemas || {};
@@ -357,6 +391,11 @@ async function main() {
       errors.push(`scalar transform key ${key} matched no generated method - rule drift`);
     }
   }
+  for (const key of OPTIONAL_BODY_DROPS) {
+    if (!appliedBodyDrops.has(key)) {
+      errors.push(`optional-body drop key ${key} matched no generated method - rule drift`);
+    }
+  }
 
   if (errors.length > 0) {
     console.error(`\nValidation failed - nothing written (${errors.length} error(s)):`);
@@ -373,6 +412,19 @@ async function main() {
   }
   const providerDoc = yaml.load(fs.readFileSync(providerYamlPath, 'utf8'));
   providerDoc.config = { ...(providerDoc.config || {}), snake_case_aliases: true };
+  // doc-level default env var indirections (any-sdk doc auth DTO): a
+  // populated OCI_* environment needs no --auth context at all. Indirections
+  // only - no literal credential fields belong in a provider doc. Requires
+  // the stackql wire-through of the doc-level Oci* getters onto the runtime
+  // AuthCtx (tracked as a stackql issue; inert but harmless before it).
+  providerDoc.config.auth = {
+    type: 'oci_signing_v1',
+    tenancy_ocid_envvar: 'OCI_TENANCY',
+    user_ocid_envvar: 'OCI_USER',
+    fingerprint_envvar: 'OCI_FINGERPRINT',
+    private_key_path_envvar: 'OCI_KEY_FILE',
+    passphrase_envvar: 'OCI_PASSPHRASE'
+  };
 
   for (const [filePath, doc] of pending) {
     fs.writeFileSync(filePath, yaml.dump(doc, { lineWidth: -1, noRefs: true }));

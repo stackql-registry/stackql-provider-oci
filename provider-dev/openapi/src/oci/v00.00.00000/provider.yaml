@@ -203,4 +203,9 @@ providerServices:
 config:
   auth:
     type: oci_signing_v1
+    tenancy_ocid_envvar: OCI_TENANCY
+    user_ocid_envvar: OCI_USER
+    fingerprint_envvar: OCI_FINGERPRINT
+    private_key_path_envvar: OCI_KEY_FILE
+    passphrase_envvar: OCI_PASSPHRASE
   snake_case_aliases: true

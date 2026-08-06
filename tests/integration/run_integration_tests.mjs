@@ -328,16 +328,17 @@ async function main() {
       check('DELETE signs exactly date (request-target) host', vcnDel[0].auth.signedHeaders === 'date (request-target) host', vcnDel[0].auth.signedHeaders);
     }
 
-    // 10: EXEC instance action
-    console.log('\n[10] compute.instances EXEC instance_action');
+    // 10: EXEC instance action - plain power actions despatch with NO body.
+    // The optional InstancePowerActionDetails requestBody is dropped by
+    // post_process: the engine's exec surface demands every required body
+    // attribute whenever a requestBody is declared, and live OCI 400s a
+    // body whose actionType is not a reset-family discriminator value
+    // (reset|softreset|rebootMigrate) - found live, run 3. EXEC variables
+    // resolve by wire name only (instanceId, action).
+    console.log('\n[10] compute.instances EXEC instance_action (bodyless)');
     await resetLog();
-    // actionType is a required attribute of the (wire-optional) power action
-    // details body, so the exec surface demands it alongside the action query
-    // param. EXEC path/query variables resolve by wire name only (the
-    // reverse-casing retry covers WHERE/INSERT surfaces, not exec vars) -
-    // documented in the provider docs exec examples.
     r = runStackql(
-      "exec oci.compute.instances.instance_action @instanceId = 'ocid1.instance.oc1..mock', @action = 'STOP', @actionType = 'stop'",
+      "exec oci.compute.instances.instance_action @instanceId = 'ocid1.instance.oc1..mock', @action = 'STOP'",
       { auth: rawAuth, registryRoot, extraEnv: rawEnv }
     );
     log = await fetchJson('/__log');
@@ -345,6 +346,8 @@ async function main() {
     check('instance action POST reached the mock', actReqs.length === 1, r.stderr.slice(0, 400));
     if (actReqs.length === 1) {
       check('action=STOP on the wire', actReqs[0].query.action === 'STOP', JSON.stringify(actReqs[0].query));
+      const sentBody = actReqs[0].body || '';
+      check('plain power action sends an empty body', sentBody === '' || sentBody === '{}', `body: '${sentBody.slice(0, 120)}'`);
     }
 
     // 11: config-file auth variant
