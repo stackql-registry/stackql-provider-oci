@@ -9,7 +9,7 @@ Built using [`@stackql/provider-utils`](https://www.npmjs.com/package/@stackql/p
 ## Design Principles
 
 - **Harvested vendor specs, catalogued** - Oracle publishes an OpenAPI spec per service via the [API reference](https://docs.oracle.com/en-us/iaas/api/); there is no single spec repo. `provider-dev/config/spec_catalog.csv` is the single source of truth for scope, spec URLs, endpoint host templates, version-date base paths, tiers, and pin hashes. Specs are never fetched ad hoc; refreshes are reviewed diffs.
-- **Per-service regional endpoints** - hosts follow `https://<service>.{region}.oraclecloud.com` or `https://<service>.{region}.oci.oraclecloud.com`, with the API version date as the base path segment (e.g. `iaas.{region}.oraclecloud.com/20160918`). `{region}` is a single dot-free label (`ap-sydney-1`), so it is compatible with the router's host-variable constraint. The region server variable resolves from `OCI_CLI_REGION` (the `x-stackQL-envVar` extension), can be supplied per query, and defaults to `us-ashburn-1`.
+- **Per-service regional endpoints** - hosts follow `https://<service>.{region}.oraclecloud.com` or `https://<service>.{region}.oci.oraclecloud.com`, with the API version date as the base path segment (e.g. `iaas.{region}.oraclecloud.com/20160918`). `{region}` is a single dot-free label (`ap-sydney-1`), so it is compatible with the router's host-variable constraint. The region server variable resolves from `OCI_REGION` (the `x-stackQL-envVar` extension), can be supplied per query, and defaults to `us-ashburn-1`.
 - **snake_case user surface** - columns and `WHERE`/`INSERT` keys are snake_case over the camelCase wire (`snake_case_aliases` + per-method `request.nativeCasing: camel`); `EXEC` variables use wire names. Nested details objects are JSON columns addressed with `json_extract` (wire casing inside the blob).
 - **Pushdown** - SQL `LIMIT` pushes to the OCI `limit` query parameter (method-level `queryParamPushdown.top`, clamped to the declared maximum); projection pushdown to the object storage `fields` parameter is declared but currently inert (see NOTES.md #11). WHERE pushdown is ordinary query/path parameter mapping - OCI does not speak OData filter syntax.
 - **`compartmentId` is the universal scope** - nearly every list operation requires a `compartmentId` query parameter. Tenancy-root queries use the tenancy OCID as the compartment id; the `identity.compartments` resource enumerates scopes for joins.
@@ -35,17 +35,18 @@ auth:
   config_file_path: ~/.oci/config
   profile: DEFAULT
 
-# raw env vars (twelve-factor / CI) - the exact names the OCI CLI reads,
-# so a CLI-configured environment works unchanged
+# raw env vars (twelve-factor / CI) - the provider's default names; the
+# *_env_var keys are free-form, so existing conventions (e.g. Terraform's
+# TF_VAR_*) can be pointed at instead
 auth:
   type: oci_signing_v1
-  tenancy_ocid_env_var: OCI_CLI_TENANCY
-  user_ocid_env_var: OCI_CLI_USER
-  fingerprint_env_var: OCI_CLI_FINGERPRINT
-  private_key_path_env_var: OCI_CLI_KEY_FILE
+  tenancy_ocid_env_var: OCI_TENANCY
+  user_ocid_env_var: OCI_USER
+  fingerprint_env_var: OCI_FINGERPRINT
+  private_key_path_env_var: OCI_KEY_FILE
 ```
 
-These are runtime `--auth` contexts; the provider document itself declares only the auth type (`config.auth.type: oci_signing_v1`) - credential fields live in the runtime auth DTO, not the provider doc. `OCI_CLI_PASSPHRASE` (`passphrase_env_var`) covers encrypted keys in both variants.
+These are runtime `--auth` contexts; the provider document itself declares only the auth type (`config.auth.type: oci_signing_v1`) - credential fields live in the runtime auth DTO, not the provider doc. `OCI_PASSPHRASE` (`passphrase_env_var`) covers encrypted keys in both variants. Users with an OCI CLI-configured environment are covered by the config file variant (`~/.oci/config` is the CLI's own convention) - and because the provider doc's type-only auth block becomes the default auth context, a `DEFAULT` profile in `~/.oci/config` needs no `--auth` argument at all. Shipping the raw `*_env_var` defaults in the provider doc itself (zero-config for the env-var variant too) is an engine follow-up: the doc-level auth DTO does not carry the OCI fields yet (see NOTES.md).
 
 Auth follow-ups (not yet supported, additive in any-sdk later): instance principals, resource principals, and session-token auth.
 

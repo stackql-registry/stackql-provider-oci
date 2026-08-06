@@ -24,10 +24,11 @@ Registry selection:
             (`REGISTRY PULL oci` is issued first), for post-publish
             verification
 
-Credentials (never stored here): either the OCI CLI environment variables
-(OCI_CLI_TENANCY, OCI_CLI_USER, OCI_CLI_FINGERPRINT, OCI_CLI_KEY_FILE and
-optionally OCI_CLI_REGION / OCI_CLI_PASSPHRASE) or an OCI config file
-(~/.oci/config, DEFAULT profile). Never run against a production tenancy.
+Credentials (never stored here): either the provider's environment variables
+(OCI_TENANCY, OCI_USER, OCI_FINGERPRINT, OCI_KEY_FILE and optionally
+OCI_REGION / OCI_PASSPHRASE) or an OCI config file (~/.oci/config, DEFAULT
+profile - the OCI CLI's own convention). Never run against a production
+tenancy.
 
 Requires a stackql binary built against any-sdk >= v0.5.4-alpha01
 (oci_signing_v1); set STACKQL_BIN or place `stackql` at the repo root.
@@ -76,29 +77,29 @@ def find_stackql():
 
 
 def build_auth():
-    """Raw env-var variant when the OCI CLI env is present, else config file."""
-    cli_vars = ["OCI_CLI_TENANCY", "OCI_CLI_USER", "OCI_CLI_FINGERPRINT", "OCI_CLI_KEY_FILE"]
-    if all(os.environ.get(v) for v in cli_vars):
+    """Raw env-var variant when the OCI_* env is present, else config file."""
+    raw_vars = ["OCI_TENANCY", "OCI_USER", "OCI_FINGERPRINT", "OCI_KEY_FILE"]
+    if all(os.environ.get(v) for v in raw_vars):
         auth = {
             "oci": {
                 "type": "oci_signing_v1",
-                "tenancy_ocid_env_var": "OCI_CLI_TENANCY",
-                "user_ocid_env_var": "OCI_CLI_USER",
-                "fingerprint_env_var": "OCI_CLI_FINGERPRINT",
-                "private_key_path_env_var": "OCI_CLI_KEY_FILE",
+                "tenancy_ocid_env_var": "OCI_TENANCY",
+                "user_ocid_env_var": "OCI_USER",
+                "fingerprint_env_var": "OCI_FINGERPRINT",
+                "private_key_path_env_var": "OCI_KEY_FILE",
             }
         }
-        if os.environ.get("OCI_CLI_PASSPHRASE"):
-            auth["oci"]["passphrase_env_var"] = "OCI_CLI_PASSPHRASE"
-        return auth, os.environ["OCI_CLI_TENANCY"]
-    cfg_path = Path(os.environ.get("OCI_CLI_CONFIG_FILE", Path.home() / ".oci" / "config"))
+        if os.environ.get("OCI_PASSPHRASE"):
+            auth["oci"]["passphrase_env_var"] = "OCI_PASSPHRASE"
+        return auth, os.environ["OCI_TENANCY"]
+    cfg_path = Path(os.environ.get("OCI_CONFIG_FILE", Path.home() / ".oci" / "config"))
     if cfg_path.exists():
         cfg = configparser.ConfigParser()
         cfg.read(cfg_path)
-        profile = os.environ.get("OCI_CLI_PROFILE", "DEFAULT")
+        profile = os.environ.get("OCI_PROFILE", "DEFAULT")
         tenancy = cfg[profile]["tenancy"] if profile in cfg and "tenancy" in cfg[profile] else None
         return {"oci": {"type": "oci_signing_v1", "config_file_path": str(cfg_path), "profile": profile}}, tenancy
-    print("No OCI credentials found (OCI_CLI_* env vars or ~/.oci/config). Aborting.")
+    print("No OCI credentials found (OCI_* env vars or ~/.oci/config). Aborting.")
     sys.exit(2)
 
 
@@ -209,7 +210,7 @@ def main():
 
     sq = StackQL(args.live)
     if not sq.tenancy:
-        print("Could not resolve the tenancy OCID (set OCI_CLI_TENANCY or a config file with tenancy=). Aborting.")
+        print("Could not resolve the tenancy OCID (set OCI_TENANCY or a config file with tenancy=). Aborting.")
         sys.exit(2)
     compartment = args.compartment or sq.tenancy
 

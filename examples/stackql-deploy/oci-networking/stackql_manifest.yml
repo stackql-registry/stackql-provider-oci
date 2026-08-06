@@ -1,7 +1,7 @@
 #
 # oci networking starter stack - a VCN with a subnet and an object storage
 # bucket, all free-tier resources. Provider authentication comes from the
-# shell environment (OCI_CLI_* variables or ~/.oci/config, the same
+# shell environment (OCI_* variables or ~/.oci/config, the same
 # credentials the OCI CLI uses); stack variables come from a .env file or
 # -e flags.
 #

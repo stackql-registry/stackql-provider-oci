@@ -4979,8 +4979,8 @@ servers:
     variables:
       region:
         default: us-ashburn-1
-        description: OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_CLI_REGION when not supplied in the query.
-        x-stackQL-envVar: OCI_CLI_REGION
+        description: OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_REGION when not supplied in the query.
+        x-stackQL-envVar: OCI_REGION
 x-stackQL-config:
   pagination:
     requestToken:

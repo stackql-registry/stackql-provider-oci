@@ -48,19 +48,19 @@ REGISTRY PULL oci;
 
 ## Authentication
 
-Requests are signed with an OCI API key (the same credential the OCI CLI and Terraform use; see <a href="https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm">Required Keys and OCIDs</a>). The following system environment variables are used by default - the exact names the OCI CLI reads, so an environment already configured for the CLI works unchanged:
+Requests are signed with an OCI API key (the same credential the OCI CLI and Terraform use; see <a href="https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm">Required Keys and OCIDs</a>). The following system environment variables are used by default:
 
-- <CopyableCode code="OCI_CLI_TENANCY" /> - tenancy OCID
-- <CopyableCode code="OCI_CLI_USER" /> - user OCID
-- <CopyableCode code="OCI_CLI_FINGERPRINT" /> - API key fingerprint
-- <CopyableCode code="OCI_CLI_KEY_FILE" /> - path to the private key (PEM)
-- <CopyableCode code="OCI_CLI_REGION" /> - region (e.g. `us-ashburn-1`), used to resolve the regional service endpoints
-- <CopyableCode code="OCI_CLI_PASSPHRASE" /> - private key passphrase (only if the key is encrypted)
+- <CopyableCode code="OCI_TENANCY" /> - tenancy OCID
+- <CopyableCode code="OCI_USER" /> - user OCID
+- <CopyableCode code="OCI_FINGERPRINT" /> - API key fingerprint
+- <CopyableCode code="OCI_KEY_FILE" /> - path to the private key (PEM)
+- <CopyableCode code="OCI_REGION" /> - region (e.g. `us-ashburn-1`), used to resolve the regional service endpoints
+- <CopyableCode code="OCI_PASSPHRASE" /> - private key passphrase (only if the key is encrypted)
 
-These variables are sourced at runtime (from the local machine or as CI variables/secrets). Use a least-privileged IAM user rather than an administrator.
+These variables are sourced at runtime (from the local machine or as CI variables/secrets). Use a least-privileged IAM user rather than an administrator. The `*_env_var` keys are free-form, so an environment that already exports other names (for example Terraform's `TF_VAR_*` convention) can point them at those instead - or skip environment variables entirely with the config file variant below.
 
 ```bash
-AUTH='{ "oci": { "type": "oci_signing_v1", "tenancy_ocid_env_var": "OCI_CLI_TENANCY", "user_ocid_env_var": "OCI_CLI_USER", "fingerprint_env_var": "OCI_CLI_FINGERPRINT", "private_key_path_env_var": "OCI_CLI_KEY_FILE" }}'
+AUTH='{ "oci": { "type": "oci_signing_v1", "tenancy_ocid_env_var": "OCI_TENANCY", "user_ocid_env_var": "OCI_USER", "fingerprint_env_var": "OCI_FINGERPRINT", "private_key_path_env_var": "OCI_KEY_FILE" }}'
 stackql shell --auth="${AUTH}"
 ```
 
@@ -68,7 +68,7 @@ stackql shell --auth="${AUTH}"
 
 <summary>Using the OCI config file instead</summary>
 
-When no raw credential values are supplied, the standard OCI config file convention applies - the same `~/.oci/config` used by the OCI CLI and Terraform:
+When no raw credential values are supplied, the standard OCI config file convention applies - the same `~/.oci/config` used by the OCI CLI and Terraform. With a `DEFAULT` profile in `~/.oci/config`, no `--auth` argument is needed at all (the provider defaults to `oci_signing_v1` and the file convention applies automatically). To point at a different file or profile:
 
 ```bash
 AUTH='{ "oci": { "type": "oci_signing_v1", "config_file_path": "~/.oci/config", "profile": "DEFAULT" }}'
@@ -85,7 +85,7 @@ stackql.exe shell --auth=$Auth
 
 > OCI rejects requests with more than 5 minutes of clock skew with a `401 NotAuthenticated`; check the local clock if authentication fails with valid credentials.
 
-Endpoints are regional (`identity.{region}.oci.oraclecloud.com` and similar). The `region` server variable resolves from <CopyableCode code="OCI_CLI_REGION" /> automatically, can be supplied per query in the `WHERE` clause, and defaults to `us-ashburn-1`.
+Endpoints are regional (`identity.{region}.oci.oraclecloud.com` and similar). The `region` server variable resolves from <CopyableCode code="OCI_REGION" /> automatically, can be supplied per query in the `WHERE` clause, and defaults to `us-ashburn-1`.
 
 ## The compartment scope pattern
 

@@ -19,17 +19,19 @@ auth:
   config_file_path: ~/.oci/config
   profile: DEFAULT
 
-# raw env vars (twelve-factor / CI) - the exact names the OCI CLI reads,
-# so a CLI-configured environment works unchanged
+# raw env vars (twelve-factor / CI) - the provider's default names; the
+# *_env_var keys are free-form, so existing conventions (e.g. Terraform's
+# TF_VAR_*) can be pointed at instead, and CLI-configured users are covered
+# by the config file variant
 auth:
   type: oci_signing_v1
-  tenancy_ocid_env_var: OCI_CLI_TENANCY
-  user_ocid_env_var: OCI_CLI_USER
-  fingerprint_env_var: OCI_CLI_FINGERPRINT
-  private_key_path_env_var: OCI_CLI_KEY_FILE
+  tenancy_ocid_env_var: OCI_TENANCY
+  user_ocid_env_var: OCI_USER
+  fingerprint_env_var: OCI_FINGERPRINT
+  private_key_path_env_var: OCI_KEY_FILE
 ```
 
-The provider doc auth block carries the type only (`config.auth.type: oci_signing_v1`); the auth configs above are runtime `--auth` contexts - the doc-level auth DTO has no OCI credential fields. Region resolves from `OCI_CLI_REGION` via the `x-stackQL-envVar` server-variable extension.
+The provider doc auth block carries the type only (`config.auth.type: oci_signing_v1`); the auth configs above are runtime `--auth` contexts - the doc-level auth DTO has no OCI credential fields. Region resolves from `OCI_REGION` via the `x-stackQL-envVar` server-variable extension.
 
 Phase 1 verifies both variants against a live tenancy, including a POST (the six-header body-hash form) and the clock-skew 401 hint. Instance/resource principals and session tokens are any-sdk follow-ups, noted in the docs as not yet supported.
 

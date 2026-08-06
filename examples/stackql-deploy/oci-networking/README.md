@@ -12,14 +12,14 @@ An example [stackql-deploy](https://stackql-deploy.io) stack for the `oci` provi
 
 ## Prerequisites
 
-Provider authentication uses the same environment the OCI CLI reads - export these in the shell (they are consumed by the stackql server process, not the templating engine):
+Provider authentication reads these environment variables - export them in the shell (they are consumed by the stackql server process, not the templating engine); alternatively `~/.oci/config` works with no environment at all:
 
 ```bash
-export OCI_CLI_TENANCY=ocid1.tenancy.oc1..your_tenancy
-export OCI_CLI_USER=ocid1.user.oc1..your_user
-export OCI_CLI_FINGERPRINT=aa:bb:cc:...
-export OCI_CLI_KEY_FILE=~/.oci/oci_api_key.pem
-export OCI_CLI_REGION=us-ashburn-1
+export OCI_TENANCY=ocid1.tenancy.oc1..your_tenancy
+export OCI_USER=ocid1.user.oc1..your_user
+export OCI_FINGERPRINT=aa:bb:cc:...
+export OCI_KEY_FILE=~/.oci/oci_api_key.pem
+export OCI_REGION=us-ashburn-1
 ```
 
 (Alternatively `~/.oci/config` works via the provider's config-file auth variant.)

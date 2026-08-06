@@ -11,7 +11,7 @@
 // Credentials are a throwaway RSA key generated per run (the signer never
 // validates the fingerprint against the key - stackql core fixture
 // pattern) with env vars namespaced STACKQL_OCI_TESTING_* so they can
-// never collide with a developer's real OCI_CLI_* environment.
+// never collide with a developer's real OCI_* environment.
 //
 // Case matrix:
 //   1. raw-env GET: keyId composition + exactly `date (request-target) host`

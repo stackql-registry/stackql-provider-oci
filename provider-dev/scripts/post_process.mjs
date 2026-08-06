@@ -4,7 +4,7 @@
 // 1. servers - per-service regional endpoints from spec_catalog.csv
 //    (host_template + version-date base path), replacing the meaningless
 //    vendor placeholder hosts. The {region} variable defaults to
-//    us-ashburn-1 and resolves from OCI_CLI_REGION via x-stackQL-envVar
+//    us-ashburn-1 and resolves from OCI_REGION via x-stackQL-envVar
 //    (WHERE-supplied value -> env var -> default; any-sdk v0.5.4-alpha01).
 //
 // 2. pagination - service-level x-stackQL-config for the OCI convention
@@ -47,7 +47,7 @@ import { REPO_ROOT, CONFIG_DIR, loadCatalog } from './lib/catalog.mjs';
 
 const DEFAULT_PROVIDER_DIR = path.join(REPO_ROOT, 'provider-dev', 'openapi', 'src', 'oci', 'v00.00.00000');
 const REGION_DEFAULT = 'us-ashburn-1';
-const REGION_ENV_VAR = 'OCI_CLI_REGION';
+const REGION_ENV_VAR = 'OCI_REGION';
 
 const HEADER_PAGINATION = {
   requestToken: { key: 'page', location: 'query' },
@@ -107,7 +107,7 @@ function serversBlockFor(entry) {
       variables: {
         region: {
           default: REGION_DEFAULT,
-          description: 'OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_CLI_REGION when not supplied in the query.',
+          description: 'OCI region identifier (e.g. us-ashburn-1, ap-sydney-1); resolves from OCI_REGION when not supplied in the query.',
           'x-stackQL-envVar': REGION_ENV_VAR
         }
       }

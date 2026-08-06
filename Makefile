@@ -84,7 +84,7 @@ test-meta:
 
 test: test-integration
 
-# live smokes (Always Free tenancy; OCI_CLI_* env or ~/.oci/config required)
+# live smokes (Always Free tenancy; OCI_* env or ~/.oci/config required)
 smoke:
 	STACKQL_BIN=$(STACKQL_BIN) python3 tests/smoke_test.py
 
