@@ -421,9 +421,9 @@ async function main() {
     type: 'oci_signing_v1',
     tenancy_ocid_envvar: 'OCI_TENANCY',
     user_ocid_envvar: 'OCI_USER',
-    fingerprint_envvar: 'OCI_FINGERPRINT',
-    private_key_path_envvar: 'OCI_KEY_FILE',
-    passphrase_envvar: 'OCI_PASSPHRASE'
+    oci_fingerprint_envvar: 'OCI_FINGERPRINT',
+    oci_private_key_path_envvar: 'OCI_KEY_FILE',
+    oci_passphrase_envvar: 'OCI_PASSPHRASE'
   };
 
   for (const [filePath, doc] of pending) {
