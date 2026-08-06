@@ -40,8 +40,6 @@ The following fields are returned by `SELECT` queries:
 >
 <TabItem value="get">
 
-The requesting user's Object Storage namespace string.
-
 <table>
 <thead>
     <tr>
@@ -51,6 +49,11 @@ The requesting user's Object Storage namespace string.
     </tr>
 </thead>
 <tbody>
+<tr>
+    <td><CopyableCode code="namespace" /></td>
+    <td><code>string</code></td>
+    <td>The Object Storage namespace of the tenancy (top-level bucket container).</td>
+</tr>
 </tbody>
 </table>
 </TabItem>
@@ -126,7 +129,7 @@ Each Oracle Cloud Infrastructure tenant is assigned one unique and uneditable Ob
 
 ```sql
 SELECT
-*
+namespace
 FROM oci.object_storage.namespaces
 WHERE region = '{{ region }}' -- required
 AND opc-client-request-id = '{{ opc-client-request-id }}'

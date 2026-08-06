@@ -8520,6 +8520,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkRequestLogEntry'
+    GetNamespaceTransformed:
+      type: object
+      properties:
+        namespace:
+          type: string
+          description: The Object Storage namespace of the tenancy (top-level bucket container).
   responses:
     BadRequest:
       description: Bad Request
@@ -9210,16 +9216,25 @@ components:
       name: namespaces
       title: Namespaces
       methods:
-        get_namespace:
+        get:
           operation:
             $ref: '#/paths/~1n~1/get'
           response:
             mediaType: application/json
             openAPIDocKey: '200'
+            overrideMediaType: application/json
+            schema_override:
+              $ref: '#/components/schemas/GetNamespaceTransformed'
+            transform:
+              type: golang_template_text_v0.1.0
+              body: |-
+                {{- $ns := getRegexpFirstMatch . "\"([^\"]+)\"" -}}
+                {"namespace": "{{ $ns }}"}
           request:
             nativeCasing: camel
       sqlVerbs:
-        select: []
+        select:
+          - $ref: '#/components/x-stackQL-resources/namespaces/methods/get'
         insert: []
         update: []
         delete: []

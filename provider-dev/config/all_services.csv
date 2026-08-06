@@ -419,7 +419,7 @@ network.yaml,/vtaps/{vtapId},DeleteVtap,delete_vtap,delete,,virtualNetwork,virtu
 network.yaml,/vtaps/{vtapId},GetVtap,get_vtap,get,Vtap,virtualNetwork,virtual_network,vtaps,get,select,,GetVtap
 network.yaml,/vtaps/{vtapId},UpdateVtap,update_vtap,put,Vtap,virtualNetwork,virtual_network,vtaps,update,update,,UpdateVtap
 network.yaml,/vtaps/{vtapId}/actions/changeCompartment,ChangeVtapCompartment,change_vtap_compartment,post,,virtualNetwork,virtual_network,vtaps,change_compartment,exec,,ChangeVtapCompartment
-object_storage.yaml,/n/,GetNamespace,get_namespace,get,,objectStorage,object_storage,namespaces,get_namespace,exec,,GET Namespace Name
+object_storage.yaml,/n/,GetNamespace,get_namespace,get,,objectStorage,object_storage,namespaces,get,select,,GET Namespace Name
 object_storage.yaml,/n/{namespaceName},GetNamespaceMetadata,get_namespace_metadata,get,NamespaceMetadata,objectStorage,object_storage,namespace_metadatas,get,select,,GET Namespace Metadata
 object_storage.yaml,/n/{namespaceName},UpdateNamespaceMetadata,update_namespace_metadata,put,NamespaceMetadata,objectStorage,object_storage,namespace_metadatas,update,update,,PUT Namespace
 object_storage.yaml,/n/{namespaceName}/b/,ListBuckets,list_buckets,get,BucketSummary,objectStorage,object_storage,buckets,list,select,$.buckets,List Buckets

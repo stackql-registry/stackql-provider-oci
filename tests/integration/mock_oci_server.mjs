@@ -149,6 +149,13 @@ function route(req, res, url, auth, body) {
     return json(res, 200, COMPARTMENTS_PAGE_1, { 'opc-next-page': 'PAGE2TOKEN' });
   }
 
+  // object storage: GetNamespace returns a bare JSON string (scalar) -
+  // exercises the golang-template response transform that reshapes it
+  // into a {namespace} row
+  if (req.method === 'GET' && (p === '/n' || p === '/n/')) {
+    return json(res, 200, 'stackqlmockns');
+  }
+
   // network: VCN lifecycle
   if (req.method === 'GET' && p === '/20160918/vcns') {
     if (!q.get('compartmentId')) {

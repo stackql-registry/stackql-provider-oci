@@ -143,14 +143,11 @@ def is_smoke_tagged(freeform_tags_field):
 def resolve_namespace(sq, args):
     if args.namespace:
         return args.namespace
-    # GetNamespace returns a bare JSON string (scalar), so it maps as exec,
-    # not select; parse the namespace token out of the exec output
-    out, _, _ = sq.run("exec oci.object_storage.namespaces.get_namespace")
-    for token in out.replace('"', " ").split():
-        if token and token.lower() not in ("result", "ok") and not token.startswith("-"):
-            candidate = token.strip(",")
-            if candidate.isalnum() and len(candidate) >= 3:
-                return candidate
+    # GetNamespace returns a bare JSON string on the wire; a response
+    # transform (post_process.mjs) reshapes it into a {namespace} row
+    rows, _ = sq.rows("select namespace from oci.object_storage.namespaces")
+    if rows and rows[0].get("namespace"):
+        return rows[0]["namespace"]
     return None
 
 
@@ -364,16 +361,19 @@ def main():
                                 f"select lifecycle_state from oci.compute.instances "
                                 f"where instance_id = '{created['instance']}'"
                             )
+                            # actionType is a required attribute of the power
+                            # action details body on the exec surface (see
+                            # integration scenario 10); exec vars use wire names
                             _, err, _ = sq.run(
                                 f"exec oci.compute.instances.instance_action "
-                                f"@instanceId = '{created['instance']}', @action = 'STOP'"
+                                f"@instanceId = '{created['instance']}', @action = 'STOP', @actionType = 'stop'"
                             )
                             ok2, state = wait_state(sq, state_query, "lifecycle_state", "STOPPED", timeout_s=300)
                             note("PASS" if ok2 else "FAIL", "instance STOP (EXEC) -> STOPPED", state or err.strip()[:200])
 
                             _, err, _ = sq.run(
                                 f"exec oci.compute.instances.instance_action "
-                                f"@instanceId = '{created['instance']}', @action = 'START'"
+                                f"@instanceId = '{created['instance']}', @action = 'START', @actionType = 'start'"
                             )
                             ok2, state = wait_state(sq, state_query, "lifecycle_state", "RUNNING", timeout_s=300)
                             note("PASS" if ok2 else "FAIL", "instance START (EXEC) -> RUNNING", state or err.strip()[:200])

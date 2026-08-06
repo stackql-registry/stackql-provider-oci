@@ -199,6 +199,32 @@ function pushdownConfigFor(op, pathItem, doc) {
   return Object.keys(pushdown).length > 0 ? pushdown : null;
 }
 
+// 5. scalar response transforms - operations whose responses are bare JSON
+// scalars cannot project as select rows (the engine's column_anon schema
+// error); a golang-template response transform reshapes the scalar into a
+// one-row object, and response.schema_override documents the post-transform
+// shape (aws provider precedent; provider-utils 0.7.7 docgen renders
+// schema_override columns). Keyed by service.resource.method; validation
+// fails if a key matches no generated method.
+const SCALAR_TRANSFORMS = {
+  'object_storage.namespaces.get': {
+    schemaName: 'GetNamespaceTransformed',
+    schema: {
+      type: 'object',
+      properties: {
+        namespace: {
+          type: 'string',
+          description: 'The Object Storage namespace of the tenancy (top-level bucket container).'
+        }
+      }
+    },
+    transform: {
+      type: 'golang_template_text_v0.1.0',
+      body: '{{- $ns := getRegexpFirstMatch . "\\"([^\\"]+)\\"" -}}\n{"namespace": "{{ $ns }}"}'
+    }
+  }
+};
+
 function opFromMethodRef(methodRef, doc, label, errors) {
   const m = /^#\/paths\/(.+)\/(get|post|put|patch|delete|head)$/.exec(methodRef || '');
   if (!m) {
@@ -231,6 +257,7 @@ async function main() {
   const errors = [];
   const pending = []; // [filePath, doc] - written only if zero errors
   const report = [];
+  const appliedScalarTransforms = new Set();
 
   for (const file of files) {
     const service = file.replace(/\.yaml$/, '');
@@ -270,6 +297,7 @@ async function main() {
     let overrides = 0;
     let topCount = 0;
     let selectCount = 0;
+    let scalarTfCount = 0;
     const resources = doc.components?.['x-stackQL-resources'] || {};
     for (const [resName, res] of Object.entries(resources)) {
       for (const [methodName, method] of Object.entries(res.methods || {})) {
@@ -292,6 +320,23 @@ async function main() {
           if (pushdown.select) selectCount++;
         }
         method.request = { ...(method.request || {}), nativeCasing: 'camel' };
+
+        const scalarTf = SCALAR_TRANSFORMS[label];
+        if (scalarTf) {
+          doc.components.schemas = doc.components.schemas || {};
+          doc.components.schemas[scalarTf.schemaName] = scalarTf.schema;
+          // overrideMediaType is required: the engine's transform path only
+          // activates when both a transform and a non-empty override media
+          // type are declared (any-sdk operation_store.go isOverridable)
+          method.response = {
+            ...(method.response || {}),
+            overrideMediaType: 'application/json',
+            schema_override: { $ref: `#/components/schemas/${scalarTf.schemaName}` },
+            transform: scalarTf.transform
+          };
+          appliedScalarTransforms.add(label);
+          scalarTfCount++;
+        }
       }
     }
 
@@ -302,8 +347,15 @@ async function main() {
       pagination: serviceStyle || 'none',
       overrides,
       topCount,
-      selectCount
+      selectCount,
+      scalarTfCount
     });
+  }
+
+  for (const key of Object.keys(SCALAR_TRANSFORMS)) {
+    if (!appliedScalarTransforms.has(key)) {
+      errors.push(`scalar transform key ${key} matched no generated method - rule drift`);
+    }
   }
 
   if (errors.length > 0) {
@@ -334,6 +386,7 @@ async function main() {
     if (r.overrides) extras.push(`${r.overrides} pagination override(s)`);
     if (r.topCount) extras.push(`limit pushdown x${r.topCount}`);
     if (r.selectCount) extras.push(`fields pushdown x${r.selectCount}`);
+    if (r.scalarTfCount) extras.push(`scalar transform x${r.scalarTfCount}`);
     console.log(`  ${r.service.padEnd(18)} ${r.url}  pagination: ${r.pagination}${extras.length ? ` [${extras.join(', ')}]` : ''}`);
   }
 }

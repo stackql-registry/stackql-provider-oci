@@ -86,10 +86,10 @@ test: test-integration
 
 # live smokes (Always Free tenancy; OCI_* env or ~/.oci/config required)
 smoke:
-	STACKQL_BIN=$(STACKQL_BIN) python3 tests/smoke_test.py
+	STACKQL_BIN=$(STACKQL_BIN) python3 -u tests/smoke_test.py
 
 smoke-live:
-	STACKQL_BIN=$(STACKQL_BIN) python3 tests/smoke_test.py --live
+	STACKQL_BIN=$(STACKQL_BIN) python3 -u tests/smoke_test.py --live
 
 # --- step 7: docs -----------------------------------------------------------
 

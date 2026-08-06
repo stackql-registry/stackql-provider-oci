@@ -371,6 +371,15 @@ async function main() {
     log = await fetchJson('/__log');
     check('composition error surfaced', /cannot compose OCI signing credentials/.test(r.stderr + r.stdout), (r.stderr + r.stdout).slice(0, 300));
     check('no request reached the mock', log.length === 0, `log entries: ${log.length}`);
+
+    // 13: scalar response transform (GetNamespace bare string -> row)
+    console.log('\n[13] object_storage.namespaces scalar response transform');
+    await resetLog();
+    r = runStackql(
+      'select namespace from oci.object_storage.namespaces',
+      { auth: rawAuth, registryRoot, extraEnv: rawEnv }
+    );
+    check('bare-string response projects as a namespace row', /stackqlmockns/.test(r.stdout), (r.stdout + r.stderr).slice(0, 300));
   } finally {
     mock.kill();
     fs.rmSync(workDir, { recursive: true, force: true });
