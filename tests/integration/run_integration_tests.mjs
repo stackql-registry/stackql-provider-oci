@@ -199,6 +199,7 @@ async function main() {
   const mock = spawn(process.execPath, [path.join(__dirname, 'mock_oci_server.mjs'), '--port', String(MOCK_PORT)], {
     stdio: ['ignore', 'pipe', 'pipe']
   });
+  if (process.env.MOCK_DEBUG_HEADERS) mock.stderr.pipe(process.stderr);
   try {
     // wait for the mock
     let up = false;

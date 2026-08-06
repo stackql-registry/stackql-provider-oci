@@ -72,6 +72,14 @@ function enforceAuth(req, res, auth, body) {
     authFailure(res, `bad auth scheme/algorithm: ${auth.scheme}/${auth.algorithm}`);
     return false;
   }
+  // live OCI normalises the request line before reconstructing the signing
+  // string, so a dangling "?" (empty query) invalidates the signature over
+  // (request-target) - reject it the way live OCI does (found live: 401 on
+  // every no-query body verb; any-sdk operation_store.go empty-query fix)
+  if (req.url.endsWith('?')) {
+    authFailure(res, 'request-target carries a dangling "?" (empty query string)');
+    return false;
+  }
   const wantsBodyHeaders = ['POST', 'PUT', 'PATCH'].includes(req.method);
   const expected = wantsBodyHeaders ? BODY_SIGNED_HEADERS : GET_SIGNED_HEADERS;
   if (auth.signedHeaders !== expected) {
@@ -82,6 +90,22 @@ function enforceAuth(req, res, auth, body) {
     const digest = crypto.createHash('sha256').update(body).digest('base64');
     if (req.headers['x-content-sha256'] !== digest) {
       json(res, 400, { code: 'InvalidSignature', message: 'x-content-sha256 mismatch' });
+      return false;
+    }
+    // live OCI reconstructs the signing string from the received headers, so
+    // a signed-but-absent (or mismatched) content-length fails verification
+    // even when the digest is right - e.g. a chunked request body. Enforce
+    // the same strictness here (found live: 401 NotAuthenticated on POST).
+    if (req.headers['transfer-encoding']) {
+      authFailure(res, `transfer-encoding '${req.headers['transfer-encoding']}' sent; OCI requires a concrete content-length`);
+      return false;
+    }
+    if (req.headers['content-length'] !== String(Buffer.byteLength(body))) {
+      authFailure(res, `content-length '${req.headers['content-length'] || '(absent)'}' does not match body length ${Buffer.byteLength(body)}`);
+      return false;
+    }
+    if (!(req.headers['content-type'] || '').startsWith('application/json')) {
+      authFailure(res, `content-type '${req.headers['content-type'] || '(absent)'}' not the signed application/json`);
       return false;
     }
   }
@@ -133,6 +157,7 @@ function route(req, res, url, auth, body) {
     return json(res, 200, [VCN]);
   }
   if (req.method === 'POST' && p === '/20160918/vcns') {
+    if (process.env.MOCK_DEBUG_HEADERS) console.error('RAW_URL ' + req.url + '\nRAW_HEADERS ' + JSON.stringify(req.rawHeaders));
     let details = {};
     try {
       details = JSON.parse(body.toString() || '{}');

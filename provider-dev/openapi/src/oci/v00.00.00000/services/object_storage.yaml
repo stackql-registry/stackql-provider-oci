@@ -9210,7 +9210,7 @@ components:
       name: namespaces
       title: Namespaces
       methods:
-        get:
+        get_namespace:
           operation:
             $ref: '#/paths/~1n~1/get'
           response:
@@ -9219,8 +9219,7 @@ components:
           request:
             nativeCasing: camel
       sqlVerbs:
-        select:
-          - $ref: '#/components/x-stackQL-resources/namespaces/methods/get'
+        select: []
         insert: []
         update: []
         delete: []

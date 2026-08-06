@@ -152,3 +152,6 @@ stackql-server.log
 # harvested spec snapshots (pinned via provider-dev/config/spec_catalog.csv)
 provider-dev/downloaded/*
 !provider-dev/downloaded/.gitkeep
+
+# creds
+/creds

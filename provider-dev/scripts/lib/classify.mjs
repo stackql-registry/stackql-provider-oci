@@ -75,12 +75,14 @@ export function classifyOperation({ indexKey, catalogService, pathKey, verb, op 
     return { service, resource: '', methodName: '', sqlVerb: 'skip', skipReason: skip };
   }
 
-  // select-overload collision demotions: the only case in tier 1 where a
-  // get and a list on the same resource share an identical required-param
-  // signature. GetCompartment's path id is named compartmentId - the same
-  // name as the universal list scope - so select routing cannot
-  // disambiguate; the get maps as exec instead (documented in NOTES.md).
-  const SELECT_DEMOTIONS = new Set(['identity:GetCompartment']);
+  // select demotions (documented in NOTES.md):
+  // - GetCompartment: its path id is named compartmentId - the same name as
+  //   the universal list scope - so get and list have identical
+  //   required-param signatures and select routing cannot disambiguate.
+  // - GetNamespace: returns a bare JSON string (scalar), which the engine
+  //   cannot project as a select row (column_anon schema error at runtime);
+  //   exec is the honest surface for scalar responses.
+  const SELECT_DEMOTIONS = new Set(['identity:GetCompartment', 'objectstorage:GetNamespace']);
 
   let m;
   if (verb === 'get' && (m = opId.match(/^List(.+)$/))) {

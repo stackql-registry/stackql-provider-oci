@@ -143,10 +143,14 @@ def is_smoke_tagged(freeform_tags_field):
 def resolve_namespace(sq, args):
     if args.namespace:
         return args.namespace
-    rows, _ = sq.rows("select * from oci.object_storage.namespaces")
-    if rows:
-        # single-column scalar projection
-        return list(rows[0].values())[0]
+    # GetNamespace returns a bare JSON string (scalar), so it maps as exec,
+    # not select; parse the namespace token out of the exec output
+    out, _, _ = sq.run("exec oci.object_storage.namespaces.get_namespace")
+    for token in out.replace('"', " ").split():
+        if token and token.lower() not in ("result", "ok") and not token.startswith("-"):
+            candidate = token.strip(",")
+            if candidate.isalnum() and len(candidate) >= 3:
+                return candidate
     return None
 
 
@@ -351,6 +355,40 @@ def main():
                             "lifecycle_state", "RUNNING", timeout_s=600,
                         )
                         note("PASS" if ok else "SKIP", "instance reaches RUNNING", state or "timeout (left for teardown)")
+
+                        # full state walk: stop -> start -> rename, a SELECT
+                        # verifying lifecycle_state (or the new name) after
+                        # each transition
+                        if ok:
+                            state_query = (
+                                f"select lifecycle_state from oci.compute.instances "
+                                f"where instance_id = '{created['instance']}'"
+                            )
+                            _, err, _ = sq.run(
+                                f"exec oci.compute.instances.instance_action "
+                                f"@instanceId = '{created['instance']}', @action = 'STOP'"
+                            )
+                            ok2, state = wait_state(sq, state_query, "lifecycle_state", "STOPPED", timeout_s=300)
+                            note("PASS" if ok2 else "FAIL", "instance STOP (EXEC) -> STOPPED", state or err.strip()[:200])
+
+                            _, err, _ = sq.run(
+                                f"exec oci.compute.instances.instance_action "
+                                f"@instanceId = '{created['instance']}', @action = 'START'"
+                            )
+                            ok2, state = wait_state(sq, state_query, "lifecycle_state", "RUNNING", timeout_s=300)
+                            note("PASS" if ok2 else "FAIL", "instance START (EXEC) -> RUNNING", state or err.strip()[:200])
+
+                            _, err, _ = sq.run(
+                                f"update oci.compute.instances set display_name = '{SMOKE_NAME}-vm-renamed' "
+                                f"where instance_id = '{created['instance']}'"
+                            )
+                            rows, _ = sq.rows(
+                                f"select display_name from oci.compute.instances "
+                                f"where instance_id = '{created['instance']}'"
+                            )
+                            renamed = rows and rows[0].get("display_name") == f"{SMOKE_NAME}-vm-renamed"
+                            note("PASS" if renamed else "FAIL", "instance UPDATE (rename) + select-back",
+                                 (rows[0].get("display_name") if rows else err.strip()[:200]) or "")
                     else:
                         note("FAIL", "instance launch despatched", err.strip()[:300])
     finally:
