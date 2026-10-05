@@ -46,16 +46,16 @@ auth:
   private_key_path_env_var: OCI_KEY_FILE
 ```
 
-These are runtime `--auth` contexts; the provider document itself declares only the auth type (`config.auth.type: oci_signing_v1`) - credential fields live in the runtime auth DTO, not the provider doc. `OCI_PASSPHRASE` (`passphrase_env_var`) covers encrypted keys in both variants. Users with an OCI CLI-configured environment are covered by the config file variant (`~/.oci/config` is the CLI's own convention) - and because the provider doc's type-only auth block becomes the default auth context, a `DEFAULT` profile in `~/.oci/config` needs no `--auth` argument at all. Shipping the raw `*_env_var` defaults in the provider doc itself (zero-config for the env-var variant too) is an engine follow-up: the doc-level auth DTO does not carry the OCI fields yet (see NOTES.md).
+These are runtime `--auth` contexts. The provider document declares the auth type plus env-var indirections only (`config.auth.type: oci_signing_v1` with `tenancy_ocid_envvar: OCI_TENANCY`, `user_ocid_envvar: OCI_USER`, `oci_fingerprint_envvar: OCI_FINGERPRINT`, `oci_private_key_path_envvar: OCI_KEY_FILE`, `oci_passphrase_envvar: OCI_PASSPHRASE`), never credential values. stackql >= v0.12.732 copies those indirections onto the default auth context, so a populated environment needs no `--auth` argument; with none of the `OCI_*` variables set, the `DEFAULT` profile in `~/.oci/config` applies (the OCI CLI's own convention), so CLI-configured users need no `--auth` either. A runtime `--auth` context always wins over the doc-level defaults. `OCI_PASSPHRASE` (`passphrase_env_var`) covers encrypted keys in both variants (see NOTES.md #17).
 
 Auth follow-ups (not yet supported, additive in any-sdk later): instance principals, resource principals, and session-token auth.
 
-> **Release gate**: `oci_signing_v1`, env-resolvable server variables and pushdown land in any-sdk `v0.5.4-alpha01`; the released stackql does not include them yet. Local testing uses a stackql binary built from the `any-sdk-v0.5.4-alpha01` branch (`STACKQL_BIN`); publishing is gated on the release that consumes it.
+> **Release status**: `oci_signing_v1`, env-resolvable server variables, pushdown and the doc-level OCI auth indirections are in any-sdk `v0.6.0-alpha01`, consumed by stackql `v0.12.732` (released 2026-09-30). Any released stackql from that version works; no local build is needed (NOTES.md #18).
 
 ## Prerequisites
 
 - Node.js >= 20
-- A local `stackql` binary from a build that includes the `oci_signing_v1` auth type
+- `stackql` >= v0.12.732 (the first release with the `oci_signing_v1` auth type); `STACKQL_BIN` points at it, defaulting to `./stackql` at the repo root, then `stackql` on `PATH`
 - For live testing: an OCI Always Free tenancy with an API key uploaded to the IAM user. Never run tests against a production tenancy.
 
 ```bash
@@ -131,16 +131,16 @@ See `CLAUDE.md` for the full invocation. Servers carry per-service from the cata
 
 ## 5. Test Provider
 
-Four layers, in order (a `Makefile` wraps every step; `make all` runs specs -> build -> integration tests -> docs; `STACKQL_BIN` points at a binary built against any-sdk >= v0.5.4-alpha01):
+Four layers, in order (a `Makefile` wraps every step; `make all` runs specs -> build -> integration tests -> docs; `STACKQL_BIN` points at a stackql >= v0.12.732 binary):
 
 1. Offline validation - `make test-offline`: local file registry, `SHOW SERVICES/RESOURCES/METHODS`, `DESCRIBE EXTENDED`
 2. Meta-route tests - `make test-meta` (`bin/start-server.sh` / `bin/test-meta-routes.cjs`)
-3. Integration tests - `make test-integration`: `tests/integration/run_integration_tests.mjs` drives the real binary against `mock_oci_server.mjs`, which enforces the signing contract (three-header GET/DELETE, six-header POST/PUT with `x-content-sha256` digest verification) and serves real wire shapes. The 12-case matrix covers both auth variants, fail-fast partial credentials, snake_case WHERE resolution, LIMIT pushdown on the wire, header- and body-token pagination, a VCN INSERT/UPDATE/DELETE lifecycle and an instance-action EXEC. Known engine gaps surface as WARNs, not failures (NOTES.md #2, #11).
+3. Integration tests - `make test-integration`: `tests/integration/run_integration_tests.mjs` drives the real binary against `mock_oci_server.mjs`, which enforces the signing contract (three-header GET/DELETE, six-header POST/PUT with `x-content-sha256` digest verification) and serves real wire shapes. The 13-case matrix runs natively on Linux, macOS and Windows and covers both auth variants, a bare-string response transform, fail-fast partial credentials, snake_case WHERE resolution, LIMIT pushdown on the wire, header- and body-token pagination, a VCN INSERT/UPDATE/DELETE lifecycle and an instance-action EXEC. Known engine gaps surface as WARNs, not failures (NOTES.md #2, #11).
 4. Smoke tests - `make smoke` (`tests/smoke_test.py`, stdlib-only Python over the stackql binary - deviation from the pystackql sibling pattern to keep the binary itself the system under test with zero pip dependencies) against an Always Free tenancy: estate reads plus a disposable write lifecycle (VCN, subnet, bucket, and a `VM.Standard.E2.1.Micro` instance with skip-with-notice capacity degradation), everything tagged `stackql-smoke-<stamp>` with breadcrumbs swept first. `make smoke-live` (`--live`) targets the latest published provider for post-publish verification. Budget: $0 on Always Free; under $1 regardless.
 
 ## 6. Publish the Provider
 
-Push the `oci` dir to `providers/src` in a feature branch of [`stackql-provider-registry`](https://github.com/stackql/stackql-provider-registry) and follow the registry release flow - gated on `oci_signing_v1` landing in a released stackql.
+Push the `oci` dir to `providers/src` in a feature branch of [`stackql-provider-registry`](https://github.com/stackql/stackql-provider-registry) and follow the registry release flow (a manual step by design). The gate - `oci_signing_v1` in a released stackql - cleared with v0.12.732. Published 2026-10-05 as `v26.10.00475`; `make smoke-live` against the public registry passed 18/18 the same day (NOTES.md #18) and remains the post-publish verification for every release.
 
 ## 7. Generate Web Docs
 

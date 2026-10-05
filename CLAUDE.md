@@ -31,7 +31,7 @@ auth:
   private_key_path_env_var: OCI_KEY_FILE
 ```
 
-The provider doc auth block carries the type only (`config.auth.type: oci_signing_v1`); the auth configs above are runtime `--auth` contexts - the doc-level auth DTO has no OCI credential fields. Region resolves from `OCI_REGION` via the `x-stackQL-envVar` server-variable extension.
+The provider doc auth block carries the type plus the env-var indirections (`tenancy_ocid_envvar: OCI_TENANCY` and so on, consumed by stackql >= v0.12.732), never credential values; the auth configs above are runtime `--auth` contexts and always win over the doc-level defaults. Region resolves from `OCI_REGION` via the `x-stackQL-envVar` server-variable extension.
 
 Phase 1 verifies both variants against a live tenancy, including a POST (the six-header body-hash form) and the clock-skew 401 hint. Instance/resource principals and session tokens are any-sdk follow-ups, noted in the docs as not yet supported.
 
@@ -60,7 +60,7 @@ Oracle publishes an OpenAPI spec per service, downloadable from the API referenc
 - Use the **latest** `@stackql/provider-utils` (see [npm](https://www.npmjs.com/package/@stackql/provider-utils)). Check for a newer version before starting work; do not pin to an old minor.
 - Node.js >= 20. `type: module` in package.json.
 - Wrap the two CLI entry points (`provider-dev-utils.mjs`, `docgen-utils.mjs`) as npm scripts, invoked through `node` (not `.bin` shims). Pass flags with npm's `--` separator.
-- A local `stackql` binary (a build including `oci_signing_v1`) is required for testing.
+- `stackql` >= v0.12.732 (the first release including `oci_signing_v1`) is required for testing.
 
 ## Repository layout
 
@@ -147,7 +147,7 @@ An OCI Always Free tenancy is the live test target - the free tier makes the smo
 
 ### 6. Publish
 
-Push the `oci` dir to `providers/src` in a feature branch of [`stackql-provider-registry`](https://github.com/stackql/stackql-provider-registry) and follow the registry release flow - gated on `oci_signing_v1` landing in a released stackql. Verify with `registry pull oci` against the dev registry.
+Push the `oci` dir to `providers/src` in a feature branch of [`stackql-provider-registry`](https://github.com/stackql/stackql-provider-registry) and follow the registry release flow (manual by design; the `oci_signing_v1` gate cleared with stackql v0.12.732). Verify with `registry pull oci` against the dev registry, then `make smoke-live`.
 
 ### 7. Docs microsite
 

@@ -35,7 +35,8 @@
 //                 root, then `stackql` on PATH)
 //   MOCK_PORT     mock listen port (default 9915)
 //
-// POSIX runtime expected (CI linux or WSL on a Windows checkout).
+// Runs natively on linux, macOS and Windows (stackql >= v0.12.732); WSL on a
+// Windows checkout also works.
 
 import { spawn, spawnSync } from 'child_process';
 import crypto from 'crypto';
@@ -114,7 +115,9 @@ function writeKeyAndConfig(workDir) {
 const BIN = findStackqlBin();
 
 function runStackql(query, { auth, registryRoot, extraEnv = {} }) {
-  const registry = JSON.stringify({ url: `file://${registryRoot}`, verifyConfig: { nopVerify: true } });
+  // file://C:/... (forward slashes, no third slash) is the form the Windows
+  // binary resolves; POSIX paths already start with a slash and are unchanged.
+  const registry = JSON.stringify({ url: `file://${registryRoot.replace(/\\/g, '/')}`, verifyConfig: { nopVerify: true } });
   const res = spawnSync(BIN, [
     'exec', query,
     `--registry=${registry}`,

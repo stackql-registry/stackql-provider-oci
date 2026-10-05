@@ -4,8 +4,8 @@
 # POSIX shell recipes - run under Linux/macOS/CI or WSL/Git Bash on Windows.
 #
 # Variables:
-#   STACKQL_BIN  path to a stackql binary built against any-sdk >= v0.5.4-alpha01
-#                (oci_signing_v1); default ./stackql at the repo root
+#   STACKQL_BIN  path to a stackql binary, >= v0.12.732 (oci_signing_v1);
+#                default ./stackql at the repo root
 #
 # `make all` runs the full pipeline: deps -> specs -> build -> tests -> docs.
 # The live smoke suite (`make smoke` / `make smoke-live`) needs OCI

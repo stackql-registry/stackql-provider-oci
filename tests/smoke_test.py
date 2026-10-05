@@ -30,8 +30,8 @@ OCI_REGION / OCI_PASSPHRASE) or an OCI config file (~/.oci/config, DEFAULT
 profile - the OCI CLI's own convention). Never run against a production
 tenancy.
 
-Requires a stackql binary built against any-sdk >= v0.5.4-alpha01
-(oci_signing_v1); set STACKQL_BIN or place `stackql` at the repo root.
+Requires stackql >= v0.12.732 (oci_signing_v1); set STACKQL_BIN or place
+`stackql` at the repo root.
 
 Usage:
   python tests/smoke_test.py [--live] [--skip-instance] [--keep]
