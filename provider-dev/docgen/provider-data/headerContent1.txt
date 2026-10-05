@@ -1,0 +1,20 @@
+---
+title: oci
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - oci
+  - oracle cloud infrastructure
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Oracle Cloud Infrastructure resources using SQL
+custom_edit_url: null
+image: /img/stackql-cover.png
+id: 'provider-intro'
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+Oracle Cloud Infrastructure - query and provision identity (compartments, users, groups, policies), core services (compute, VCN networking, block storage), object storage, database (including Autonomous), container engine (OKE), load balancers, DNS, KMS and secrets, monitoring, logging, events, functions, resource manager, streaming, budgets, usage and audit using SQL. Completes StackQL hyperscaler coverage alongside the `aws`, `azure` and `google` providers for multi-cloud inventory and FinOps queries.

@@ -1,0 +1,37 @@
+/*+ exists */
+SELECT COUNT(*) as count FROM oci.network.vcns
+WHERE compartment_id = '{{ compartment_id }}'
+AND display_name = '{{ vcn_name }}'
+AND lifecycle_state <> 'TERMINATED'
+
+/*+ create */
+INSERT INTO oci.network.vcns (
+  compartment_id,
+  cidr_block,
+  display_name,
+  freeform_tags
+)
+SELECT
+  '{{ compartment_id }}',
+  '{{ vcn_cidr }}',
+  '{{ vcn_name }}',
+  '{{ global_tags }}'
+
+/*+ statecheck, retries=5, retry_delay=10 */
+SELECT COUNT(*) as count FROM oci.network.vcns
+WHERE compartment_id = '{{ compartment_id }}'
+AND display_name = '{{ vcn_name }}'
+AND lifecycle_state = 'AVAILABLE'
+
+/*+ exports */
+SELECT
+  '{{ vcn_name }}' as vcn_name,
+  id as vcn_id
+FROM oci.network.vcns
+WHERE compartment_id = '{{ compartment_id }}'
+AND display_name = '{{ vcn_name }}'
+AND lifecycle_state = 'AVAILABLE'
+
+/*+ delete, retries=10, retry_delay=10 */
+DELETE FROM oci.network.vcns
+WHERE vcn_id = '{{ vcn_id }}'

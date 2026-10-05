@@ -1,0 +1,36 @@
+{
+  "name": "stackql-provider-oci",
+  "version": "0.1.0",
+  "description": "StackQL Provider for Oracle Cloud Infrastructure",
+  "type": "module",
+  "scripts": {
+    "fetch-specs": "bash ./bin/fetch-specs.sh",
+    "split": "node ./bin/split.mjs",
+    "generate-mappings": "node ./bin/generate-mappings.mjs",
+    "normalize": "node ./bin/normalize.mjs",
+    "generate-provider": "node ./bin/generate-provider.mjs",
+    "post-process": "node ./provider-dev/scripts/post_process.mjs",
+    "generate-docs": "node ./bin/generate-docs.mjs",
+    "start-server": "bash ./bin/start-server.sh",
+    "stop-server": "bash ./bin/stop-server.sh",
+    "server-status": "bash ./bin/server-status.sh",
+    "test-meta-routes": "node ./bin/test-meta-routes.cjs",
+    "test-integration": "node ./tests/integration/run_integration_tests.mjs"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^12.0.0",
+    "@stackql/pgwire-lite": "^1.0.1",
+    "@stackql/provider-utils": "^0.7.7",
+    "js-yaml": "^4.1.0",
+    "swagger2openapi": "^7.0.8"
+  },
+  "keywords": [
+    "stackql",
+    "oci",
+    "oracle-cloud",
+    "provider"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
