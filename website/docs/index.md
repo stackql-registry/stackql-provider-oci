@@ -24,6 +24,7 @@ Oracle Cloud Infrastructure - query and provision identity (compartments, users,
 
 total services: __22__  
 total resources: __474__  
+source project: __[stackql-provider-oci](https://github.com/stackql-registry/stackql-provider-oci)__  
 
 :::
 
