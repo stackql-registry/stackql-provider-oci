@@ -14,6 +14,7 @@
 STACKQL_BIN ?= ./stackql
 NODE ?= node
 PROVIDER_DIR = provider-dev/openapi/src/oci
+SOURCE_PROJECT ?= https://github.com/stackql-registry/stackql-provider-oci
 
 .PHONY: all deps harvest fetch-specs clean-specs specs split mappings normalize provider build \
         test-offline test-integration test-meta test smoke smoke-live docs website all-help
@@ -98,7 +99,8 @@ docs:
 	  --provider-name oci \
 	  --provider-dir ./$(PROVIDER_DIR)/v00.00.00000 \
 	  --output-dir ./website \
-	  --provider-data-dir ./provider-dev/docgen/provider-data
+	  --provider-data-dir ./provider-dev/docgen/provider-data \
+	  --source-project $(SOURCE_PROJECT)
 	cd website && npm run sanitize-docs
 
 website:
